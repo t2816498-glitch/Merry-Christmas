@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Новый год 2027 · Вход</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #07070d;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(167, 139, 250, 0.22), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.15), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(244, 114, 182, 0.12), transparent 45%);
+    color: #e8e8f0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    line-height: 1.5;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .snow {
+    position: fixed;
+    top: -10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    pointer-events: none;
+    animation: fall linear infinite;
+    z-index: 0;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  body::before {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.6), transparent 70%);
+    top: -150px;
+    left: -150px;
+    animation: float1 15s ease-in-out infinite;
+  }
+
+  body::after {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.5), transparent 70%);
+    bottom: -200px;
+    right: -200px;
+    animation: float2 18s ease-in-out infinite;
+  }
+
+  @keyframes float1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(80px, 60px) scale(1.15); }
+  }
+
+  @keyframes float2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-80px, -60px) scale(1.15); }
+  }
+
+  .welcome {
+    position: relative;
+    z-index: 2;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .garland {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    margin-bottom: 40px;
+    height: 30px;
+  }
+  .bulb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    animation: glow 2s ease-in-out infinite;
+  }
+  .bulb:nth-child(1) { background: #f472b6; box-shadow: 0 0 14px #f472b6; animation-delay: 0s; }
+  .bulb:nth-child(2) { background: #22d3ee; box-shadow: 0 0 14px #22d3ee; animation-delay: 0.2s; }
+  .bulb:nth-child(3) { background: #facc15; box-shadow: 0 0 14px #facc15; animation-delay: 0.4s; }
+  .bulb:nth-child(4) { background: #a78bfa; box-shadow: 0 0 14px #a78bfa; animation-delay: 0.6s; }
+  .bulb:nth-child(5) { background: #34d399; box-shadow: 0 0 14px #34d399; animation-delay: 0.8s; }
+  .bulb:nth-child(6) { background: #f472b6; box-shadow: 0 0 14px #f472b6; animation-delay: 1s; }
+  .bulb:nth-child(7) { background: #22d3ee; box-shadow: 0 0 14px #22d3ee; animation-delay: 1.2s; }
+  .bulb:nth-child(8) { background: #facc15; box-shadow: 0 0 14px #facc15; animation-delay: 1.4s; }
+  .bulb:nth-child(9) { background: #a78bfa; box-shadow: 0 0 14px #a78bfa; animation-delay: 1.6s; }
+  .bulb:nth-child(10) { background: #34d399; box-shadow: 0 0 14px #34d399; animation-delay: 1.8s; }
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  .year {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #facc15;
+    background: rgba(250, 204, 21, 0.1);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s ease 0.2s backwards;
+  }
+
+  h1 {
+    font-size: clamp(38px, 11vw, 64px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1.05;
+    background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+    animation: fadeInUp 0.8s ease 0.35s backwards;
+  }
+
+  h2 {
+    font-size: clamp(24px, 7vw, 40px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #f0f0ff;
+    margin-bottom: 22px;
+    animation: fadeInUp 0.8s ease 0.5s backwards;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #9a9ab0;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: 0 auto 40px;
+    animation: fadeInUp 0.8s ease 0.65s backwards;
+  }
+
+  .subtitle strong {
+    color: #22d3ee;
+    font-weight: 700;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .tree-star {
+    font-size: 88px;
+    display: inline-block;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 30px rgba(250, 204, 21, 0.9));
+    animation: starPulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes starPulse {
+    0%, 100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 30px rgba(250, 204, 21, 0.9)); }
+    50% { transform: scale(1.12) rotate(8deg); filter: drop-shadow(0 0 50px rgba(250, 204, 21, 1)); }
+  }
+
+  .btn-enter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 22px 52px;
+    background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+    border: 2px solid #a78bfa;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 12px 40px rgba(167, 139, 250, 0.6);
+    letter-spacing: 0.5px;
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease 0.8s backwards, btnPulse 3s ease-in-out 1.5s infinite;
+    width: 100%;
+    max-width: 340px;
+  }
+
+  @keyframes btnPulse {
+    0%, 100% { box-shadow: 0 12px 40px rgba(167, 139, 250, 0.6); }
+    50% { box-shadow: 0 12px 60px rgba(167, 139, 250, 0.95), 0 0 100px rgba(34, 211, 238, 0.4); }
+  }
+
+  .btn-enter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.7s ease;
+  }
+
+  .btn-enter:hover::before { left: 100%; }
+
+  .btn-enter:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(167, 139, 250, 0.9), 0 0 100px rgba(34, 211, 238, 0.4);
+    background: linear-gradient(135deg, #b89cff 0%, #8b5cf6 100%);
+  }
+
+  .btn-enter:active { transform: translateY(-2px) scale(0.99); }
+
+  .btn-enter i { font-size: 24px; transition: transform 0.3s; }
+
+  .btn-enter:hover i { transform: translateX(6px); }
+
+  .footer-note {
+    margin-top: 36px;
+    font-size: 12px;
+    color: #5a5a70;
+    letter-spacing: 2px;
+    animation: fadeInUp 0.8s ease 1s backwards;
+  }
+
+  .footer-note i { color: #a78bfa; margin: 0 6px; }
+
+  @media (max-width: 480px) {
+    .tree-star { font-size: 68px; }
+    .btn-enter { padding: 20px 36px; font-size: 16px; }
+    .subtitle { font-size: 14px; }
+  }
+
+  /* МОДАЛЬНОЕ ОКНО С ПАРОЛЕМ */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 7, 13, 0.92);
+    backdrop-filter: blur(12px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .code-panel {
+    width: 100%;
+    max-width: 380px;
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(167, 139, 250, 0.12), rgba(34, 211, 238, 0.1));
+    border: 2px solid rgba(167, 139, 250, 0.5);
+    border-radius: 28px;
+    padding: 26px 22px 22px;
+    position: relative;
+    box-shadow: 0 0 60px rgba(167, 139, 250, 0.4);
+    animation: panelIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes panelIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .code-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #c0c0d0;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .code-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    color: #ef4444;
+  }
+
+  .code-title {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a78bfa;
+    margin-bottom: 6px;
+  }
+
+  .code-subtitle {
+    text-align: center;
+    font-size: 11px;
+    color: #6a6a80;
+    margin-bottom: 16px;
+  }
+
+  .code-display {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 14px;
+    min-height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .code-display.error {
+    border-color: #ef4444;
+    animation: shake 0.4s;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+  }
+
+  .code-display.success {
+    border-color: #22c55e;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+  }
+
+  .code-digits {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 12px;
+    color: #f0f0ff;
+    font-family: 'Courier New', monospace;
+    padding-left: 12px;
+  }
+
+  .code-placeholder {
+    font-size: 14px;
+    color: #4a4a60;
+    letter-spacing: 1px;
+  }
+
+  .code-message {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 20px;
+    margin-bottom: 12px;
+    transition: all 0.3s;
+  }
+
+  .code-message.error { color: #ef4444; }
+  .code-message.success { color: #22c55e; }
+
+  .code-keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .key {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 16px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #f0f0ff;
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: inherit;
+  }
+
+  .key:hover {
+    background: rgba(167, 139, 250, 0.2);
+    border-color: rgba(167, 139, 250, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .key:active {
+    transform: scale(0.94);
+    background: rgba(167, 139, 250, 0.3);
+  }
+
+  .key.del {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    font-size: 16px;
+  }
+
+  .key.del:hover {
+    background: rgba(239, 68, 68, 0.25);
+    border-color: #ef4444;
+  }
+
+  .key.enter {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.2), rgba(167, 139, 250, 0.2), rgba(34, 211, 238, 0.2));
+    border-color: rgba(34, 211, 238, 0.5);
+    color: #22d3ee;
+  }
+
+  .key.enter:hover {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.35), rgba(167, 139, 250, 0.35), rgba(34, 211, 238, 0.35));
+    border-color: #22d3ee;
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+  }
+
+  @media (max-width: 480px) {
+    .code-panel { padding: 22px 16px 18px; border-radius: 24px; }
+    .code-digits { font-size: 26px; letter-spacing: 10px; }
+    .key { padding: 14px 0; font-size: 18px; border-radius: 12px; }
+    .key.del { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="welcome">
+
+  <div class="garland">
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span>
+  </div>
+
+  <div class="tree-star">⭐</div>
+
+  <div class="year">Декабрь 2026</div>
+
+  <h1>Новый год</h1>
+  <h2>2027</h2>
+
+  <p class="subtitle">
+    Добро пожаловать в наш праздничный портал.<br>
+    Здесь всё для вечера: <strong>меню, музыка, правила, игры</strong> и многое другое.
+  </p>
+
+  <button class="btn-enter" id="enterBtn">
+    <i class="bi bi-box-arrow-in-right"></i>
+    Войти в меню
+  </button>
+
+  <div class="footer-note">
+    <i class="bi bi-snow"></i>
+    6 человек
+    <i class="bi bi-snow"></i>
+    31 дек — 2 янв
+    <i class="bi bi-snow"></i>
+  </div>
+
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО С ПАРОЛЕМ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="code-panel">
+    <button class="code-close" id="closeModal"><i class="bi bi-x-lg"></i></button>
+    <div class="code-title">Пароль</div>
+    <div class="code-subtitle">Введи код, чтобы войти</div>
+
+    <div class="code-display" id="codeDisplay">
+      <span class="code-placeholder" id="codePlaceholder">····</span>
+      <span class="code-digits" id="codeDigits" style="display:none;"></span>
+    </div>
+
+    <div class="code-message" id="codeMessage"></div>
+
+    <div class="code-keypad">
+      <button class="key" data-num="1">1</button>
+      <button class="key" data-num="2">2</button>
+      <button class="key" data-num="3">3</button>
+      <button class="key" data-num="4">4</button>
+      <button class="key" data-num="5">5</button>
+      <button class="key" data-num="6">6</button>
+      <button class="key" data-num="7">7</button>
+      <button class="key" data-num="8">8</button>
+      <button class="key" data-num="9">9</button>
+      <button class="key del" id="keyDel"><i class="bi bi-backspace"></i></button>
+      <button class="key" data-num="0">0</button>
+      <button class="key enter" id="keyEnter"><i class="bi bi-check-lg"></i></button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Снежинки
+  const snowContainer = document.body;
+  const snowChars = ['❄', '❅', '❆', '•', '✦'];
+  for (let i = 0; i < 40; i++) {
+    const snow = document.createElement('div');
+    snow.className = 'snow';
+    snow.textContent = snowChars[Math.floor(Math.random() * snowChars.length)];
+    snow.style.left = Math.random() * 100 + 'vw';
+    snow.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    snow.style.animationDelay = (Math.random() * 8) + 's';
+    snow.style.fontSize = (Math.random() * 12 + 8) + 'px';
+    snow.style.opacity = Math.random() * 0.6 + 0.2;
+    snowContainer.appendChild(snow);
+  }
+
+  // ===== ПАРОЛЬ =====
+  const SECRET_CODE = '2206';
+
+  const enterBtn = document.getElementById('enterBtn');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const codeDisplay = document.getElementById('codeDisplay');
+  const codePlaceholder = document.getElementById('codePlaceholder');
+  const codeDigits = document.getElementById('codeDigits');
+  const codeMessage = document.getElementById('codeMessage');
+  const closeModal = document.getElementById('closeModal');
+
+  let enteredCode = '';
+
+  enterBtn.addEventListener('click', openModal);
+
+  function openModal() {
+    enteredCode = '';
+    updateDisplay();
+    codeMessage.textContent = '';
+    codeMessage.className = 'code-message';
+    codeDisplay.classList.remove('error', 'success');
+    modalOverlay.classList.add('active');
+  }
+
+  function closeModalFn() {
+    modalOverlay.classList.remove('active');
+  }
+
+  closeModal.addEventListener('click', closeModalFn);
+
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeModalFn();
+  });
+
+  function updateDisplay() {
+    if (enteredCode.length === 0) {
+      codePlaceholder.style.display = 'inline';
+      codeDigits.style.display = 'none';
+    } else {
+      codePlaceholder.style.display = 'none';
+      codeDigits.style.display = 'inline';
+      codeDigits.textContent = enteredCode;
+    }
+  }
+
+  document.querySelectorAll('.key[data-num]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (enteredCode.length >= 4) return;
+      enteredCode += btn.dataset.num;
+      codeMessage.textContent = '';
+      codeDisplay.classList.remove('error', 'success');
+      updateDisplay();
+    });
+  });
+
+  document.getElementById('keyDel').addEventListener('click', () => {
+    enteredCode = enteredCode.slice(0, -1);
+    codeMessage.textContent = '';
+    codeDisplay.classList.remove('error', 'success');
+    updateDisplay();
+  });
+
+  document.getElementById('keyEnter').addEventListener('click', checkCode);
+
+  function checkCode() {
+    if (enteredCode === SECRET_CODE) {
+      codeDisplay.classList.remove('error');
+      codeDisplay.classList.add('success');
+      codeMessage.textContent = 'Пароль верный';
+      codeMessage.className = 'code-message success';
+      setTimeout(() => {
+        window.location.href = 'Main_Menu.html';
+      }, 700);
+    } else {
+      codeDisplay.classList.remove('success');
+      codeDisplay.classList.add('error');
+      codeMessage.textContent = 'Пароль неверный';
+      codeMessage.className = 'code-message error';
+      enteredCode = '';
+      setTimeout(() => {
+        codeDisplay.classList.remove('error');
+        updateDisplay();
+      }, 600);
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (!modalOverlay.classList.contains('active')) return;
+    if (e.key >= '0' && e.key <= '9') {
+      if (enteredCode.length >= 4) return;
+      enteredCode += e.key;
+      codeMessage.textContent = '';
+      codeDisplay.classList.remove('error', 'success');
+      updateDisplay();
+    } else if (e.key === 'Backspace') {
+      enteredCode = enteredCode.slice(0, -1);
+      codeMessage.textContent = '';
+      codeDisplay.classList.remove('error', 'success');
+      updateDisplay();
+    } else if (e.key === 'Enter') {
+      checkCode();
+    } else if (e.key === 'Escape') {
+      closeModalFn();
+    }
+  });
+</script>
+
+</body>
+</html>
