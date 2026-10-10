@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Новогодний список покупок 2027</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #07070d;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(167, 139, 250, 0.18), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.12), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(244, 114, 182, 0.1), transparent 45%);
+    color: #e8e8f0;
+    min-height: 100vh;
+    padding: 24px 16px 60px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .snow {
+    position: fixed;
+    top: -10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    pointer-events: none;
+    animation: fall linear infinite;
+    z-index: 0;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .container { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .garland {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    margin-bottom: 20px;
+    height: 30px;
+  }
+  .bulb {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: glow 2s ease-in-out infinite;
+  }
+  .bulb:nth-child(1) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 0s; }
+  .bulb:nth-child(2) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 0.2s; }
+  .bulb:nth-child(3) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 0.4s; }
+  .bulb:nth-child(4) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 0.6s; }
+  .bulb:nth-child(5) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 0.8s; }
+  .bulb:nth-child(6) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 1s; }
+  .bulb:nth-child(7) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 1.2s; }
+  .bulb:nth-child(8) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 1.4s; }
+  .bulb:nth-child(9) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 1.6s; }
+  .bulb:nth-child(10) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 1.8s; }
+  .bulb:nth-child(11) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 2s; }
+  .bulb:nth-child(12) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 2.2s; }
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  /* КНОПКА НАЗАД */
+  .back-row { margin-bottom: 20px; }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #b0b0c8;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    transition: all 0.25s;
+  }
+
+  .back-btn:hover {
+    color: #a78bfa;
+    border-color: rgba(167, 139, 250, 0.5);
+    background: rgba(167, 139, 250, 0.1);
+    transform: translateX(-3px);
+  }
+
+  .back-btn i { font-size: 16px; }
+
+  header { text-align: center; margin-bottom: 40px; }
+
+  header .sub {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.1);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+
+  header h1 {
+    font-size: clamp(26px, 7vw, 44px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  header p { color: #8a8aa0; font-size: 14px; }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f0f0ff;
+    margin: 36px 0 16px;
+    padding-left: 14px;
+    border-left: 3px solid #a78bfa;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* БЛЮДА */
+  .dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  @media (min-width: 640px) {
+    .dishes-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  }
+
+  .dish-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+  }
+
+  .dish-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(167, 139, 250, 0.5);
+    box-shadow: 0 16px 32px rgba(120, 60, 220, 0.25);
+  }
+
+  .dish-card img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    filter: brightness(0.9);
+    transition: filter 0.3s;
+    display: block;
+  }
+
+  @media (min-width: 640px) {
+    .dish-card img { height: 140px; }
+  }
+
+  .dish-card:hover img { filter: brightness(1); }
+
+  .dish-body { padding: 12px; }
+
+  .dish-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f0f0ff;
+    line-height: 1.3;
+    transition: all 0.3s;
+  }
+
+  @media (min-width: 640px) {
+    .dish-name { font-size: 15px; }
+  }
+
+  .dish-card.done {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.05);
+    opacity: 0.5;
+  }
+
+  .dish-card.done img {
+    filter: grayscale(1) brightness(0.4);
+  }
+
+  .dish-card.done .dish-name {
+    color: #5a5a70;
+    text-decoration: line-through;
+    text-decoration-color: #ef4444;
+    text-decoration-thickness: 2px;
+  }
+
+  .dish-card.done:hover {
+    transform: none;
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: none;
+  }
+
+  .dish-card.done::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background:
+      linear-gradient(45deg, transparent 46%, #ef4444 46%, #ef4444 54%, transparent 54%),
+      linear-gradient(-45deg, transparent 46%, #ef4444 46%, #ef4444 54%, transparent 54%);
+    background-size: 60% 60%, 60% 60%;
+    background-position: center, center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    animation: crossIn 0.3s ease-out;
+    filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.8));
+  }
+
+  @keyframes crossIn {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    70% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  }
+
+  /* СПИСОК ПРОДУКТОВ */
+  .checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+
+  .check-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(167, 139, 250, 0.35);
+  }
+
+  .check-item input { display: none; }
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .checkbox::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    background: linear-gradient(135deg, #a78bfa, #22d3ee);
+    transform: scale(0);
+    transition: transform 0.2s;
+  }
+
+  .check-item input:checked + .checkbox {
+    border-color: #a78bfa;
+  }
+
+  .check-item input:checked + .checkbox::after { transform: scale(1); }
+
+  .check-item input:checked ~ .check-label {
+    text-decoration: line-through;
+    color: #5a5a70;
+  }
+
+  .check-item input:checked ~ .check-qty {
+    text-decoration: line-through;
+    color: #4a4a5a;
+  }
+
+  .check-item input:checked ~ .check-price {
+    text-decoration: line-through;
+    color: #4a4a5a;
+  }
+
+  .check-label {
+    font-size: 14px;
+    color: #e0e0f0;
+    transition: all 0.2s;
+    flex: 1;
+    font-weight: 500;
+  }
+
+  .check-qty {
+    font-size: 12px;
+    color: #a78bfa;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .check-price {
+    font-size: 13px;
+    color: #22d3ee;
+    font-weight: 600;
+    transition: all 0.2s;
+    white-space: nowrap;
+    min-width: 60px;
+    text-align: right;
+  }
+
+  @media (max-width: 480px) {
+    .check-label { font-size: 13px; }
+    .check-qty { font-size: 11px; }
+    .check-price { font-size: 12px; min-width: 50px; }
+    .check-item { padding: 10px 12px; gap: 8px; }
+  }
+
+  /* ИТОГ */
+  .total-card {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.15), rgba(167, 139, 250, 0.12), rgba(34, 211, 238, 0.1));
+    border: 1px solid rgba(167, 139, 250, 0.35);
+    border-radius: 24px;
+    padding: 32px 20px;
+    margin-top: 40px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .total-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.1), transparent 60%);
+    animation: pulse 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+
+  .total-card h2 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #a0a0b8;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .total-sum {
+    font-size: clamp(38px, 10vw, 60px);
+    font-weight: 800;
+    background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .total-note {
+    color: #9a9ab0;
+    font-size: 13px;
+    max-width: 480px;
+    margin: 0 auto 20px;
+    position: relative;
+  }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    position: relative;
+  }
+
+  .badge {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 8px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    color: #c0c0d0;
+  }
+
+  .badge strong { color: #22d3ee; }
+
+  /* ЦЕНЫ И РАСЧЁТ */
+  .price-card {
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(167, 139, 250, 0.12));
+    border: 2px solid rgba(34, 211, 238, 0.4);
+    border-radius: 24px;
+    padding: 28px 24px;
+    margin-top: 40px;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+    animation: priceGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes priceGlow {
+    0%, 100% { box-shadow: 0 0 30px rgba(34, 211, 238, 0.2); }
+    50% { box-shadow: 0 0 50px rgba(34, 211, 238, 0.45), 0 0 70px rgba(167, 139, 250, 0.2); }
+  }
+
+  .price-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.1), transparent 60%);
+    animation: pulse 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .price-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #22d3ee;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .price-title i {
+    font-size: 20px;
+    filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.7));
+  }
+
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
+  }
+
+  .price-label {
+    color: #c0c0d8;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .price-value {
+    color: #a78bfa;
+    font-weight: 700;
+    white-space: nowrap;
+    font-size: 16px;
+  }
+
+  .price-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.4), transparent);
+    margin: 10px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .price-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0 4px;
+    position: relative;
+    z-index: 1;
+    font-size: 18px;
+  }
+
+  .price-total-label {
+    color: #f0f0ff;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+  }
+
+  .price-total-value {
+    font-weight: 900;
+    font-size: 22px;
+    background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+  }
+
+  .price-per-person {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.15), rgba(167, 139, 250, 0.15), rgba(34, 211, 238, 0.15));
+    border: 1px solid rgba(167, 139, 250, 0.4);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .per-person-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a78bfa;
+    margin-bottom: 8px;
+  }
+
+  .per-person-value {
+    font-size: clamp(32px, 8vw, 44px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .per-person-note {
+    font-size: 12px;
+    color: #9a9ab0;
+    line-height: 1.5;
+  }
+
+  .price-note {
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba(250, 204, 21, 0.06);
+    border: 1px solid rgba(250, 204, 21, 0.25);
+    font-size: 13px;
+    color: #c8c8d8;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+  }
+
+  .price-note i {
+    color: #facc15;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .price-note strong { color: #facc15; font-weight: 700; }
+
+  @media (max-width: 480px) {
+    .price-card { padding: 22px 16px; border-radius: 20px; }
+    .price-row { font-size: 14px; }
+    .price-value { font-size: 15px; }
+    .price-total-row { font-size: 16px; }
+    .price-total-value { font-size: 19px; }
+    .per-person-value { font-size: 34px; }
+  }
+
+  /* МЫСЛЬ ЧЕЛОВЕКА */
+  .thought-block {
+    margin-top: 50px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.08), rgba(34, 211, 238, 0.06));
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    position: relative;
+  }
+
+  .thought-avatar {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 2px solid rgba(167, 139, 250, 0.5);
+    box-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .thought-content {
+    flex: 1;
+    position: relative;
+  }
+
+  .thought-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #a78bfa;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+
+  .thought-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #e0e0f0;
+    font-style: italic;
+  }
+
+  .thought-text::before {
+    content: '«';
+    color: #22d3ee;
+    font-size: 20px;
+    font-weight: 700;
+    font-style: normal;
+    margin-right: 2px;
+  }
+
+  .thought-text::after {
+    content: '»';
+    color: #22d3ee;
+    font-size: 20px;
+    font-weight: 700;
+    font-style: normal;
+    margin-left: 2px;
+  }
+
+  @media (max-width: 480px) {
+    .thought-avatar { width: 64px; height: 64px; min-width: 64px; border-radius: 16px; }
+    .thought-text { font-size: 14px; }
+    .thought-block { padding: 16px; gap: 12px; }
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #5a5a70;
+    font-size: 12px;
+  }
+
+  footer .tree {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="garland">
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+  </div>
+
+  <!-- КНОПКА НАЗАД -->
+  <div class="back-row">
+    <a href="Main_Menu.html" class="back-btn">
+      <i class="bi bi-arrow-left"></i>
+      Назад в меню
+    </a>
+  </div>
+
+  <header>
+    <div class="sub">Новый год 2027</div>
+    <h1>Список покупок<br>на праздничный стол</h1>
+    <p>Расчёт на 6 человек · чтобы объелись и осталось на утро</p>
+  </header>
+
+  <!-- БЛЮДА -->
+  <h2 class="section-title">Блюда</h2>
+  <div class="dishes-grid">
+    <div class="dish-card" onclick="this.classList.toggle('done')">
+      <img src="Icons/Olivier.jpg" alt="Оливье">
+      <div class="dish-body"><div class="dish-name">Оливье</div></div>
+    </div>
+    <div class="dish-card" onclick="this.classList.toggle('done')">
+      <img src="Icons/Herring_under_a_fur_coat.jpg" alt="Сельдь под шубой">
+      <div class="dish-body"><div class="dish-name">Сельдь под шубой</div></div>
+    </div>
+    <div class="dish-card" onclick="this.classList.toggle('done')">
+      <img src="Icons/Mimosa.jpg" alt="Мимоза">
+      <div class="dish-body"><div class="dish-name">Мимоза</div></div>
+    </div>
+    <div class="dish-card" onclick="this.classList.toggle('done')">
+      <img src="Icons/Crab_salad.jpg" alt="Крабовый салат">
+      <div class="dish-body"><div class="dish-name">Крабовый салат</div></div>
+    </div>
+    <div class="dish-card" onclick="this.classList.toggle('done')">
+      <img src="Icons/Tartilia_with_caviar.jpg" alt="Тарталетки с икрой">
+      <div class="dish-body"><div class="dish-name">Тарталетки с икрой</div></div>
+    </div>
+    <div class="dish-card" onclick="this.classList.toggle('done')">
+      <img src="Icons/Sea_cabbage_salad.jpg" alt="Морская капуста">
+      <div class="dish-body"><div class="dish-name">Салат из морской капусты</div></div>
+    </div>
+    <div class="dish-card" onclick="this.classList.toggle('done')">
+      <img src="Icons/Grilled_chicken.jpg" alt="Курочка на гриле">
+      <div class="dish-body"><div class="dish-name">Курочка на гриле</div></div>
+    </div>
+    <div class="dish-card" onclick="this.classList.toggle('done')">
+      <img src="Icons/Mashed_potatoes.jpg" alt="Пюре">
+      <div class="dish-body"><div class="dish-name">Картофельное пюре</div></div>
+    </div>
+    <div class="dish-card" onclick="this.classList.toggle('done')">
+      <img src="Icons/Sandwiches.jpg" alt="Бутерброды">
+      <div class="dish-body"><div class="dish-name">Бутерброды с колбасой и сыром</div></div>
+    </div>
+    <div class="dish-card" onclick="this.classList.toggle('done')">
+      <img src="Icons/Drinks.jpg" alt="Напитки">
+      <div class="dish-body"><div class="dish-name">Напитки и алкоголь</div></div>
+    </div>
+  </div>
+
+  <!-- СПИСОК ПРОДУКТОВ -->
+  <h2 class="section-title">Список продуктов</h2>
+  <div class="checklist">
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Картофель</span><span class="check-qty">4 кг</span><span class="check-price">160 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Морковь</span><span class="check-qty">1,4 кг</span><span class="check-price">70 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Свекла</span><span class="check-qty">800 г</span><span class="check-price">40 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Лук репчатый</span><span class="check-qty">6 шт</span><span class="check-price">30 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Огурцы соленые</span><span class="check-qty">500 г</span><span class="check-price">150 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Огурцы свежие</span><span class="check-qty">3 шт</span><span class="check-price">90 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Горошек зеленый</span><span class="check-qty">2 банки</span><span class="check-price">180 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Кукуруза</span><span class="check-qty">2 банки</span><span class="check-price">180 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Яйца</span><span class="check-qty">30 шт</span><span class="check-price">390 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Молоко</span><span class="check-qty">300 мл</span><span class="check-price">60 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Масло сливочное</span><span class="check-qty">100 г</span><span class="check-price">120 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Майонез</span><span class="check-qty">2 кг</span><span class="check-price">500 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Курица</span><span class="check-qty">2 тушки (~4 кг)</span><span class="check-price">1 000 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Колбаса вареная</span><span class="check-qty">1,2 кг</span><span class="check-price">540 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Сельдь (филе)</span><span class="check-qty">700 г</span><span class="check-price">280 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Сайра / тунец</span><span class="check-qty">3 банки</span><span class="check-price">450 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Крабовые палочки</span><span class="check-qty">500 г</span><span class="check-price">250 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Рис</span><span class="check-qty">200 г</span><span class="check-price">40 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Хлеб белый</span><span class="check-qty">2 буханки</span><span class="check-price">100 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Хлеб черный</span><span class="check-qty">1 буханка</span><span class="check-price">50 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Тарталетки</span><span class="check-qty">30–40 шт</span><span class="check-price">250 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Икра имитированная</span><span class="check-qty">2 баночки</span><span class="check-price">300 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Икра «Заморская»</span><span class="check-qty">2 баночки</span><span class="check-price">240 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Салат из морской капусты</span><span class="check-qty">500 г</span><span class="check-price">200 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Сыр</span><span class="check-qty">400 г</span><span class="check-price">240 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Сок «Мультифрукт»</span><span class="check-qty">1 л</span><span class="check-price">120 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Сок яблочный</span><span class="check-qty">1 л</span><span class="check-price">100 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Вода питьевая</span><span class="check-qty">5 л</span><span class="check-price">200 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Виски</span><span class="check-qty">1 бутылка</span><span class="check-price">1 500 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Коньяк</span><span class="check-qty">1 бутылка</span><span class="check-price">1 500 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Шампанское</span><span class="check-qty">1 бутылка</span><span class="check-price">500 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Водка</span><span class="check-qty">1 бутылка</span><span class="check-price">500 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Уголь + розжиг</span><span class="check-qty">1 набор</span><span class="check-price">400 ₽</span></label>
+
+    <label class="check-item"><input type="checkbox"><span class="checkbox"></span><span class="check-label">Сигареты</span><span class="check-qty">1 блок</span><span class="check-price">1 000 ₽</span></label>
+
+  </div>
+
+  <!-- ИТОГ -->
+  <div class="total-card">
+    <h2>Примерная сумма</h2>
+    <div class="total-sum">11 730 ₽</div>
+    <p class="total-note">
+      Расчёт по средним ценам супермаркета. Алкоголь и сигареты — почти половина чека.
+      Без них продукты выходят около 6 300 ₽.
+    </p>
+    <div class="badge-row">
+      <div class="badge">Бюджетно: <strong>~9 000 ₽</strong></div>
+      <div class="badge">Средне: <strong>~11 730 ₽</strong></div>
+      <div class="badge">Премиум: <strong>~15 000 ₽</strong></div>
+    </div>
+  </div>
+
+  <!-- ЦЕНЫ И РАСЧЁТ -->
+  <div class="price-card">
+    <div class="price-title">
+      <i class="bi bi-cash-stack"></i>
+      Цены и расчёт
+    </div>
+
+    <div class="price-row">
+      <span class="price-label">Аренда дома с баней</span>
+      <span class="price-value">2 суток — 22 000 ₽</span>
+    </div>
+
+    <div class="price-row">
+      <span class="price-label">Залог (возвращается после выезда)</span>
+      <span class="price-value">5 000 ₽</span>
+    </div>
+
+    <div class="price-divider"></div>
+
+    <div class="price-row">
+      <span class="price-label">Продукты на стол (6 человек)</span>
+      <span class="price-value">11 730 ₽</span>
+    </div>
+
+    <div class="price-row">
+      <span class="price-label">Аренда + залог</span>
+      <span class="price-value">27 000 ₽</span>
+    </div>
+
+    <div class="price-divider"></div>
+
+    <div class="price-total-row">
+      <span class="price-total-label">Итого на всех</span>
+      <span class="price-total-value">38 730 ₽</span>
+    </div>
+
+    <div class="price-per-person">
+      <div class="per-person-label">Делим на 6 человек</div>
+      <div class="per-person-value">≈ 6 455 ₽</div>
+      <div class="per-person-note">С каждого гостя — за дом, баню и стол</div>
+    </div>
+
+    <div class="price-note">
+      <i class="bi bi-info-circle-fill"></i>
+      <span>Залог <strong>5 000 ₽</strong> возвращается после выезда, если ничего не повреждено. По факту — платишь <strong>22 000 ₽ за дом + 11 730 ₽ за еду = 33 730 ₽</strong>, а это <strong>≈ 5 622 ₽ с человека</strong>.</span>
+    </div>
+  </div>
+
+  <!-- МЫСЛЬ ЧЕЛОВЕКА -->
+  <div class="thought-block">
+    <img class="thought-avatar" src="Icons/logo.jpg" alt="Лого">
+    <div class="thought-content">
+      <div class="thought-name">Мысль вслух</div>
+      <div class="thought-text">
+        За 2027! Говорят, семёрка — число удачи. Ну что ж, проверим: если фортуна в этом году нас кинет, мы кинем её в ответ. Пусть 2027-й будет как хороший сериал: интрига с первой серии, неожиданные повороты, пара бессонных ночей — и обязательно хэппи-энд, где все живы, здоровы и при деньгах!
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="tree">✦ ✦ ✦</span>
+    С Новым годом! · 6 человек · 2027
+  </footer>
+
+</div>
+
+<script>
+  const snowContainer = document.body;
+  const snowChars = ['❄', '❅', '❆', '•', '✦'];
+  for (let i = 0; i < 30; i++) {
+    const snow = document.createElement('div');
+    snow.className = 'snow';
+    snow.textContent = snowChars[Math.floor(Math.random() * snowChars.length)];
+    snow.style.left = Math.random() * 100 + 'vw';
+    snow.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    snow.style.animationDelay = (Math.random() * 8) + 's';
+    snow.style.fontSize = (Math.random() * 10 + 8) + 'px';
+    snow.style.opacity = Math.random() * 0.6 + 0.2;
+    snowContainer.appendChild(snow);
+  }
+</script>
+
+</body>
+</html>

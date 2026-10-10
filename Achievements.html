@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Достижения · Новый год 2027</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #07070d;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(167, 139, 250, 0.18), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.12), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(244, 114, 182, 0.1), transparent 45%);
+    color: #e8e8f0;
+    min-height: 100vh;
+    padding: 24px 16px 60px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .snow {
+    position: fixed;
+    top: -10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    pointer-events: none;
+    animation: fall linear infinite;
+    z-index: 0;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .container { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .garland {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    margin-bottom: 20px;
+    height: 30px;
+  }
+  .bulb {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    animation: glow 2s ease-in-out infinite;
+  }
+  .bulb:nth-child(1) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 0s; }
+  .bulb:nth-child(2) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 0.2s; }
+  .bulb:nth-child(3) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 0.4s; }
+  .bulb:nth-child(4) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 0.6s; }
+  .bulb:nth-child(5) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 0.8s; }
+  .bulb:nth-child(6) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 1s; }
+  .bulb:nth-child(7) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 1.2s; }
+  .bulb:nth-child(8) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 1.4s; }
+  .bulb:nth-child(9) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 1.6s; }
+  .bulb:nth-child(10) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 1.8s; }
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  .back-row { margin-bottom: 20px; }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #b0b0c8;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    transition: all 0.25s;
+  }
+
+  .back-btn:hover {
+    color: #a78bfa;
+    border-color: rgba(167, 139, 250, 0.5);
+    background: rgba(167, 139, 250, 0.1);
+    transform: translateX(-3px);
+  }
+
+  .back-btn i { font-size: 16px; }
+
+  header { text-align: center; margin-bottom: 32px; }
+
+  header .sub {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #facc15;
+    background: rgba(250, 204, 21, 0.1);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+
+  header h1 {
+    font-size: clamp(26px, 6.5vw, 40px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #facc15 0%, #f472b6 50%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  header p { color: #8a8aa0; font-size: 13px; max-width: 480px; margin: 0 auto; }
+
+  /* СТАТИСТИКА */
+  .stats-card {
+    background: linear-gradient(135deg, rgba(250, 204, 21, 0.08), rgba(167, 139, 250, 0.1), rgba(34, 211, 238, 0.08));
+    border: 2px solid rgba(250, 204, 21, 0.35);
+    border-radius: 24px;
+    padding: 22px;
+    backdrop-filter: blur(20px);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    animation: statsGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes statsGlow {
+    0%, 100% { box-shadow: 0 0 25px rgba(250, 204, 21, 0.2); }
+    50% { box-shadow: 0 0 45px rgba(250, 204, 21, 0.4); }
+  }
+
+  .stat {
+    text-align: center;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat-value {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #facc15, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+    letter-spacing: -1px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #8a8aa0;
+  }
+
+  /* КАТЕГОРИЯ */
+  .category-block {
+    margin-bottom: 28px;
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-left: 6px;
+  }
+
+  .category-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .category-icon.fun { background: linear-gradient(135deg, #facc15, #fb923c); box-shadow: 0 4px 16px rgba(250, 204, 21, 0.5); }
+  .category-icon.sad { background: linear-gradient(135deg, #60a5fa, #3b82f6); box-shadow: 0 4px 16px rgba(96, 165, 250, 0.5); }
+  .category-icon.angry { background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 4px 16px rgba(239, 68, 68, 0.5); }
+  .category-icon.offensive { background: linear-gradient(135deg, #a855f7, #7c3aed); box-shadow: 0 4px 16px rgba(168, 85, 247, 0.5); }
+  .category-icon.random { background: linear-gradient(135deg, #22d3ee, #0891b2); box-shadow: 0 4px 16px rgba(34, 211, 238, 0.5); }
+  .category-icon.serious { background: linear-gradient(135deg, #34d399, #059669); box-shadow: 0 4px 16px rgba(52, 211, 153, 0.5); }
+
+  .category-title {
+    flex: 1;
+  }
+
+  .category-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: #f0f0ff;
+    letter-spacing: -0.2px;
+    line-height: 1.2;
+  }
+
+  .category-count {
+    font-size: 11px;
+    color: #6a6a80;
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  /* ДОСТИЖЕНИЯ */
+  .achievements-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .achievement {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .achievement:hover {
+    background: rgba(167, 139, 250, 0.08);
+    border-color: rgba(167, 139, 250, 0.35);
+    transform: translateX(4px);
+  }
+
+  .achievement-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #a78bfa;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+  }
+
+  .achievement:hover .achievement-icon {
+    transform: scale(1.08);
+  }
+
+  .achievement-info {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .achievement-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #e0e0f0;
+    line-height: 1.3;
+    margin-bottom: 4px;
+    transition: color 0.2s;
+  }
+
+  .achievement:hover .achievement-name {
+    color: #f0f0ff;
+  }
+
+  .achievement-desc {
+    font-size: 12px;
+    color: #8080a0;
+    line-height: 1.5;
+  }
+
+  .achievement-status {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #5a5a70;
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ЦВЕТА ИКОНОК ПО КАТЕГОРИЯМ */
+  .fun .achievement-icon { color: #facc15; border-color: rgba(250, 204, 21, 0.35); background: rgba(250, 204, 21, 0.08); }
+  .fun .achievement:hover .achievement-icon { border-color: rgba(250, 204, 21, 0.7); box-shadow: 0 0 16px rgba(250, 204, 21, 0.4); }
+
+  .sad .achievement-icon { color: #60a5fa; border-color: rgba(96, 165, 250, 0.35); background: rgba(96, 165, 250, 0.08); }
+  .sad .achievement:hover .achievement-icon { border-color: rgba(96, 165, 250, 0.7); box-shadow: 0 0 16px rgba(96, 165, 250, 0.4); }
+
+  .angry .achievement-icon { color: #ef4444; border-color: rgba(239, 68, 68, 0.35); background: rgba(239, 68, 68, 0.08); }
+  .angry .achievement:hover .achievement-icon { border-color: rgba(239, 68, 68, 0.7); box-shadow: 0 0 16px rgba(239, 68, 68, 0.4); }
+
+  .offensive .achievement-icon { color: #a855f7; border-color: rgba(168, 85, 247, 0.35); background: rgba(168, 85, 247, 0.08); }
+  .offensive .achievement:hover .achievement-icon { border-color: rgba(168, 85, 247, 0.7); box-shadow: 0 0 16px rgba(168, 85, 247, 0.4); }
+
+  .random .achievement-icon { color: #22d3ee; border-color: rgba(34, 211, 238, 0.35); background: rgba(34, 211, 238, 0.08); }
+  .random .achievement:hover .achievement-icon { border-color: rgba(34, 211, 238, 0.7); box-shadow: 0 0 16px rgba(34, 211, 238, 0.4); }
+
+  .serious .achievement-icon { color: #34d399; border-color: rgba(52, 211, 153, 0.35); background: rgba(52, 211, 153, 0.08); }
+  .serious .achievement:hover .achievement-icon { border-color: rgba(52, 211, 153, 0.7); box-shadow: 0 0 16px rgba(52, 211, 153, 0.4); }
+
+  /* ЗАКРЫТОЕ ДОСТИЖЕНИЕ — значок замка */
+  .achievement.locked .achievement-icon::after {
+    content: '🔒';
+    position: absolute;
+    font-size: 11px;
+    bottom: -2px;
+    right: -2px;
+    background: #07070d;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    opacity: 0.75;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #5a5a70;
+    font-size: 12px;
+  }
+
+  footer .tree {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 8px;
+  }
+
+  @media (max-width: 480px) {
+    .stats-card { padding: 16px; gap: 10px; }
+    .stat-value { font-size: 22px; }
+    .stat-label { font-size: 10px; }
+    .achievement { padding: 12px; gap: 10px; }
+    .achievement-icon { width: 40px; height: 40px; min-width: 40px; font-size: 18px; }
+    .achievement-name { font-size: 13px; }
+    .achievement-desc { font-size: 11.5px; }
+    .achievement-status { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="garland">
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span>
+  </div>
+
+  <div class="back-row">
+    <a href="Main_Menu.html" class="back-btn">
+      <i class="bi bi-arrow-left"></i>
+      Назад в меню
+    </a>
+  </div>
+
+  <header>
+    <div class="sub">Достижения</div>
+    <h1>Коллекция ачивок</h1>
+    <p>Открывай достижения, собирай коллекцию — все получат что-то своё</p>
+  </header>
+
+  <!-- СТАТИСТИКА -->
+  <div class="stats-card">
+    <div class="stat">
+      <div class="stat-value" id="totalCount">60</div>
+      <div class="stat-label">Всего</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="unlockedCount">0</div>
+      <div class="stat-label">Открыто</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="lockedCount">60</div>
+      <div class="stat-label">Закрыто</div>
+    </div>
+  </div>
+
+  <!-- ==================== ВЕСЁЛЫЕ ==================== -->
+  <div class="category-block fun">
+    <div class="category-header">
+      <div class="category-icon fun"><i class="bi bi-emoji-laughing-fill"></i></div>
+      <div class="category-title">
+        <div class="category-name">Весёлые</div>
+        <div class="category-count">по-доброму ржачные</div>
+      </div>
+    </div>
+
+    <div class="achievements-grid">
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-emoji-laughing"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Хохотун вечера</div>
+          <div class="achievement-desc">Смеялся громче всех и заражал этим остальных</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-mic-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Караоке-звезда</div>
+          <div class="achievement-desc">Спел больше всех песен за вечер — и не одну не испортил</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-dance"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Танцпол-легенда</div>
+          <div class="achievement-desc">Не выходил с танцпола, пока играла музыка</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-emoji-wink"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Душа компании</div>
+          <div class="achievement-desc">С тобой было весело абсолютно всем</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-hand-thumbs-up-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Мем-лорд</div>
+          <div class="achievement-desc">Кидал самые угарные мемы в чат</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-cup-straw"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Бармен вечера</div>
+          <div class="achievement-desc">Сделал коктейли всем, кто попросил</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-camera-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Фотограф-маньяк</div>
+          <div class="achievement-desc">Сделал больше 100 фотографий за вечер</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-mask"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Мастер мафии</div>
+          <div class="achievement-desc">Победил в мафии три раза подряд</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-emoji-sunglasses"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Стиляга</div>
+          <div class="achievement-desc">Пришёл в самом крутом наряде вечера</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-chat-heart-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Лапочка</div>
+          <div class="achievement-desc">Обнял всех гостей минимум по разу</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ГРУСТНЫЕ ==================== -->
+  <div class="category-block sad">
+    <div class="category-header">
+      <div class="category-icon sad"><i class="bi bi-emoji-frown-fill"></i></div>
+      <div class="category-title">
+        <div class="category-name">Грустные</div>
+        <div class="category-count">трогательные до слёз</div>
+      </div>
+    </div>
+
+    <div class="achievements-grid">
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-moon-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Уснул первым</div>
+          <div class="achievement-desc">Не дотянул до полуночи и уснул на диване</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-cup-hot-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Скучал по дому</div>
+          <div class="achievement-desc">Периодически поглядывал в телефон и вздыхал</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-emoji-tear-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Слеза умиления</div>
+          <div class="achievement-desc">Расплакался от тоста или песни</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-telephone-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Звонил маме</div>
+          <div class="achievement-desc">Поздравил родных в полночь</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-envelope-paper-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Вспомнил всех</div>
+          <div class="achievement-desc">Рассказал грустную историю о прошлом годе</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-cloud-drizzle-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Загрустил под утро</div>
+          <div class="achievement-desc">Утро 1 января встретил в философском настроении</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-heartbreak-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Одинокая душа</div>
+          <div class="achievement-desc">Большую часть вечера провёл один</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-camera-video-off-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Вне зоны доступа</div>
+          <div class="achievement-desc">Пропал на час, никто не знал, где ты</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-emoji-dizzy-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Устал жить</div>
+          <div class="achievement-desc">К 2 ночи лежал и смотрел в потолок</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ЗЛЫЕ ==================== -->
+  <div class="category-block angry">
+    <div class="category-header">
+      <div class="category-icon angry"><i class="bi bi-emoji-angry-fill"></i></div>
+      <div class="category-title">
+        <div class="category-name">Злые</div>
+        <div class="category-count">сарказм и лёгкое раздражение</div>
+      </div>
+    </div>
+
+    <div class="achievements-grid">
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-alarm-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Разбудил всех утром</div>
+          <div class="achievement-desc">В 7 утра включил музыку и начал греметь посудой</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-volume-up-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Громче всех</div>
+          <div class="achievement-desc">Кричал в 3 часа ночи громче телевизора</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-fire"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Сжёг шашлык</div>
+          <div class="achievement-desc">Угли в мангале — не еда, но ты не согласен</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-clock-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Опоздал на всё</div>
+          <div class="achievement-desc">Приехал позже всех и уехал первым</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-hand-thumbs-down-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Критик оливье</div>
+          <div class="achievement-desc">Сказал, что «недосолено» после каждого блюда</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Провокатор</div>
+          <div class="achievement-desc">Устроил спор о политике в разгар веселья</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-thermometer-high"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Перегрел баню</div>
+          <div class="achievement-desc">Сделал парилку на +120°, никто не зашёл</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-telephone-x-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Пропал со связи</div>
+          <div class="achievement-desc">Не отвечал на звонки весь вечер — обиделся</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-exclamation-triangle-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Нарушил тишину</div>
+          <div class="achievement-desc">Продолжил шуметь после 22:00</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ОБИДНЫЕ ==================== -->
+  <div class="category-block offensive">
+    <div class="category-header">
+      <div class="category-icon offensive"><i class="bi bi-emoji-frown"></i></div>
+      <div class="category-title">
+        <div class="category-name">Обидные</div>
+        <div class="category-count">жёстко, но по-честному</div>
+      </div>
+    </div>
+
+    <div class="achievements-grid">
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-hourglass-split"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Пришёл ради еды</div>
+          <div class="achievement-desc">Ушёл сразу после застолья, не сказав «спасибо»</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-phone-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Жил в телефоне</div>
+          <div class="achievement-desc">Больше смотрел в экран, чем в глаза гостям</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-moon-stars-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Занял лучшую кровать</div>
+          <div class="achievement-desc">Забрал самое удобное место и никому не уступил</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-cup-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Съел последний кусок</div>
+          <div class="achievement-desc">Забрал самое вкусное, даже не спросив</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-droplet-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Не помыл посуду</div>
+          <div class="achievement-desc">Оставил гору тарелок «на потом»</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-bandaid-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Что-то сломал</div>
+          <div class="achievement-desc">Оставил «сюрприз» после себя в виде скола или пятна</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-emoji-expressionless-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Не поддержал тост</div>
+          <div class="achievement-desc">Молча смотрел, пока все поднимали бокалы</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-eraser-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Стёр себя из истории</div>
+          <div class="achievement-desc">Не попал ни на одну общую фотографию</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-x-octagon-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Испортил фото</div>
+          <div class="achievement-desc">Попал в кадр в самый неудачный момент</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== СЛУЧАЙНЫЕ ==================== -->
+  <div class="category-block random">
+    <div class="category-header">
+      <div class="category-icon random"><i class="bi bi-dice-5-fill"></i></div>
+      <div class="category-title">
+        <div class="category-name">Случайные</div>
+        <div class="category-count">рандомные приколы</div>
+      </div>
+    </div>
+
+    <div class="achievements-grid">
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-shuffle"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Первый на месте</div>
+          <div class="achievement-desc">Приехал самым первым и всё подготовил</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-hourglass-bottom"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Последний герой</div>
+          <div class="achievement-desc">Не спал до самого конца — ушёл, когда все уже спали</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-lightning-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Разбил бокал</div>
+          <div class="achievement-desc">Классика Нового года: разбилась тарелка или стекло</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-arrow-repeat"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Потерял телефон</div>
+          <div class="achievement-desc">Минимум 10 минут искал свой телефон по всему дому</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-emoji-smile-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Улыбка до ушей</div>
+          <div class="achievement-desc">Улыбался всю ночь — и это заметили все</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-balloon-heart-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Загадал желание</div>
+          <div class="achievement-desc">Загадал желание под бой курантов — и не сказал какое</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-stars"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Увидел салют</div>
+          <div class="achievement-desc">Вышел на улицу в полночь смотреть фейерверк</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-snow2"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Поиграл в снежки</div>
+          <div class="achievement-desc">Устроил снежную битву прямо во дворе</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-cake2-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Съел больше всех</div>
+          <div class="achievement-desc">Опустошил минимум три тарелки за вечер</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== СЕРЬЁЗНЫЕ ==================== -->
+  <div class="category-block serious">
+    <div class="category-header">
+      <div class="category-icon serious"><i class="bi bi-trophy-fill"></i></div>
+      <div class="category-title">
+        <div class="category-name">Серьёзные</div>
+        <div class="category-count">реально уважаемые заслуги</div>
+      </div>
+    </div>
+
+    <div class="achievements-grid">
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-fire"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Хранитель огня</div>
+          <div class="achievement-desc">Следил за мангалом и баней весь вечер</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-egg-fried"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Шеф-повар вечера</div>
+          <div class="achievement-desc">Приготовил главное блюдо праздника</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-broom"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Чистюля</div>
+          <div class="achievement-desc">Помог убрать всё после вечеринки</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-camera-reels-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Хроникёр</div>
+          <div class="achievement-desc">Задокументировал все ключевые моменты</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-music-note-list"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Диджей вечера</div>
+          <div class="achievement-desc">Собрал идеальный плейлист для всех</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-cup-hot-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Утренний герой</div>
+          <div class="achievement-desc">Приготовил завтрак для всех 1 января</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-hand-thumbs-up-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Миротворец</div>
+          <div class="achievement-desc">Разрешил минимум один спор между гостями</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-people-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Настоящий друг</div>
+          <div class="achievement-desc">Помог гостю в трудной ситуации</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-heart-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Хранитель традиций</div>
+          <div class="achievement-desc">Организовал ключевой момент вечера</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+
+      <div class="achievement locked">
+        <div class="achievement-icon"><i class="bi bi-star-fill"></i></div>
+        <div class="achievement-info">
+          <div class="achievement-name">Легенда вечера</div>
+          <div class="achievement-desc">О тебе будут вспоминать весь следующий год</div>
+        </div>
+        <div class="achievement-status">Не получено</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="tree">✦ ✦ ✦</span>
+    С Новым годом! · 2027
+  </footer>
+
+</div>
+
+<script>
+  // Снежинки
+  const snowContainer = document.body;
+  const snowChars = ['❄', '❅', '❆', '•', '✦'];
+  for (let i = 0; i < 30; i++) {
+    const snow = document.createElement('div');
+    snow.className = 'snow';
+    snow.textContent = snowChars[Math.floor(Math.random() * snowChars.length)];
+    snow.style.left = Math.random() * 100 + 'vw';
+    snow.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    snow.style.animationDelay = (Math.random() * 8) + 's';
+    snow.style.fontSize = (Math.random() * 10 + 8) + 'px';
+    snow.style.opacity = Math.random() * 0.6 + 0.2;
+    snowContainer.appendChild(snow);
+  }
+
+  // ===== СТАТИСТИКА =====
+  function updateStats() {
+    const all = document.querySelectorAll('.achievement').length;
+    const unlocked = document.querySelectorAll('.achievement:not(.locked)').length;
+    const locked = all - unlocked;
+
+    document.getElementById('totalCount').textContent = all;
+    document.getElementById('unlockedCount').textContent = unlocked;
+    document.getElementById('lockedCount').textContent = locked;
+  }
+
+  updateStats();
+</script>
+
+</body>
+</html>

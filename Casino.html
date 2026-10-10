@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Казино · Новый год 2027</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #07070d;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(167, 139, 250, 0.18), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.12), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(244, 114, 182, 0.1), transparent 45%);
+    color: #e8e8f0;
+    min-height: 100vh;
+    padding: 24px 16px 60px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .snow {
+    position: fixed; top: -10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px; pointer-events: none;
+    animation: fall linear infinite; z-index: 0;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; } 90% { opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .container { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .garland {
+    display: flex; justify-content: space-between;
+    padding: 0 8px; margin-bottom: 20px; height: 30px;
+  }
+  .bulb {
+    width: 10px; height: 10px; border-radius: 50%;
+    animation: glow 2s ease-in-out infinite;
+  }
+  .bulb:nth-child(1) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 0s; }
+  .bulb:nth-child(2) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 0.2s; }
+  .bulb:nth-child(3) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 0.4s; }
+  .bulb:nth-child(4) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 0.6s; }
+  .bulb:nth-child(5) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 0.8s; }
+  .bulb:nth-child(6) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 1s; }
+  .bulb:nth-child(7) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 1.2s; }
+  .bulb:nth-child(8) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 1.4s; }
+  .bulb:nth-child(9) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 1.6s; }
+  .bulb:nth-child(10) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 1.8s; }
+  .bulb:nth-child(11) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 2s; }
+  .bulb:nth-child(12) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 2.2s; }
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  .back-row { margin-bottom: 20px; }
+  .back-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    text-decoration: none; color: #b0b0c8;
+    font-size: 14px; font-weight: 500;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px; transition: all 0.25s;
+  }
+  .back-btn:hover {
+    color: #a78bfa;
+    border-color: rgba(167, 139, 250, 0.5);
+    background: rgba(167, 139, 250, 0.1);
+    transform: translateX(-3px);
+  }
+  .back-btn i { font-size: 16px; }
+  .back-btn.hidden { visibility: hidden; opacity: 0; pointer-events: none; }
+
+  header { text-align: center; margin-bottom: 32px; }
+  header .sub {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.1);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    padding: 6px 16px; border-radius: 100px; margin-bottom: 16px;
+  }
+  header h1 {
+    font-size: clamp(26px, 7vw, 44px); font-weight: 800;
+    letter-spacing: -1px; line-height: 1.1;
+    background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #22d3ee 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 12px;
+  }
+  header p { color: #8a8aa0; font-size: 14px; }
+
+  /* БАЛАНС */
+  .top-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; margin-bottom: 22px; position: relative; z-index: 2;
+    flex-wrap: wrap;
+  }
+  .balance-bar {
+    display: flex; align-items: center; gap: 12px;
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.12), rgba(34, 211, 238, 0.08));
+    border: 2px solid rgba(167, 139, 250, 0.4);
+    border-radius: 16px; padding: 12px 18px;
+    backdrop-filter: blur(10px);
+    animation: balanceGlow 4s ease-in-out infinite;
+  }
+  @keyframes balanceGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(167, 139, 250, 0.2); }
+    50% { box-shadow: 0 0 35px rgba(167, 139, 250, 0.4); }
+  }
+  .balance-icon {
+    font-size: 24px; color: #22d3ee;
+    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.7));
+  }
+  .balance-label {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 2px;
+    color: #8a8aa0; font-weight: 600;
+  }
+  .balance-value {
+    font-size: 20px; font-weight: 800; color: #22d3ee;
+    font-family: 'Courier New', monospace; transition: all 0.3s;
+  }
+  .balance-value.win { color: #22c55e; text-shadow: 0 0 20px rgba(34, 197, 94, 0.6); }
+  .balance-value.lose { color: #ef4444; text-shadow: 0 0 20px rgba(239, 68, 68, 0.6); }
+
+  .screen { display: none; animation: screenIn 0.4s ease-out; }
+  .screen.active { display: block; }
+  @keyframes screenIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-size: 18px; font-weight: 700; color: #f0f0ff;
+    margin: 24px 0 16px; padding-left: 14px;
+    border-left: 3px solid #a78bfa;
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .game-menu {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+  }
+  @media (min-width: 640px) { .game-menu { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+  @media (min-width: 900px) { .game-menu { grid-template-columns: repeat(4, 1fr); } }
+
+  .game-btn {
+    display: flex; flex-direction: column; gap: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px; padding: 18px 16px; cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left; font-family: inherit; color: inherit;
+    position: relative; overflow: hidden;
+  }
+  .game-btn::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #f472b6, #a78bfa, #22d3ee);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .game-btn:hover {
+    transform: translateY(-4px);
+    border-color: rgba(167, 139, 250, 0.5);
+    box-shadow: 0 16px 32px rgba(120, 60, 220, 0.25);
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .game-btn:hover::before { opacity: 1; }
+  .game-btn-icon {
+    font-size: 28px; line-height: 1; color: #a78bfa;
+    transition: all 0.3s; display: inline-flex;
+  }
+  .game-btn:hover .game-btn-icon {
+    color: #22d3ee; transform: scale(1.15);
+    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.8));
+  }
+  .game-btn-name { font-size: 15px; font-weight: 700; color: #f0f0ff; }
+  .game-btn-desc { font-size: 11px; color: #8a8aa0; }
+
+  /* ПОЛНОЭКРАННАЯ ИГРА */
+  .game-fullscreen {
+    position: fixed; inset: 0; background: #07070d;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(167, 139, 250, 0.18), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.12), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(244, 114, 182, 0.1), transparent 45%);
+    z-index: 1000; overflow-y: auto; padding: 20px 16px 60px;
+    display: none; animation: fsIn 0.35s ease-out;
+  }
+  .game-fullscreen.active { display: block; }
+  @keyframes fsIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+
+  .fs-container { max-width: 700px; margin: 0 auto; position: relative; }
+  .fs-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px; gap: 12px;
+  }
+  .fs-title {
+    font-size: 22px; font-weight: 800;
+    background: linear-gradient(135deg, #f472b6, #a78bfa, #22d3ee);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .fs-title i { font-size: 24px; }
+  .fs-close {
+    width: 40px; height: 40px; border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #c0c0d0; font-size: 18px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; font-family: inherit; flex-shrink: 0;
+  }
+  .fs-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444; color: #ef4444;
+    transform: rotate(90deg);
+  }
+  .fs-balance {
+    display: flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.12), rgba(34, 211, 238, 0.08));
+    border: 2px solid rgba(167, 139, 250, 0.4);
+    border-radius: 14px; padding: 10px 16px; margin-bottom: 20px;
+  }
+  .fs-balance .balance-icon { font-size: 20px; }
+  .fs-balance .balance-value { font-size: 18px; }
+
+  .game-area {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.08), rgba(167, 139, 250, 0.1), rgba(34, 211, 238, 0.08));
+    border: 2px solid rgba(167, 139, 250, 0.35);
+    border-radius: 24px; padding: 24px 20px;
+    position: relative; overflow: hidden;
+    animation: cardGlow 4s ease-in-out infinite;
+  }
+  @keyframes cardGlow {
+    0%, 100% { box-shadow: 0 0 25px rgba(167, 139, 250, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(167, 139, 250, 0.4); }
+  }
+  .game-area::before {
+    content: ''; position: absolute; top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.08), transparent 60%);
+    pointer-events: none;
+  }
+  .game-content { position: relative; z-index: 1; }
+
+  .bet-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .bet-label { font-size: 13px; color: #b0b0c8; font-weight: 600; }
+  .bet-input {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px; color: #f0f0ff;
+    padding: 10px 14px; font-size: 16px; font-weight: 700;
+    width: 120px; font-family: 'Courier New', monospace;
+    text-align: center; outline: none; transition: all 0.2s;
+  }
+  .bet-input:focus { border-color: #a78bfa; box-shadow: 0 0 15px rgba(167, 139, 250, 0.3); }
+  select.bet-input { width: auto; padding: 10px 14px; cursor: pointer; }
+  select.bet-input option { background: #1a1a24; color: #f0f0ff; }
+
+  .chip-btn {
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(34, 211, 238, 0.1));
+    border: 1px solid rgba(167, 139, 250, 0.4);
+    color: #a78bfa;
+    padding: 8px 14px; border-radius: 10px;
+    cursor: pointer; font-size: 13px; font-weight: 700;
+    transition: all 0.2s; font-family: inherit;
+  }
+  .chip-btn:hover {
+    background: rgba(167, 139, 250, 0.25);
+    border-color: #a78bfa; transform: translateY(-2px);
+  }
+  .chip-btn:active { transform: scale(0.95); }
+
+  .action-btn {
+    display: block; width: 100%;
+    background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+    border: 2px solid #a78bfa; border-radius: 16px; padding: 16px;
+    font-size: 16px; font-weight: 800; color: #ffffff;
+    cursor: pointer; transition: all 0.3s;
+    font-family: inherit; letter-spacing: 0.3px;
+    box-shadow: 0 8px 25px rgba(167, 139, 250, 0.4);
+    margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(167, 139, 250, 0.6);
+    background: linear-gradient(135deg, #b89cff 0%, #8b5cf6 100%);
+  }
+  .action-btn:active { transform: scale(0.97); }
+  .action-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+  .action-btn.alt { background: linear-gradient(135deg, #22d3ee 0%, #0891b2 100%); border-color: #22d3ee; box-shadow: 0 8px 25px rgba(34, 211, 238, 0.4); }
+  .action-btn.alt:hover { background: linear-gradient(135deg, #67e8f9 0%, #06b6d4 100%); box-shadow: 0 12px 35px rgba(34, 211, 238, 0.6); }
+
+  .result-msg {
+    text-align: center; font-size: 15px; font-weight: 700;
+    min-height: 24px; margin-top: 14px; transition: all 0.3s;
+  }
+  .result-msg.win { color: #22c55e; text-shadow: 0 0 15px rgba(34, 197, 94, 0.6); }
+  .result-msg.lose { color: #ef4444; text-shadow: 0 0 15px rgba(239, 68, 68, 0.6); }
+  .result-msg.info { color: #22d3ee; }
+
+  /* КОСТИ */
+  .dice-row { display: flex; justify-content: center; gap: 16px; margin: 20px 0; }
+  .die {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, #f0f0ff, #c0c0d8);
+    border-radius: 14px; display: flex; align-items: center; justify-content: center;
+    font-size: 36px; font-weight: 800; color: #07070d;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), inset 0 -4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s;
+  }
+  .die.rolling { animation: rollAnim 0.5s ease-in-out; }
+  @keyframes rollAnim {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.1); }
+    50% { transform: rotate(180deg) scale(0.95); }
+    75% { transform: rotate(270deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+
+  /* МОНЕТА */
+  .coin-wrap { display: flex; justify-content: center; margin: 24px 0; perspective: 800px; }
+  .coin {
+    width: 130px; height: 130px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #c4b5fd, #a78bfa 40%, #7c3aed 90%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 52px; color: #07070d;
+    box-shadow: 0 10px 30px rgba(167, 139, 250, 0.5), inset 0 -6px 12px rgba(60, 20, 120, 0.4);
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* СЛОТЫ */
+  .slots-wrap {
+    display: flex; justify-content: center; gap: 10px; margin: 20px 0;
+    background: rgba(0, 0, 0, 0.3); padding: 18px; border-radius: 18px;
+    border: 2px solid rgba(167, 139, 250, 0.3);
+  }
+  .slot {
+    width: 82px; height: 100px;
+    background: linear-gradient(180deg, #f0f0ff, #b0b0c8);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 44px; box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s; color: #07070d;
+  }
+  .slot.spinning { animation: spinSlot 0.15s linear infinite; }
+  @keyframes spinSlot {
+    0% { transform: translateY(-8px); opacity: 0.7; }
+    50% { transform: translateY(8px); opacity: 1; }
+    100% { transform: translateY(-8px); opacity: 0.7; }
+  }
+
+  /* РУЛЕТКА */
+  .roulette-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 20px 0; }
+  .roulette-cell {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px; padding: 22px 8px;
+    text-align: center; font-size: 28px; cursor: pointer;
+    transition: all 0.2s; color: #ef4444;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .roulette-cell.black { color: #8888a0; }
+  .roulette-cell:hover { border-color: #a78bfa; transform: translateY(-3px); }
+  .roulette-cell.selected { border-color: #22d3ee; background: rgba(34, 211, 238, 0.2); box-shadow: 0 0 20px rgba(34, 211, 238, 0.4); }
+
+  /* КАРТЫ */
+  .cards-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; min-height: 90px; }
+  .card {
+    width: 62px; height: 90px;
+    background: linear-gradient(135deg, #f0f0ff, #d0d0e0);
+    border-radius: 8px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-weight: 800; color: #07070d;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    animation: cardIn 0.3s ease-out;
+  }
+  @keyframes cardIn {
+    from { transform: translateY(-20px) rotate(-5deg); opacity: 0; }
+    to { transform: translateY(0) rotate(0); opacity: 1; }
+  }
+  .card.red { color: #dc2626; }
+  .card.back {
+    background: repeating-linear-gradient(45deg, #2d1b4e, #2d1b4e 6px, #4c1d95 6px, #4c1d95 12px);
+    color: #a78bfa; font-size: 24px;
+  }
+  .card-val { font-size: 18px; }
+  .card-suit { font-size: 22px; }
+  .hand-label {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 2px;
+    color: #8a8aa0; font-weight: 600; margin-top: 8px;
+  }
+  .hand-score { font-size: 22px; font-weight: 800; color: #22d3ee; }
+
+  /* НАПЁРСТКИ */
+  .shells-wrap { display: flex; justify-content: center; gap: 20px; margin: 24px 0; }
+  .shell {
+    width: 76px; height: 86px;
+    background: linear-gradient(180deg, #a78bfa, #7c3aed);
+    border-radius: 50% 50% 20% 20%;
+    cursor: pointer; transition: all 0.3s;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px; color: #07070d;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+  .shell:hover { transform: translateY(-6px); }
+  .shell.revealed { background: linear-gradient(180deg, #22d3ee, #0891b2); }
+
+  /* КОЛЕСО */
+  .wheel-wrap { display: flex; flex-direction: column; align-items: center; margin: 20px 0; }
+  .wheel-holder { position: relative; }
+  .wheel {
+    width: 260px; height: 260px; border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 40px rgba(167, 139, 250, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: transform 3s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+    border: 6px solid #07070d;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .wheel-pointer {
+    position: absolute; top: -10px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 34px; color: #22d3ee;
+    filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.8));
+    z-index: 5;
+  }
+  .wheel-center {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px; height: 64px; border-radius: 50%;
+    background: #07070d; border: 3px solid #a78bfa;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; color: #a78bfa; z-index: 4;
+  }
+
+  /* БАККАРА */
+  .baccara-wrap { display: flex; justify-content: space-around; margin: 20px 0; gap: 12px; }
+  .baccara-side {
+    flex: 1; background: rgba(0, 0, 0, 0.3);
+    border-radius: 14px; padding: 16px; text-align: center;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+  }
+  .baccara-side h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #8a8aa0; margin-bottom: 8px; }
+  .baccara-score { font-size: 36px; font-weight: 800; color: #22d3ee; }
+
+  /* ХАЙ-ЛОУ */
+  .hilo-card { display: flex; justify-content: center; margin: 20px 0; }
+  .hilo-card .card { width: 86px; height: 124px; }
+  .hilo-card .card-val { font-size: 26px; }
+  .hilo-card .card-suit { font-size: 30px; }
+  .hilo-buttons { display: flex; gap: 12px; margin-top: 12px; }
+  .hilo-buttons .action-btn { margin-top: 0; flex: 1; }
+
+  /* КРАШ */
+  .crash-display {
+    text-align: center; margin: 20px 0;
+    font-size: 60px; font-weight: 900;
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #a78bfa, #22d3ee);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; transition: all 0.3s; letter-spacing: -2px;
+  }
+  .crash-display.crashed {
+    background: linear-gradient(135deg, #ef4444, #991b1b);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .crash-bar {
+    width: 100%; height: 8px; background: rgba(255, 255, 255, 0.08);
+    border-radius: 100px; overflow: hidden; margin: 16px 0;
+  }
+  .crash-bar-fill {
+    height: 100%; background: linear-gradient(90deg, #22c55e, #a78bfa, #ef4444);
+    width: 0%; transition: width 0.1s linear;
+  }
+
+  /* УНО */
+  .uno-hand { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; margin: 16px 0; }
+  .uno-card {
+    width: 44px; height: 64px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 18px; color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+    transition: all 0.2s;
+  }
+  .uno-card.red { background: linear-gradient(135deg, #ef4444, #991b1b); }
+  .uno-card.blue { background: linear-gradient(135deg, #3b82f6, #1e40af); }
+  .uno-card.green { background: linear-gradient(135deg, #22c55e, #166534); }
+  .uno-card.yellow { background: linear-gradient(135deg, #facc15, #a16207); color: #07070d; text-shadow: none; }
+  .uno-card.wild { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
+
+  /* ЛОТО */
+  .loto-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 16px 0; }
+  .loto-cell {
+    aspect-ratio: 1; background: rgba(0,0,0,0.4);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 800; color: #8a8aa0;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .loto-cell:hover { border-color: #a78bfa; }
+  .loto-cell.selected { border-color: #a78bfa; background: rgba(167, 139, 250, 0.2); color: #a78bfa; }
+  .loto-cell.drawn { border-color: #22d3ee; background: rgba(34, 211, 238, 0.2); color: #22d3ee; }
+
+  /* ПЛИНКО */
+  .plinko-board {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 6px; margin: 20px 0; padding: 16px;
+    background: rgba(0,0,0,0.3); border-radius: 16px;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+  }
+  .plinko-slot {
+    flex: 1; text-align: center; padding: 8px 4px;
+    border-radius: 8px; font-size: 11px; font-weight: 800;
+    color: #07070d; margin: 0 2px;
+  }
+  .plinko-arrow {
+    text-align: center; font-size: 32px; color: #a78bfa;
+    transition: all 0.4s; filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.8));
+  }
+
+  /* КРЭПС */
+  .craps-row { display: flex; justify-content: center; gap: 16px; margin: 20px 0; }
+  .craps-btn {
+    padding: 14px 24px; border-radius: 12px; cursor: pointer;
+    border: 2px solid rgba(255,255,255,0.15);
+    background: rgba(0,0,0,0.4); color: #f0f0ff;
+    font-weight: 700; font-size: 14px; transition: all 0.2s;
+    font-family: inherit;
+  }
+  .craps-btn:hover { border-color: #a78bfa; transform: translateY(-2px); }
+  .craps-btn.selected { border-color: #22d3ee; background: rgba(34, 211, 238, 0.2); color: #22d3ee; }
+
+  .hidden { display: none !important; }
+
+  footer {
+    text-align: center; margin-top: 50px;
+    color: #5a5a70; font-size: 12px;
+  }
+  footer .tree {
+    font-size: 20px; display: block;
+    margin-bottom: 8px; letter-spacing: 8px;
+  }
+
+  @media (max-width: 480px) {
+    .game-btn { padding: 16px 14px; border-radius: 16px; }
+    .game-btn-icon { font-size: 24px; }
+    .game-btn-name { font-size: 14px; }
+    .game-btn-desc { font-size: 10px; }
+    .game-area { padding: 18px 14px; border-radius: 20px; }
+    .die { width: 58px; height: 58px; font-size: 28px; }
+    .slot { width: 66px; height: 82px; font-size: 36px; }
+    .card { width: 52px; height: 76px; }
+    .card-val { font-size: 15px; }
+    .card-suit { font-size: 18px; }
+    .wheel { width: 190px; height: 190px; }
+    .crash-display { font-size: 46px; }
+    .shell { width: 62px; height: 72px; font-size: 28px; }
+    .coin { width: 110px; height: 110px; font-size: 42px; }
+    .balance-value { font-size: 18px; }
+    .fs-title { font-size: 18px; }
+    .uno-card { width: 36px; height: 52px; font-size: 14px; }
+    .loto-cell { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="garland">
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+  </div>
+
+  <div class="back-row">
+    <a href="Main_Menu.html" class="back-btn" id="homeBtn">
+      <i class="bi bi-arrow-left"></i>
+      Назад в меню
+    </a>
+  </div>
+
+  <div class="top-bar">
+    <div class="balance-bar">
+      <span class="balance-icon"><i class="bi bi-coin"></i></span>
+      <div>
+        <div class="balance-label">Баланс</div>
+        <div class="balance-value" id="balanceValue">100 000</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen active" id="menuScreen">
+    <header>
+      <div class="sub">Казино 2027</div>
+      <h1>Новогоднее Казино</h1>
+      <p>20 игр · виртуальные фишки · удача на твоей стороне</p>
+    </header>
+
+    <h2 class="section-title"><i class="bi bi-dice-5-fill"></i> Выбери игру</h2>
+
+    <div class="game-menu" id="gameMenu">
+      <button class="game-btn" data-game="dice">
+        <span class="game-btn-icon"><i class="bi bi-dice-6-fill"></i></span>
+        <span class="game-btn-name">Кости</span>
+        <span class="game-btn-desc">Угадай сумму</span>
+      </button>
+      <button class="game-btn" data-game="coin">
+        <span class="game-btn-icon"><i class="bi bi-coin"></i></span>
+        <span class="game-btn-name">Монетка</span>
+        <span class="game-btn-desc">Орёл или решка</span>
+      </button>
+      <button class="game-btn" data-game="slots">
+        <span class="game-btn-icon"><i class="bi bi-suit-diamond-fill"></i></span>
+        <span class="game-btn-name">Слоты</span>
+        <span class="game-btn-desc">Три в ряд</span>
+      </button>
+      <button class="game-btn" data-game="roulette">
+        <span class="game-btn-icon"><i class="bi bi-circle-fill"></i></span>
+        <span class="game-btn-name">Рулетка</span>
+        <span class="game-btn-desc">Красное или чёрное</span>
+      </button>
+      <button class="game-btn" data-game="blackjack">
+        <span class="game-btn-icon"><i class="bi bi-suit-spade-fill"></i></span>
+        <span class="game-btn-name">Блэкджек</span>
+        <span class="game-btn-desc">Набери 21</span>
+      </button>
+      <button class="game-btn" data-game="shells">
+        <span class="game-btn-icon"><i class="bi bi-cup-hot-fill"></i></span>
+        <span class="game-btn-name">Напёрстки</span>
+        <span class="game-btn-desc">Найди шарик</span>
+      </button>
+      <button class="game-btn" data-game="wheel">
+        <span class="game-btn-icon"><i class="bi bi-record-circle-fill"></i></span>
+        <span class="game-btn-name">Колесо</span>
+        <span class="game-btn-desc">Крути фортуну</span>
+      </button>
+      <button class="game-btn" data-game="baccarat">
+        <span class="game-btn-icon"><i class="bi bi-suit-heart-fill"></i></span>
+        <span class="game-btn-name">Баккара</span>
+        <span class="game-btn-desc">Кто ближе к 9</span>
+      </button>
+      <button class="game-btn" data-game="hilo">
+        <span class="game-btn-icon"><i class="bi bi-arrow-down-up"></i></span>
+        <span class="game-btn-name">Хай-Лоу</span>
+        <span class="game-btn-desc">Больше или меньше</span>
+      </button>
+      <button class="game-btn" data-game="crash">
+        <span class="game-btn-icon"><i class="bi bi-graph-up-arrow"></i></span>
+        <span class="game-btn-name">Краш</span>
+        <span class="game-btn-desc">Успей забрать</span>
+      </button>
+      <button class="game-btn" data-game="poker">
+        <span class="game-btn-icon"><i class="bi bi-suit-club-fill"></i></span>
+        <span class="game-btn-name">Покер</span>
+        <span class="game-btn-desc">Собери комбинацию</span>
+      </button>
+      <button class="game-btn" data-game="durak">
+        <span class="game-btn-icon"><i class="bi bi-shield-fill"></i></span>
+        <span class="game-btn-name">Дурак</span>
+        <span class="game-btn-desc">Побей карту ИИ</span>
+      </button>
+      <button class="game-btn" data-game="uno">
+        <span class="game-btn-icon"><i class="bi bi-palette-fill"></i></span>
+        <span class="game-btn-name">Уно</span>
+        <span class="game-btn-desc">Сбрось все карты</span>
+      </button>
+      <button class="game-btn" data-game="craps">
+        <span class="game-btn-icon"><i class="bi bi-dice-5"></i></span>
+        <span class="game-btn-name">Крэпс</span>
+        <span class="game-btn-desc">Бросок двух костей</span>
+      </button>
+      <button class="game-btn" data-game="plinko">
+        <span class="game-btn-icon"><i class="bi bi-triangle-fill"></i></span>
+        <span class="game-btn-name">Плинко</span>
+        <span class="game-btn-desc">Падающий шарик</span>
+      </button>
+      <button class="game-btn" data-game="loto">
+        <span class="game-btn-icon"><i class="bi bi-grid-3x3-gap-fill"></i></span>
+        <span class="game-btn-name">Лотерея</span>
+        <span class="game-btn-desc">Угадай числа</span>
+      </button>
+      <button class="game-btn" data-game="wheel2">
+        <span class="game-btn-icon"><i class="bi bi-bullseye"></i></span>
+        <span class="game-btn-name">Колесо Удачи</span>
+        <span class="game-btn-desc">Крути и забирай</span>
+      </button>
+      <button class="game-btn" data-game="hi-lo-pro">
+        <span class="game-btn-icon"><i class="bi bi-bar-chart-fill"></i></span>
+        <span class="game-btn-name">Хай-Лоу Про</span>
+        <span class="game-btn-desc">Серия карт</span>
+      </button>
+      <button class="game-btn" data-game="baccarat2">
+        <span class="game-btn-icon"><i class="bi bi-suit-diamond"></i></span>
+        <span class="game-btn-name">Баккара Про</span>
+        <span class="game-btn-desc">Ставка на ничью</span>
+      </button>
+      <button class="game-btn" data-game="coin-multi">
+        <span class="game-btn-icon"><i class="bi bi-coin"></i></span>
+        <span class="game-btn-name">Монетка-Мульти</span>
+        <span class="game-btn-desc">3 монеты — угадай</span>
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <span class="tree">✦ ✦ ✦</span>
+    С Новым годом! · 2027 · Играй ответственно
+  </footer>
+
+</div>
+
+<!-- ПОЛНОЭКРАННАЯ ИГРА -->
+<div class="game-fullscreen" id="gameFullscreen">
+  <div class="fs-container">
+    <div class="fs-header">
+      <div class="fs-title" id="fsTitle"><i class="bi bi-dice-6-fill"></i> <span id="fsTitleText">Игра</span></div>
+      <button class="fs-close" id="fsClose"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="fs-balance">
+      <span class="balance-icon"><i class="bi bi-coin"></i></span>
+      <div>
+        <div class="balance-label">Баланс</div>
+        <div class="balance-value" id="balanceValueFS">100 000</div>
+      </div>
+    </div>
+    <div class="game-area" id="gameArea"></div>
+  </div>
+</div>
+
+<script>
+  // Снежинки
+  const snowContainer = document.body;
+  const snowChars = ['❄', '❅', '❆', '•', '✦'];
+  for (let i = 0; i < 30; i++) {
+    const snow = document.createElement('div');
+    snow.className = 'snow';
+    snow.textContent = snowChars[Math.floor(Math.random() * snowChars.length)];
+    snow.style.left = Math.random() * 100 + 'vw';
+    snow.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    snow.style.animationDelay = (Math.random() * 8) + 's';
+    snow.style.fontSize = (Math.random() * 10 + 8) + 'px';
+    snow.style.opacity = Math.random() * 0.6 + 0.2;
+    snowContainer.appendChild(snow);
+  }
+
+  // Баланс
+  let balance = 100000;
+  const balanceEl = document.getElementById('balanceValue');
+  const balanceElFS = document.getElementById('balanceValueFS');
+
+  function updateBalance(change = 0) {
+    balance += change;
+    balanceEl.textContent = balance.toLocaleString('ru-RU');
+    balanceElFS.textContent = balance.toLocaleString('ru-RU');
+    balanceEl.classList.remove('win', 'lose');
+    balanceElFS.classList.remove('win', 'lose');
+    if (change > 0) {
+      balanceEl.classList.add('win'); balanceElFS.classList.add('win');
+      setTimeout(() => { balanceEl.classList.remove('win'); balanceElFS.classList.remove('win'); }, 1000);
+    } else if (change < 0) {
+      balanceEl.classList.add('lose'); balanceElFS.classList.add('lose');
+      setTimeout(() => { balanceEl.classList.remove('lose'); balanceElFS.classList.remove('lose'); }, 1000);
+    }
+  }
+  function getBet() {
+    const input = document.getElementById('betInput');
+    if (!input) return 0;
+    const val = parseInt(input.value) || 0;
+    if (val <= 0) { showResult('Введи ставку больше 0', 'lose'); return 0; }
+    if (val > balance) { showResult('Недостаточно фишек!', 'lose'); return 0; }
+    return val;
+  }
+  function showResult(msg, type) {
+    const el = document.getElementById('resultMsg');
+    if (!el) return;
+    el.textContent = msg;
+    el.className = 'result-msg ' + type;
+  }
+  function bindBetChips() {
+    document.querySelectorAll('.chip-btn[data-bet]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const input = document.getElementById('betInput');
+        if (input) input.value = btn.dataset.bet;
+      });
+    });
+  }
+
+  const menuScreen = document.getElementById('menuScreen');
+  const gameFullscreen = document.getElementById('gameFullscreen');
+  const homeBtn = document.getElementById('homeBtn');
+  const fsClose = document.getElementById('fsClose');
+  const fsTitle = document.getElementById('fsTitle');
+  const fsTitleText = document.getElementById('fsTitleText');
+  const gameArea = document.getElementById('gameArea');
+
+  const gameTitles = {
+    dice: { name: 'Кости', icon: 'bi-dice-6-fill' },
+    coin: { name: 'Монетка', icon: 'bi-coin' },
+    slots: { name: 'Слоты', icon: 'bi-suit-diamond-fill' },
+    roulette: { name: 'Рулетка', icon: 'bi-circle-fill' },
+    blackjack: { name: 'Блэкджек', icon: 'bi-suit-spade-fill' },
+    shells: { name: 'Напёрстки', icon: 'bi-cup-hot-fill' },
+    wheel: { name: 'Колесо Фортуны', icon: 'bi-record-circle-fill' },
+    baccarat: { name: 'Баккара', icon: 'bi-suit-heart-fill' },
+    hilo: { name: 'Хай-Лоу', icon: 'bi-arrow-down-up' },
+    crash: { name: 'Краш', icon: 'bi-graph-up-arrow' },
+    poker: { name: 'Покер', icon: 'bi-suit-club-fill' },
+    durak: { name: 'Дурак', icon: 'bi-shield-fill' },
+    uno: { name: 'Уно', icon: 'bi-palette-fill' },
+    craps: { name: 'Крэпс', icon: 'bi-dice-5' },
+    plinko: { name: 'Плинко', icon: 'bi-triangle-fill' },
+    loto: { name: 'Лотерея', icon: 'bi-grid-3x3-gap-fill' },
+    wheel2: { name: 'Колесо Удачи', icon: 'bi-bullseye' },
+    'hi-lo-pro': { name: 'Хай-Лоу Про', icon: 'bi-bar-chart-fill' },
+    baccarat2: { name: 'Баккара Про', icon: 'bi-suit-diamond' },
+    'coin-multi': { name: 'Монетка-Мульти', icon: 'bi-coin' }
+  };
+
+  document.querySelectorAll('.game-btn').forEach(btn => {
+    btn.addEventListener('click', () => openGame(btn.dataset.game));
+  });
+
+  function openGame(game) {
+    const info = gameTitles[game];
+    if (!info) return;
+    fsTitle.querySelector('i').className = 'bi ' + info.icon;
+    fsTitleText.textContent = info.name;
+    homeBtn.classList.add('hidden');
+    menuScreen.classList.remove('active');
+    gameFullscreen.classList.add('active');
+    gameArea.innerHTML = '';
+    renderGame(game);
+    document.body.style.overflow = 'hidden';
+  }
+  function closeGame() {
+    gameFullscreen.classList.remove('active');
+    menuScreen.classList.add('active');
+    homeBtn.classList.remove('hidden');
+    document.body.style.overflow = '';
+    gameArea.innerHTML = '';
+  }
+  fsClose.addEventListener('click', closeGame);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && gameFullscreen.classList.contains('active')) closeGame();
+  });
+
+  function renderGame(game) {
+    const games = {
+      dice: renderDice, coin: renderCoin, slots: renderSlots,
+      roulette: renderRoulette, blackjack: renderBlackjack, shells: renderShells,
+      wheel: renderWheel, baccarat: renderBaccarat, hilo: renderHiLo,
+      crash: renderCrash, poker: renderPoker, durak: renderDurak,
+      uno: renderUno, craps: renderCraps, plinko: renderPlinko,
+      loto: renderLoto, wheel2: renderWheel2, 'hi-lo-pro': renderHiLoPro,
+      baccarat2: renderBaccarat2, 'coin-multi': renderCoinMulti
+    };
+    if (games[game]) games[game]();
+  }
+
+  // ==================== 1. КОСТИ ====================
+  function renderDice() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="dice-row">
+          <div class="die" id="die1">?</div>
+          <div class="die" id="die2">?</div>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Сумма:</span>
+          <select class="bet-input" id="diceTarget">
+            ${[2,3,4,5,6,7,8,9,10,11,12].map(n => `<option value="${n}">${n}</option>`).join('')}
+          </select>
+        </div>
+        <button class="action-btn" id="rollDice"><i class="bi bi-dice-6-fill"></i> Бросить кости</button>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    document.getElementById('rollDice').addEventListener('click', () => {
+      const bet = getBet(); if (!bet) return;
+      const target = parseInt(document.getElementById('diceTarget').value);
+      const d1 = Math.floor(Math.random() * 6) + 1;
+      const d2 = Math.floor(Math.random() * 6) + 1;
+      const die1 = document.getElementById('die1');
+      const die2 = document.getElementById('die2');
+      die1.classList.add('rolling'); die2.classList.add('rolling');
+      die1.textContent = '?'; die2.textContent = '?';
+      updateBalance(-bet);
+      setTimeout(() => {
+        die1.classList.remove('rolling'); die2.classList.remove('rolling');
+        die1.textContent = d1; die2.textContent = d2;
+        const sum = d1 + d2;
+        if (sum === target) { updateBalance(bet * 3); showResult(`Выпало ${sum}! Ты выиграл ${bet * 2} фишек!`, 'win'); }
+        else showResult(`Выпало ${sum}, а ты ставил на ${target}. Проигрыш.`, 'lose');
+      }, 500);
+    });
+  }
+
+  // ==================== 2. МОНЕТКА ====================
+  function renderCoin() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="coin-wrap"><div class="coin" id="coin"><i class="bi bi-coin"></i></div></div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <div class="bet-row" style="justify-content:center; gap:12px;">
+          <button class="chip-btn" id="pickHeads" style="flex:1; padding:14px; font-size:15px;">Орёл</button>
+          <button class="chip-btn" id="pickTails" style="flex:1; padding:14px; font-size:15px;">Решка</button>
+        </div>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    let pick = null;
+    document.getElementById('pickHeads').addEventListener('click', () => { pick = 'heads'; flip(); });
+    document.getElementById('pickTails').addEventListener('click', () => { pick = 'tails'; flip(); });
+    function flip() {
+      const bet = getBet(); if (!bet) return;
+      if (!pick) { showResult('Выбери сторону!', 'lose'); return; }
+      const coin = document.getElementById('coin');
+      updateBalance(-bet);
+      coin.style.transform = 'rotateY(1800deg) scale(1.1)';
+      setTimeout(() => {
+        const result = Math.random() < 0.5 ? 'heads' : 'tails';
+        coin.innerHTML = result === 'heads' ? '<i class="bi bi-coin"></i>' : '<i class="bi bi-circle-fill"></i>';
+        coin.style.transform = 'rotateY(0deg) scale(1)';
+        if (result === pick) { updateBalance(bet * 2); showResult(`Выпало ${result === 'heads' ? 'Орёл' : 'Решка'}! Выигрыш ${bet} фишек!`, 'win'); }
+        else showResult(`Выпало ${result === 'heads' ? 'Орёл' : 'Решка'}. Проигрыш.`, 'lose');
+      }, 1000);
+    }
+  }
+
+  // ==================== 3. СЛОТЫ ====================
+  function renderSlots() {
+    const symbols = [
+      '<i class="bi bi-suit-heart-fill" style="color:#ef4444"></i>',
+      '<i class="bi bi-suit-diamond-fill" style="color:#ef4444"></i>',
+      '<i class="bi bi-suit-club-fill" style="color:#07070d"></i>',
+      '<i class="bi bi-suit-spade-fill" style="color:#07070d"></i>',
+      '<i class="bi bi-star-fill" style="color:#a78bfa"></i>',
+      '<i class="bi bi-gem" style="color:#22d3ee"></i>'
+    ];
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="slots-wrap">
+          <div class="slot" id="slot1"><i class="bi bi-question-lg"></i></div>
+          <div class="slot" id="slot2"><i class="bi bi-question-lg"></i></div>
+          <div class="slot" id="slot3"><i class="bi bi-question-lg"></i></div>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <button class="action-btn" id="spinSlots"><i class="bi bi-arrow-repeat"></i> Крутить</button>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    document.getElementById('spinSlots').addEventListener('click', () => {
+      const bet = getBet(); if (!bet) return;
+      updateBalance(-bet);
+      const slots = [document.getElementById('slot1'), document.getElementById('slot2'), document.getElementById('slot3')];
+      slots.forEach(s => s.classList.add('spinning'));
+      let tick = 0;
+      const interval = setInterval(() => {
+        slots.forEach(s => s.innerHTML = symbols[Math.floor(Math.random() * symbols.length)]);
+        tick++;
+        if (tick > 15) {
+          clearInterval(interval);
+          slots.forEach(s => s.classList.remove('spinning'));
+          const r1 = symbols[Math.floor(Math.random() * symbols.length)];
+          const r2 = symbols[Math.floor(Math.random() * symbols.length)];
+          const r3 = symbols[Math.floor(Math.random() * symbols.length)];
+          slots[0].innerHTML = r1; slots[1].innerHTML = r2; slots[2].innerHTML = r3;
+          if (r1 === r2 && r2 === r3) { updateBalance(bet * 10); showResult(`ДЖЕКПОТ! Выигрыш ${bet * 9} фишек!`, 'win'); }
+          else if (r1 === r2 || r2 === r3 || r1 === r3) { updateBalance(bet * 2); showResult(`Два совпадения! Выигрыш ${bet} фишек!`, 'win'); }
+          else showResult('Ничего не совпало. Проигрыш.', 'lose');
+        }
+      }, 80);
+    });
+  }
+
+  // ==================== 4. РУЛЕТКА ====================
+  function renderRoulette() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="roulette-wrap">
+          ${Array(9).fill(0).map((_, i) => `<div class="roulette-cell ${i % 2 === 1 ? 'black' : ''}" data-color="${i % 2 === 1 ? 'black' : 'red'}"><i class="bi bi-circle-fill"></i></div>`).join('')}
+        </div>
+        <div class="bet-row" style="justify-content:center; gap:12px;">
+          <button class="chip-btn" id="betRed" style="flex:1; padding:14px; color:#ef4444; border-color:rgba(239,68,68,0.5); font-size:15px;">Красное</button>
+          <button class="chip-btn" id="betBlack" style="flex:1; padding:14px; font-size:15px;">Чёрное</button>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    let pick = null;
+    document.querySelectorAll('.roulette-cell').forEach(cell => {
+      cell.addEventListener('click', () => {
+        document.querySelectorAll('.roulette-cell').forEach(c => c.classList.remove('selected'));
+        cell.classList.add('selected');
+        pick = cell.dataset.color;
+      });
+    });
+    document.getElementById('betRed').addEventListener('click', () => { pick = 'red'; play(); });
+    document.getElementById('betBlack').addEventListener('click', () => { pick = 'black'; play(); });
+    function play() {
+      const bet = getBet(); if (!bet) return;
+      if (!pick) { showResult('Выбери цвет!', 'lose'); return; }
+      updateBalance(-bet);
+      const result = Math.random() < 0.5 ? 'red' : 'black';
+      if (result === pick) { updateBalance(bet * 2); showResult(`Выпало ${result === 'red' ? 'Красное' : 'Чёрное'}! Выигрыш ${bet} фишек!`, 'win'); }
+      else showResult(`Выпало ${result === 'red' ? 'Красное' : 'Чёрное'}. Проигрыш.`, 'lose');
+    }
+  }
+
+  // ==================== 5. БЛЭКДЖЕК ====================
+  function renderBlackjack() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="hand-label">Дилер: <span class="hand-score" id="dealerScore">?</span></div>
+        <div class="cards-row" id="dealerCards"></div>
+        <div class="hand-label">Ты: <span class="hand-score" id="playerScore">0</span></div>
+        <div class="cards-row" id="playerCards"></div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <button class="action-btn" id="startBJ"><i class="bi bi-play-fill"></i> Начать</button>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    let playerCards = [], dealerCards = [], deck = [];
+    let standBtn = null;
+
+    function newDeck() {
+      const suits = ['♠', '♥', '♦', '♣'];
+      const vals = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+      deck = [];
+      suits.forEach(s => vals.forEach(v => deck.push({ v, s })));
+      deck.sort(() => Math.random() - 0.5);
+    }
+    function cardValue(card) {
+      if (card.v === 'A') return 11;
+      if (['J','Q','K'].includes(card.v)) return 10;
+      return parseInt(card.v);
+    }
+    function calcScore(cards) {
+      let sum = cards.reduce((a, c) => a + cardValue(c), 0);
+      let aces = cards.filter(c => c.v === 'A').length;
+      while (sum > 21 && aces > 0) { sum -= 10; aces--; }
+      return sum;
+    }
+    function renderCards(revealDealer = false) {
+      document.getElementById('playerCards').innerHTML = playerCards.map(c =>
+        `<div class="card ${['♥','♦'].includes(c.s) ? 'red' : ''}"><span class="card-val">${c.v}</span><span class="card-suit">${c.s}</span></div>`
+      ).join('');
+      document.getElementById('dealerCards').innerHTML = dealerCards.map((c, i) => {
+        if (!revealDealer && i === 1) {
+          return `<div class="card back"><i class="bi bi-question-lg"></i></div>`;
+        }
+        return `<div class="card ${['♥','♦'].includes(c.s) ? 'red' : ''}"><span class="card-val">${c.v}</span><span class="card-suit">${c.s}</span></div>`;
+      }).join('');
+      document.getElementById('playerScore').textContent = calcScore(playerCards);
+      if (revealDealer) {
+        document.getElementById('dealerScore').textContent = calcScore(dealerCards);
+      } else {
+        document.getElementById('dealerScore').textContent = cardValue(dealerCards[0]) + ' + ?';
+      }
+    }
+    document.getElementById('startBJ').addEventListener('click', function() {
+      const bet = getBet(); if (!bet) return;
+      updateBalance(-bet);
+      newDeck();
+      playerCards = [deck.pop(), deck.pop()];
+      dealerCards = [deck.pop(), deck.pop()];
+      renderCards(false);
+      this.textContent = 'Взять карту';
+      this.onclick = () => {
+        playerCards.push(deck.pop());
+        renderCards(false);
+        if (calcScore(playerCards) > 21) {
+          showResult('Перебор! Проигрыш.', 'lose');
+          renderCards(true);
+          resetBJ();
+        }
+      };
+      if (standBtn) standBtn.remove();
+      standBtn = document.createElement('button');
+      standBtn.className = 'action-btn alt';
+      standBtn.innerHTML = '<i class="bi bi-hand-thumbs-up-fill"></i> Хватит';
+      standBtn.style.marginTop = '8px';
+      standBtn.onclick = () => {
+        while (calcScore(dealerCards) < 17) dealerCards.push(deck.pop());
+        renderCards(true);
+        const ps = calcScore(playerCards), ds = calcScore(dealerCards);
+        if (ds > 21 || ps > ds) { updateBalance(bet * 2); showResult(`Ты выиграл! ${ps} против ${ds}. +${bet} фишек!`, 'win'); }
+        else if (ps === ds) { updateBalance(bet); showResult(`Ничья! ${ps} = ${ds}. Ставка возвращена.`, 'info'); }
+        else showResult(`Дилер выиграл: ${ds} против ${ps}.`, 'lose');
+        resetBJ();
+      };
+      this.parentElement.insertBefore(standBtn, this.nextSibling);
+    });
+    function resetBJ() {
+      setTimeout(() => { renderBlackjack(); }, 3000);
+    }
+  }
+
+  // ==================== 6. НАПЁРСТКИ ====================
+  function renderShells() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="shells-wrap">
+          <div class="shell" data-shell="0"><i class="bi bi-cup-fill"></i></div>
+          <div class="shell" data-shell="1"><i class="bi bi-cup-fill"></i></div>
+          <div class="shell" data-shell="2"><i class="bi bi-cup-fill"></i></div>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <button class="action-btn" id="startShells"><i class="bi bi-play-fill"></i> Начать</button>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    let ballPos = -1, playing = false, betAmount = 0;
+    document.getElementById('startShells').addEventListener('click', function() {
+      const bet = getBet(); if (!bet) return;
+      betAmount = bet; updateBalance(-bet);
+      ballPos = Math.floor(Math.random() * 3);
+      playing = true;
+      showResult('Шарик спрятан! Выбирай напёрсток...', 'info');
+      document.querySelectorAll('.shell').forEach(s => {
+        s.classList.remove('revealed');
+        s.innerHTML = '<i class="bi bi-cup-fill"></i>';
+        s.onclick = () => {
+          if (!playing) return;
+          playing = false;
+          const picked = parseInt(s.dataset.shell);
+          document.querySelectorAll('.shell').forEach((sh, i) => {
+            if (i === ballPos) { sh.innerHTML = '<i class="bi bi-circle-fill"></i>'; sh.classList.add('revealed'); }
+          });
+          if (picked === ballPos) { updateBalance(betAmount * 3); showResult(`Шарик здесь! Выигрыш ${betAmount * 2} фишек!`, 'win'); }
+          else showResult('Пусто! Проигрыш.', 'lose');
+        };
+      });
+      this.innerHTML = '<i class="bi bi-arrow-repeat"></i> Перемешать заново';
+    });
+  }
+
+  // ==================== 7. КОЛЕСО ФОРТУНЫ ====================
+  function renderWheel() {
+    const multipliers = [0, 0.5, 1, 1.5, 2, 3, 5, 0];
+    const colors = ['#ef4444', '#22c55e', '#22d3ee', '#a78bfa', '#f472b6', '#34d399', '#22d3ee', '#f97316'];
+    const n = multipliers.length;
+    const angleStep = 360 / n;
+    const conicParts = [];
+    for (let i = 0; i < n; i++) {
+      conicParts.push(`${colors[i]} ${i * angleStep}deg ${(i + 1) * angleStep}deg`);
+    }
+    const conic = `conic-gradient(${conicParts.join(', ')})`;
+
+    let labels = '';
+    for (let i = 0; i < n; i++) {
+      const angle = i * angleStep + angleStep / 2;
+      const rad = (angle - 90) * Math.PI / 180;
+      const r = 88;
+      const x = Math.cos(rad) * r;
+      const y = Math.sin(rad) * r;
+      labels += `<div style="position:absolute; top:50%; left:50%; transform: translate(calc(-50% + ${x}px), calc(-50% + ${y}px)); font-size:13px; font-weight:900; color:#fff; text-shadow:0 1px 3px rgba(0,0,0,0.9); pointer-events:none;">×${multipliers[i]}</div>`;
+    }
+
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="wheel-wrap">
+          <div class="wheel-holder">
+            <div class="wheel-pointer"><i class="bi bi-caret-down-fill"></i></div>
+            <div class="wheel" id="wheel" style="background:${conic};">
+              ${labels}
+              <div class="wheel-center"><i class="bi bi-star-fill"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <button class="action-btn" id="spinWheel"><i class="bi bi-arrow-repeat"></i> Крутить</button>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    let rotation = 0;
+    document.getElementById('spinWheel').addEventListener('click', () => {
+      const bet = getBet(); if (!bet) return;
+      updateBalance(-bet);
+      const idx = Math.floor(Math.random() * n);
+      const mult = multipliers[idx];
+      const targetAngle = 360 * 5 + (360 - (idx * angleStep + angleStep / 2));
+      rotation += targetAngle;
+      const wheel = document.getElementById('wheel');
+      wheel.style.transform = `rotate(${rotation}deg)`;
+      setTimeout(() => {
+        if (mult === 0) showResult('Увы, ×0. Проигрыш.', 'lose');
+        else { const win = Math.floor(bet * mult); updateBalance(win); showResult(`Выпало ×${mult}! Выигрыш ${win} фишек!`, 'win'); }
+      }, 3100);
+    });
+  }
+
+  // ==================== 8. БАККАРА ====================
+  function renderBaccarat() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="baccara-wrap">
+          <div class="baccara-side"><h4>Игрок</h4><div class="baccara-score" id="playerScore">?</div></div>
+          <div class="baccara-side"><h4>Банкир</h4><div class="baccara-score" id="bankerScore">?</div></div>
+        </div>
+        <div class="bet-row" style="justify-content:center; gap:12px;">
+          <button class="chip-btn" id="betPlayer" style="flex:1; padding:14px; font-size:15px;">Игрок ×2</button>
+          <button class="chip-btn" id="betBanker" style="flex:1; padding:14px; font-size:15px;">Банкир ×2</button>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    function cardVal() { const n = Math.floor(Math.random() * 10) + 1; return n >= 10 ? 0 : n; }
+    function play(pick) {
+      const bet = getBet(); if (!bet) return;
+      updateBalance(-bet);
+      const p = (cardVal() + cardVal()) % 10;
+      const b = (cardVal() + cardVal()) % 10;
+      document.getElementById('playerScore').textContent = p;
+      document.getElementById('bankerScore').textContent = b;
+      if (p === b) { updateBalance(bet); showResult(`Ничья! ${p} = ${b}. Ставка возвращена.`, 'info'); }
+      else if ((pick === 'player' && p > b) || (pick === 'banker' && b > p)) {
+        updateBalance(bet * 2);
+        showResult(`${pick === 'player' ? 'Игрок' : 'Банкир'} выиграл ${p > b ? p : b} против ${p > b ? b : p}! +${bet} фишек!`, 'win');
+      } else showResult(`${pick === 'player' ? 'Игрок' : 'Банкир'} проиграл.`, 'lose');
+    }
+    document.getElementById('betPlayer').addEventListener('click', () => play('player'));
+    document.getElementById('betBanker').addEventListener('click', () => play('banker'));
+  }
+
+  // ==================== 9. ХАЙ-ЛОУ ====================
+  function renderHiLo() {
+    const suits = ['♠', '♥', '♦', '♣'];
+    const vals = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+    let currentCard = { v: vals[Math.floor(Math.random() * vals.length)], s: suits[Math.floor(Math.random() * suits.length)] };
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="hilo-card">
+          <div class="card ${['♥','♦'].includes(currentCard.s) ? 'red' : ''}" id="hiloCard">
+            <span class="card-val">${currentCard.v}</span><span class="card-suit">${currentCard.s}</span>
+          </div>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <div class="hilo-buttons">
+          <button class="action-btn" id="hiloHigh"><i class="bi bi-arrow-up"></i> Больше</button>
+          <button class="action-btn alt" id="hiloLow"><i class="bi bi-arrow-down"></i> Меньше</button>
+        </div>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    function cardRank(c) { return vals.indexOf(c.v); }
+    function play(pick) {
+      const bet = getBet(); if (!bet) return;
+      updateBalance(-bet);
+      const next = { v: vals[Math.floor(Math.random() * vals.length)], s: suits[Math.floor(Math.random() * suits.length)] };
+      const curRank = cardRank(currentCard), nextRank = cardRank(next);
+      const cardEl = document.getElementById('hiloCard');
+      cardEl.innerHTML = `<span class="card-val">${next.v}</span><span class="card-suit">${next.s}</span>`;
+      cardEl.className = 'card ' + (['♥','♦'].includes(next.s) ? 'red' : '');
+      if ((pick === 'high' && nextRank > curRank) || (pick === 'low' && nextRank < curRank)) {
+        updateBalance(bet * 2);
+        showResult(`Угадал! ${next.v}${next.s}. Выигрыш ${bet} фишек!`, 'win');
+      } else if (nextRank === curRank) {
+        updateBalance(bet); showResult(`Та же карта. Ставка возвращена.`, 'info');
+      } else showResult(`Не угадал. ${next.v}${next.s} — не то.`, 'lose');
+      currentCard = next;
+    }
+    document.getElementById('hiloHigh').addEventListener('click', () => play('high'));
+    document.getElementById('hiloLow').addEventListener('click', () => play('low'));
+  }
+
+  // ==================== 10. КРАШ ====================
+  function renderCrash() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="crash-display" id="crashDisplay">×1.00</div>
+        <div class="crash-bar"><div class="crash-bar-fill" id="crashBar"></div></div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <button class="action-btn" id="startCrash"><i class="bi bi-graph-up-arrow"></i> Запустить</button>
+        <button class="action-btn hidden" id="cashOut" style="background:linear-gradient(135deg,#22c55e,#22d3ee);border-color:#22c55e;"><i class="bi bi-cash-coin"></i> Забрать</button>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    let running = false, crashAt = 0, current = 1, timer = null, betAmount = 0, cashedOut = false;
+    document.getElementById('startCrash').addEventListener('click', function() {
+      const bet = getBet(); if (!bet) return;
+      betAmount = bet; updateBalance(-bet);
+      running = true; cashedOut = false; current = 1;
+      crashAt = 1 + Math.random() * 8;
+      document.getElementById('crashDisplay').textContent = '×1.00';
+      document.getElementById('crashDisplay').classList.remove('crashed');
+      document.getElementById('crashBar').style.width = '0%';
+      document.getElementById('startCrash').disabled = true;
+      document.getElementById('cashOut').classList.remove('hidden');
+      showResult('Множитель растёт! Жми "Забрать"!', 'info');
+      timer = setInterval(() => {
+        current += 0.02 + current * 0.01;
+        if (current >= crashAt) {
+          clearInterval(timer); running = false;
+          document.getElementById('crashDisplay').textContent = '×' + crashAt.toFixed(2) + ' — крах';
+          document.getElementById('crashDisplay').classList.add('crashed');
+          document.getElementById('cashOut').classList.add('hidden');
+          document.getElementById('startCrash').disabled = false;
+          if (!cashedOut) showResult(`Крах на ×${crashAt.toFixed(2)}! Ты не успел. Проигрыш.`, 'lose');
+        } else {
+          document.getElementById('crashDisplay').textContent = '×' + current.toFixed(2);
+          document.getElementById('crashBar').style.width = Math.min((current / 10) * 100, 100) + '%';
+        }
+      }, 100);
+    });
+    document.getElementById('cashOut').addEventListener('click', () => {
+      if (!running || cashedOut) return;
+      cashedOut = true; clearInterval(timer); running = false;
+      const win = Math.floor(betAmount * current);
+      updateBalance(win);
+      document.getElementById('crashDisplay').textContent = '×' + current.toFixed(2) + ' — забрано';
+      document.getElementById('cashOut').classList.add('hidden');
+      document.getElementById('startCrash').disabled = false;
+      showResult(`Забрал на ×${current.toFixed(2)}! Выигрыш ${win} фишек!`, 'win');
+    });
+  }
+
+  // ==================== 11. ПОКЕР ====================
+  function renderPoker() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="hand-label">Твоя рука:</div>
+        <div class="poker-hand" id="pokerHand" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:16px 0;min-height:100px;"></div>
+        <div class="hand-label">Комбинация: <span class="hand-score" id="pokerCombo">-</span></div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <button class="action-btn" id="dealPoker"><i class="bi bi-suit-club-fill"></i> Раздать</button>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    const suits = ['♠', '♥', '♦', '♣'];
+    const vals = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+    function newCard() { return { v: vals[Math.floor(Math.random() * vals.length)], s: suits[Math.floor(Math.random() * suits.length)] }; }
+    function renderHand(cards, el) {
+      el.innerHTML = cards.map(c => `<div class="card ${['♥','♦'].includes(c.s) ? 'red' : ''}"><span class="card-val">${c.v}</span><span class="card-suit">${c.s}</span></div>`).join('');
+    }
+    function combo(cards) {
+      const ranks = cards.map(c => c.v).sort();
+      const suitsArr = cards.map(c => c.s);
+      const sameSuit = suitsArr.every(s => s === suitsArr[0]);
+      const rankCount = {};
+      ranks.forEach(r => rankCount[r] = (rankCount[r] || 0) + 1);
+      const counts = Object.values(rankCount).sort((a,b) => b - a);
+      const rankIdx = ranks.map(r => vals.indexOf(r)).sort((a,b) => a-b);
+      const isStraight = rankIdx.every((v,i) => i === 0 || v === rankIdx[i-1] + 1);
+      if (sameSuit && isStraight) return { name: 'Стрит-флеш', mult: 50 };
+      if (counts[0] === 4) return { name: 'Каре', mult: 25 };
+      if (counts[0] === 3 && counts[1] === 2) return { name: 'Фулл-хаус', mult: 9 };
+      if (sameSuit) return { name: 'Флеш', mult: 6 };
+      if (isStraight) return { name: 'Стрит', mult: 4 };
+      if (counts[0] === 3) return { name: 'Сет', mult: 3 };
+      if (counts[0] === 2 && counts[1] === 2) return { name: 'Две пары', mult: 2 };
+      if (counts[0] === 2) return { name: 'Пара', mult: 1 };
+      return { name: 'Старшая карта', mult: 0 };
+    }
+    document.getElementById('dealPoker').addEventListener('click', () => {
+      const bet = getBet(); if (!bet) return;
+      updateBalance(-bet);
+      const hand = [newCard(), newCard(), newCard(), newCard(), newCard()];
+      renderHand(hand, document.getElementById('pokerHand'));
+      const c = combo(hand);
+      document.getElementById('pokerCombo').textContent = c.name;
+      if (c.mult > 0) {
+        const win = bet * c.mult;
+        updateBalance(win);
+        showResult(`${c.name}! Выигрыш ${win} фишек (×${c.mult})!`, 'win');
+      } else showResult(`Старшая карта. Проигрыш.`, 'lose');
+    });
+  }
+
+  // ==================== 12. ДУРАК ====================
+  function renderDurak() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="hand-label">ИИ: <span class="hand-score" id="aiCount">0</span> карт</div>
+        <div class="cards-row" id="aiCards"></div>
+        <div class="hand-label">Твоя рука (выбери карту для атаки):</div>
+        <div class="cards-row" id="playerCards"></div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <button class="action-btn" id="startDurak"><i class="bi bi-shield-fill"></i> Начать</button>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    const suits = ['♠', '♥', '♦', '♣'];
+    const vals = ['6','7','8','9','10','J','Q','K','A'];
+    let deck = [], playerHand = [], aiHand = [], trump = '';
+    function newCard() { return { v: vals[Math.floor(Math.random() * vals.length)], s: suits[Math.floor(Math.random() * suits.length)] }; }
+    function renderHand(cards, el, clickable = false) {
+      el.innerHTML = cards.map((c, i) => `<div class="card ${['♥','♦'].includes(c.s) ? 'red' : ''}" data-idx="${i}" style="${clickable ? 'cursor:pointer' : ''}"><span class="card-val">${c.v}</span><span class="card-suit">${c.s}</span></div>`).join('');
+    }
+    document.getElementById('startDurak').addEventListener('click', function() {
+      const bet = getBet(); if (!bet) return;
+      updateBalance(-bet);
+      deck = []; for (let i = 0; i < 36; i++) deck.push(newCard());
+      trump = suits[Math.floor(Math.random() * suits.length)];
+      playerHand = deck.splice(0, 6); aiHand = deck.splice(0, 6);
+      renderHand(playerHand, document.getElementById('playerCards'), true);
+      renderHand(aiHand.map(() => ({ v: '?', s: '?' })), document.getElementById('aiCards'));
+      document.getElementById('aiCount').textContent = aiHand.length;
+      showResult(`Козырь: ${trump}. Твой ход — выбери карту для атаки.`, 'info');
+      this.textContent = 'Сбросить заново';
+      document.getElementById('playerCards').querySelectorAll('.card').forEach(cardEl => {
+        cardEl.onclick = () => {
+          const idx = parseInt(cardEl.dataset.idx);
+          const attack = playerHand[idx];
+          const aiIdx = aiHand.findIndex(c => {
+            if (c.s === attack.s && vals.indexOf(c.v) > vals.indexOf(attack.v)) return true;
+            if (c.s === trump && attack.s !== trump) return true;
+            return false;
+          });
+          if (aiIdx >= 0) {
+            const def = aiHand.splice(aiIdx, 1)[0];
+            playerHand.splice(idx, 1);
+            deck.push(attack, def);
+            showResult(`ИИ побил ${attack.v}${attack.s} картой ${def.v}${def.s}. Продолжай.`, 'info');
+            if (playerHand.length === 0) { updateBalance(bet * 3); showResult(`Ты вышел! Победа! +${bet * 2} фишек!`, 'win'); return; }
+            renderHand(playerHand, document.getElementById('playerCards'), true);
+            renderHand(aiHand.map(() => ({ v: '?', s: '?' })), document.getElementById('aiCards'));
+            document.getElementById('aiCount').textContent = aiHand.length;
+            document.getElementById('playerCards').querySelectorAll('.card').forEach(c => {
+              c.onclick = cardEl.onclick;
+            });
+          } else {
+            playerHand.splice(idx, 1);
+            aiHand.push(attack);
+            const newCardPlayer = deck.pop();
+            if (newCardPlayer) playerHand.push(newCardPlayer);
+            showResult(`ИИ взял ${attack.v}${attack.s}. Ты добираешь карту.`, 'info');
+            renderHand(playerHand, document.getElementById('playerCards'), true);
+            renderHand(aiHand.map(() => ({ v: '?', s: '?' })), document.getElementById('aiCards'));
+            document.getElementById('aiCount').textContent = aiHand.length;
+            document.getElementById('playerCards').querySelectorAll('.card').forEach(c => {
+              c.onclick = cardEl.onclick;
+            });
+          }
+        };
+      });
+    });
+  }
+
+  // ==================== 13. УНО ====================
+  function renderUno() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="hand-label">ИИ: <span class="hand-score" id="aiCount">0</span> карт</div>
+        <div class="uno-hand" id="aiCards"></div>
+        <div style="text-align:center; margin: 16px 0;">
+          <div style="font-size:12px; color:#8a8aa0; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px;">На столе</div>
+          <div id="tableCard" style="display:inline-block;"></div>
+        </div>
+        <div class="hand-label">Твоя рука (нажми, чтобы сбросить):</div>
+        <div class="uno-hand" id="playerCards"></div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <button class="action-btn" id="startUno"><i class="bi bi-palette-fill"></i> Начать</button>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    const colors = ['red', 'blue', 'green', 'yellow'];
+    const values = ['0','1','2','3','4','5','6','7','8','9'];
+    function newUno() { return { c: colors[Math.floor(Math.random() * colors.length)], v: values[Math.floor(Math.random() * values.length)] }; }
+    function renderUnoCard(card, el) {
+      const cls = card.c === 'wild' ? 'wild' : card.c;
+      el.innerHTML = `<div class="uno-card ${cls}">${card.v}</div>`;
+    }
+    function renderHand(cards, el, clickable = false, onClick = null) {
+      el.innerHTML = '';
+      cards.forEach((card, i) => {
+        const div = document.createElement('div');
+        div.className = 'uno-card ' + (card.c === 'wild' ? 'wild' : card.c);
+        div.textContent = card.v;
+        if (clickable) { div.style.cursor = 'pointer'; div.onclick = () => onClick(i); }
+        el.appendChild(div);
+      });
+    }
+    let playerHand = [], aiHand = [], table = null, betAmount = 0;
+    document.getElementById('startUno').addEventListener('click', function() {
+      const bet = getBet(); if (!bet) return;
+      betAmount = bet; updateBalance(-bet);
+      playerHand = []; aiHand = [];
+      for (let i = 0; i < 7; i++) { playerHand.push(newUno()); aiHand.push(newUno()); }
+      table = newUno();
+      renderUnoCard(table, document.getElementById('tableCard'));
+      renderHand(playerHand, document.getElementById('playerCards'), true, playCard);
+      renderHand(aiHand.map(() => ({ c: 'wild', v: '?' })), document.getElementById('aiCards'));
+      document.getElementById('aiCount').textContent = aiHand.length;
+      showResult('Твой ход! Сбрось карту того же цвета или значения.', 'info');
+      this.textContent = 'Заново';
+    });
+    function playCard(idx) {
+      const card = playerHand[idx];
+      if (card.c !== table.c && card.v !== table.v) { showResult('Нельзя! Нужен тот же цвет или значение.', 'lose'); return; }
+      playerHand.splice(idx, 1);
+      table = card;
+      renderUnoCard(table, document.getElementById('tableCard'));
+      if (playerHand.length === 0) { updateBalance(betAmount * 3); showResult(`УНО! Ты выиграл ${betAmount * 2} фишек!`, 'win'); return; }
+      const aiIdx = aiHand.findIndex(c => c.c === table.c || c.v === table.v);
+      if (aiIdx >= 0) {
+        const aiCard = aiHand.splice(aiIdx, 1)[0];
+        table = aiCard;
+        renderUnoCard(table, document.getElementById('tableCard'));
+        if (aiHand.length === 0) { showResult('ИИ выиграл! Уно у него.', 'lose'); return; }
+      } else {
+        aiHand.push(newUno());
+      }
+      renderHand(playerHand, document.getElementById('playerCards'), true, playCard);
+      renderHand(aiHand.map(() => ({ c: 'wild', v: '?' })), document.getElementById('aiCards'));
+      document.getElementById('aiCount').textContent = aiHand.length;
+      showResult('Твой ход!', 'info');
+    }
+  }
+
+  // ==================== 14. КРЭПС ====================
+  function renderCraps() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="dice-row">
+          <div class="die" id="cd1">?</div>
+          <div class="die" id="cd2">?</div>
+        </div>
+        <div class="craps-row">
+          <button class="craps-btn" id="betPass">Пас (7/11)</button>
+          <button class="craps-btn" id="betDont">Донт (2/3)</button>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <button class="action-btn" id="rollCraps"><i class="bi bi-dice-5"></i> Бросок</button>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    let pick = null;
+    document.getElementById('betPass').addEventListener('click', () => { pick = 'pass'; document.querySelectorAll('.craps-btn').forEach(b => b.classList.remove('selected')); document.getElementById('betPass').classList.add('selected'); });
+    document.getElementById('betDont').addEventListener('click', () => { pick = 'dont'; document.querySelectorAll('.craps-btn').forEach(b => b.classList.remove('selected')); document.getElementById('betDont').classList.add('selected'); });
+    document.getElementById('rollCraps').addEventListener('click', () => {
+      const bet = getBet(); if (!bet) return;
+      if (!pick) { showResult('Выбери ставку!', 'lose'); return; }
+      updateBalance(-bet);
+      const d1 = Math.floor(Math.random() * 6) + 1;
+      const d2 = Math.floor(Math.random() * 6) + 1;
+      const sum = d1 + d2;
+      const die1 = document.getElementById('cd1'); const die2 = document.getElementById('cd2');
+      die1.classList.add('rolling'); die2.classList.add('rolling');
+      setTimeout(() => {
+        die1.classList.remove('rolling'); die2.classList.remove('rolling');
+        die1.textContent = d1; die2.textContent = d2;
+        if (pick === 'pass') {
+          if (sum === 7 || sum === 11) { updateBalance(bet * 2); showResult(`Пас выиграл! ${sum}! +${bet} фишек!`, 'win'); }
+          else if (sum === 2 || sum === 3 || sum === 12) showResult(`Крэпс! ${sum}. Пас проиграл.`, 'lose');
+          else showResult(`Сумма ${sum}. Ничья (ставка возвращена).`, 'info');
+        } else {
+          if (sum === 2 || sum === 3 || sum === 12) { updateBalance(bet * 2); showResult(`Донт выиграл! ${sum}! +${bet} фишек!`, 'win'); }
+          else if (sum === 7 || sum === 11) showResult(`Пас! ${sum}. Донт проиграл.`, 'lose');
+          else showResult(`Сумма ${sum}. Ничья (ставка возвращена).`, 'info');
+        }
+      }, 500);
+    });
+  }
+
+  // ==================== 15. ПЛИНКО ====================
+  function renderPlinko() {
+    const slots = [5, 3, 2, 1, 0.5, 0.2, 0.5, 1, 2, 3, 5];
+    const colors = ['#ef4444', '#f97316', '#a78bfa', '#22c55e', '#22d3ee', '#a78bfa', '#22d3ee', '#22c55e', '#a78bfa', '#f97316', '#ef4444'];
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="plinko-board">
+          <div class="plinko-arrow" id="plinkoArrow"><i class="bi bi-circle-fill"></i></div>
+          <div style="display:flex; justify-content:space-between; width:100%; padding: 8px 0; gap:4px;">
+            ${slots.map((s, i) => `<div class="plinko-slot" style="background:${colors[i]};">×${s}</div>`).join('')}
+          </div>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <button class="action-btn" id="dropPlinko"><i class="bi bi-triangle-fill"></i> Бросить шарик</button>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    document.getElementById('dropPlinko').addEventListener('click', () => {
+      const bet = getBet(); if (!bet) return;
+      updateBalance(-bet);
+      const arrow = document.getElementById('plinkoArrow');
+      let step = 0;
+      const totalSteps = 8;
+      const interval = setInterval(() => {
+        step++;
+        const offset = (Math.random() - 0.5) * 40;
+        arrow.style.transform = `translateX(${offset}px) translateY(${step * 4}px) rotate(${step * 45}deg)`;
+        if (step >= totalSteps) {
+          clearInterval(interval);
+          const idx = Math.floor(Math.random() * slots.length);
+          const mult = slots[idx];
+          arrow.style.transform = `translateX(${(idx - 5) * 50}px) translateY(${totalSteps * 4}px)`;
+          setTimeout(() => {
+            if (mult < 1) { showResult(`Увы, ×${mult}. Проигрыш.`, 'lose'); }
+            else { const win = Math.floor(bet * mult); updateBalance(win); showResult(`Попал в ×${mult}! Выигрыш ${win} фишек!`, 'win'); }
+            arrow.style.transform = 'translateX(0) translateY(0)';
+          }, 400);
+        }
+      }, 100);
+    });
+  }
+
+  // ==================== 16. ЛОТЕРЕЯ ====================
+  function renderLoto() {
+    const numbers = Array.from({ length: 25 }, (_, i) => i + 1);
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div style="text-align:center; font-size:13px; color:#8a8aa0; margin-bottom:12px;">Выбери 5 чисел (нажми на клетки)</div>
+        <div class="loto-grid" id="lotoGrid">
+          ${numbers.map(n => `<div class="loto-cell" data-num="${n}">${n}</div>`).join('')}
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <button class="action-btn" id="drawLoto"><i class="bi bi-grid-3x3-gap-fill"></i> Розыгрыш</button>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    const selected = new Set();
+    document.querySelectorAll('.loto-cell').forEach(cell => {
+      cell.addEventListener('click', () => {
+        if (selected.has(cell.dataset.num)) { selected.delete(cell.dataset.num); cell.classList.remove('selected'); }
+        else if (selected.size < 5) { selected.add(cell.dataset.num); cell.classList.add('selected'); }
+      });
+    });
+    document.getElementById('drawLoto').addEventListener('click', () => {
+      if (selected.size !== 5) { showResult('Выбери ровно 5 чисел!', 'lose'); return; }
+      const bet = getBet(); if (!bet) return;
+      updateBalance(-bet);
+      const drawn = [];
+      while (drawn.length < 5) {
+        const n = Math.floor(Math.random() * 25) + 1;
+        if (!drawn.includes(n)) drawn.push(n);
+      }
+      document.querySelectorAll('.loto-cell').forEach(cell => {
+        if (drawn.includes(parseInt(cell.dataset.num))) cell.classList.add('drawn');
+      });
+      const matches = drawn.filter(n => selected.has(String(n))).length;
+      if (matches === 5) { updateBalance(bet * 50); showResult(`Все 5 совпали! ДЖЕКПОТ ${bet * 49} фишек!`, 'win'); }
+      else if (matches === 4) { updateBalance(bet * 10); showResult(`4 совпадения! Выигрыш ${bet * 9} фишек!`, 'win'); }
+      else if (matches === 3) { updateBalance(bet * 3); showResult(`3 совпадения! Выигрыш ${bet * 2} фишек!`, 'win'); }
+      else showResult(`Совпадений: ${matches}. Проигрыш.`, 'lose');
+    });
+  }
+
+  // ==================== 17. КОЛЕСО УДАЧИ ====================
+  function renderWheel2() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div style="text-align:center; margin: 20px 0;">
+          <div style="font-size:64px; font-weight:900; background:linear-gradient(135deg,#a78bfa,#22d3ee); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;" id="w2Display">?</div>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <button class="action-btn" id="spinW2"><i class="bi bi-bullseye"></i> Крутить</button>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    document.getElementById('spinW2').addEventListener('click', () => {
+      const bet = getBet(); if (!bet) return;
+      updateBalance(-bet);
+      const mults = [0, 0.5, 1, 2, 3, 5, 10];
+      const disp = document.getElementById('w2Display');
+      let count = 0;
+      const interval = setInterval(() => {
+        disp.textContent = '×' + mults[Math.floor(Math.random() * mults.length)];
+        count++;
+        if (count > 20) {
+          clearInterval(interval);
+          const idx = Math.floor(Math.random() * mults.length);
+          const mult = mults[idx];
+          disp.textContent = '×' + mult;
+          if (mult === 0) showResult('×0. Проигрыш.', 'lose');
+          else { const win = Math.floor(bet * mult); updateBalance(win); showResult(`×${mult}! Выигрыш ${win} фишек!`, 'win'); }
+        }
+      }, 80);
+    });
+  }
+
+  // ==================== 18. ХАЙ-ЛОУ ПРО ====================
+  function renderHiLoPro() {
+    const suits = ['♠', '♥', '♦', '♣'];
+    const vals = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+    let currentCard = { v: vals[Math.floor(Math.random() * vals.length)], s: suits[Math.floor(Math.random() * suits.length)] };
+    let streak = 0;
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div style="text-align:center; font-size:12px; color:#8a8aa0; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px;">Серия: <span id="streakVal" style="color:#22d3ee; font-size:20px;">0</span></div>
+        <div class="hilo-card">
+          <div class="card ${['♥','♦'].includes(currentCard.s) ? 'red' : ''}" id="hlpCard">
+            <span class="card-val">${currentCard.v}</span><span class="card-suit">${currentCard.s}</span>
+          </div>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <div class="hilo-buttons">
+          <button class="action-btn" id="hlpHigh"><i class="bi bi-arrow-up"></i> Больше</button>
+          <button class="action-btn alt" id="hlpLow"><i class="bi bi-arrow-down"></i> Меньше</button>
+        </div>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    function cardRank(c) { return vals.indexOf(c.v); }
+    function play(pick) {
+      const bet = getBet(); if (!bet) return;
+      updateBalance(-bet);
+      const next = { v: vals[Math.floor(Math.random() * vals.length)], s: suits[Math.floor(Math.random() * suits.length)] };
+      const curRank = cardRank(currentCard), nextRank = cardRank(next);
+      const cardEl = document.getElementById('hlpCard');
+      cardEl.innerHTML = `<span class="card-val">${next.v}</span><span class="card-suit">${next.s}</span>`;
+      cardEl.className = 'card ' + (['♥','♦'].includes(next.s) ? 'red' : '');
+      if ((pick === 'high' && nextRank > curRank) || (pick === 'low' && nextRank < curRank)) {
+        streak++;
+        const win = bet * (1 + streak * 0.5);
+        updateBalance(Math.floor(win));
+        showResult(`Угадал! ×${(1 + streak * 0.5).toFixed(1)}. Выигрыш ${Math.floor(win)} фишек!`, 'win');
+      } else if (nextRank === curRank) {
+        updateBalance(bet); showResult(`Та же карта. Ставка возвращена.`, 'info');
+      } else {
+        streak = 0;
+        showResult(`Не угадал. Серия сброшена.`, 'lose');
+      }
+      document.getElementById('streakVal').textContent = streak;
+      currentCard = next;
+    }
+    document.getElementById('hlpHigh').addEventListener('click', () => play('high'));
+    document.getElementById('hlpLow').addEventListener('click', () => play('low'));
+  }
+
+  // ==================== 19. БАККАРА ПРО ====================
+  function renderBaccarat2() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div class="baccara-wrap">
+          <div class="baccara-side"><h4>Игрок</h4><div class="baccara-score" id="p2Score">?</div></div>
+          <div class="baccara-side"><h4>Банкир</h4><div class="baccara-score" id="b2Score">?</div></div>
+        </div>
+        <div class="bet-row" style="justify-content:center; gap:8px; flex-wrap:wrap;">
+          <button class="chip-btn" id="b2Player" style="flex:1; padding:12px; font-size:13px;">Игрок ×2</button>
+          <button class="chip-btn" id="b2Banker" style="flex:1; padding:12px; font-size:13px;">Банкир ×2</button>
+          <button class="chip-btn" id="b2Tie" style="flex:1; padding:12px; font-size:13px; color:#22d3ee; border-color:rgba(34,211,238,0.5);">Ничья ×8</button>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    function cardVal() { const n = Math.floor(Math.random() * 10) + 1; return n >= 10 ? 0 : n; }
+    function play(pick) {
+      const bet = getBet(); if (!bet) return;
+      updateBalance(-bet);
+      const p = (cardVal() + cardVal()) % 10;
+      const b = (cardVal() + cardVal()) % 10;
+      document.getElementById('p2Score').textContent = p;
+      document.getElementById('b2Score').textContent = b;
+      if (p === b) {
+        if (pick === 'tie') { updateBalance(bet * 8); showResult(`Ничья! Ты выиграл ${bet * 7} фишек!`, 'win'); }
+        else { updateBalance(bet); showResult(`Ничья! Ставка возвращена.`, 'info'); }
+      } else if (pick === 'tie') {
+        showResult(`Ничья не выпала (${p} vs ${b}). Проигрыш.`, 'lose');
+      } else if ((pick === 'player' && p > b) || (pick === 'banker' && b > p)) {
+        updateBalance(bet * 2);
+        showResult(`${pick === 'player' ? 'Игрок' : 'Банкир'} выиграл! +${bet} фишек!`, 'win');
+      } else showResult(`Проигрыш.`, 'lose');
+    }
+    document.getElementById('b2Player').addEventListener('click', () => play('player'));
+    document.getElementById('b2Banker').addEventListener('click', () => play('banker'));
+    document.getElementById('b2Tie').addEventListener('click', () => play('tie'));
+  }
+
+  // ==================== 20. МОНЕТКА-МУЛЬТИ ====================
+  function renderCoinMulti() {
+    gameArea.innerHTML = `
+      <div class="game-content">
+        <div style="display:flex; justify-content:center; gap:20px; margin: 20px 0;">
+          <div class="coin" id="cm1" style="width:80px; height:80px; font-size:32px;"><i class="bi bi-coin"></i></div>
+          <div class="coin" id="cm2" style="width:80px; height:80px; font-size:32px;"><i class="bi bi-coin"></i></div>
+          <div class="coin" id="cm3" style="width:80px; height:80px; font-size:32px;"><i class="bi bi-coin"></i></div>
+        </div>
+        <div style="text-align:center; font-size:13px; color:#8a8aa0; margin-bottom:12px;">Угадай, сколько выпадет орлов (0-3)</div>
+        <div class="bet-row" style="justify-content:center; gap:8px; flex-wrap:wrap;">
+          <button class="chip-btn" data-cm="0" style="flex:1;">0 орлов</button>
+          <button class="chip-btn" data-cm="1" style="flex:1;">1 орёл</button>
+          <button class="chip-btn" data-cm="2" style="flex:1;">2 орла</button>
+          <button class="chip-btn" data-cm="3" style="flex:1;">3 орла</button>
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">Ставка:</span>
+          <input type="number" class="bet-input" id="betInput" value="1000" min="1">
+          <button class="chip-btn" data-bet="1000">1000</button>
+          <button class="chip-btn" data-bet="5000">5000</button>
+          <button class="chip-btn" data-bet="10000">10000</button>
+        </div>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+    `;
+    bindBetChips();
+    let pick = null;
+    document.querySelectorAll('.chip-btn[data-cm]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        pick = parseInt(btn.dataset.cm);
+        document.querySelectorAll('.chip-btn[data-cm]').forEach(b => b.style.background = '');
+        btn.style.background = 'rgba(167, 139, 250, 0.3)';
+      });
+    });
+    const coins = ['cm1', 'cm2', 'cm3'].map(id => document.getElementById(id));
+    coins.forEach(coin => {
+      coin.addEventListener('click', () => {
+        if (pick === null) { showResult('Сначала выбери количество орлов!', 'lose'); return; }
+        const bet = getBet(); if (!bet) return;
+        updateBalance(-bet);
+        let heads = 0;
+        coins.forEach((c, i) => {
+          c.style.transform = 'rotateY(1800deg)';
+          setTimeout(() => {
+            const isHeads = Math.random() < 0.5;
+            if (isHeads) heads++;
+            c.innerHTML = isHeads ? '<i class="bi bi-coin"></i>' : '<i class="bi bi-circle-fill"></i>';
+            c.style.transform = 'rotateY(0deg)';
+            if (i === 2) {
+              if (heads === pick) { updateBalance(bet * 4); showResult(`Выпало ${heads} орлов! Выигрыш ${bet * 3} фишек!`, 'win'); }
+              else showResult(`Выпало ${heads} орлов, а ты ставил на ${pick}. Проигрыш.`, 'lose');
+            }
+          }, 500 + i * 200);
+        });
+      });
+    });
+  }
+
+  updateBalance(0);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мем-раздел · Новый год 2027</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #07070d;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(167, 139, 250, 0.18), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.12), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(244, 114, 182, 0.1), transparent 45%);
+    color: #e8e8f0;
+    min-height: 100vh;
+    padding: 24px 16px 60px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .snow {
+    position: fixed;
+    top: -10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    pointer-events: none;
+    animation: fall linear infinite;
+    z-index: 0;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .container { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .garland {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    margin-bottom: 20px;
+    height: 30px;
+  }
+  .bulb {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    animation: glow 2s ease-in-out infinite;
+  }
+  .bulb:nth-child(1) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 0s; }
+  .bulb:nth-child(2) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 0.2s; }
+  .bulb:nth-child(3) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 0.4s; }
+  .bulb:nth-child(4) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 0.6s; }
+  .bulb:nth-child(5) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 0.8s; }
+  .bulb:nth-child(6) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 1s; }
+  .bulb:nth-child(7) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 1.2s; }
+  .bulb:nth-child(8) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 1.4s; }
+  .bulb:nth-child(9) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 1.6s; }
+  .bulb:nth-child(10) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 1.8s; }
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  .back-row { margin-bottom: 20px; }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #b0b0c8;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    transition: all 0.25s;
+  }
+
+  .back-btn:hover {
+    color: #a78bfa;
+    border-color: rgba(167, 139, 250, 0.5);
+    background: rgba(167, 139, 250, 0.1);
+    transform: translateX(-3px);
+  }
+
+  .back-btn i { font-size: 16px; }
+
+  header { text-align: center; margin-bottom: 40px; }
+
+  header .sub {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #facc15;
+    background: rgba(250, 204, 21, 0.1);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+
+  header h1 {
+    font-size: clamp(26px, 6.5vw, 40px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #facc15 0%, #f472b6 50%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  header p { color: #8a8aa0; font-size: 13px; max-width: 480px; margin: 0 auto; }
+
+  /* ПУСТОЕ СОСТОЯНИЕ */
+  .empty-card {
+    background: linear-gradient(135deg, rgba(250, 204, 21, 0.08), rgba(244, 114, 182, 0.1), rgba(167, 139, 250, 0.08));
+    border: 2px dashed rgba(250, 204, 21, 0.4);
+    border-radius: 28px;
+    padding: 60px 30px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+    animation: emptyGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes emptyGlow {
+    0%, 100% { box-shadow: 0 0 30px rgba(250, 204, 21, 0.15); }
+    50% { box-shadow: 0 0 50px rgba(250, 204, 21, 0.3); }
+  }
+
+  .empty-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(250, 204, 21, 0.08), transparent 60%);
+    animation: pulse 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+  }
+
+  .empty-icon {
+    font-size: 80px;
+    color: #facc15;
+    filter: drop-shadow(0 0 24px rgba(250, 204, 21, 0.9));
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    animation: wiggle 2.5s ease-in-out infinite;
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-6deg) scale(1); }
+    50% { transform: rotate(6deg) scale(1.08); }
+  }
+
+  .empty-title {
+    font-size: clamp(20px, 5vw, 26px);
+    font-weight: 800;
+    color: #f0f0ff;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.3px;
+  }
+
+  .empty-text {
+    font-size: 14px;
+    color: #9a9ab0;
+    line-height: 1.6;
+    max-width: 420px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .empty-text strong {
+    color: #facc15;
+    font-weight: 700;
+  }
+
+  .empty-hint {
+    margin-top: 26px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #6a6a80;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 100px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .empty-hint i {
+    color: #facc15;
+    font-size: 14px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #5a5a70;
+    font-size: 12px;
+  }
+
+  footer .tree {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 8px;
+  }
+
+  @media (max-width: 480px) {
+    .empty-card { padding: 46px 22px; border-radius: 24px; }
+    .empty-icon { font-size: 64px; }
+    .empty-title { font-size: 19px; }
+    .empty-text { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="garland">
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span>
+  </div>
+
+  <div class="back-row">
+    <a href="Main_Menu.html" class="back-btn">
+      <i class="bi bi-arrow-left"></i>
+      Назад в меню
+    </a>
+  </div>
+
+  <header>
+    <div class="sub">Мем-раздел</div>
+    <h1>Самые угарные фотки</h1>
+    <p>Здесь будет всё самое смешное с нашего праздника</p>
+  </header>
+
+  <!-- ПУСТОЕ СОСТОЯНИЕ -->
+  <div class="empty-card">
+    <div class="empty-icon">
+      <i class="bi bi-emoji-laughing-fill"></i>
+    </div>
+    <div class="empty-title">Пока пусто</div>
+    <div class="empty-text">
+      Мемы, приколы и угарные моменты появятся здесь после праздника. <strong>Обещаем — будет смешно!</strong>
+    </div>
+    <div class="empty-hint">
+      <i class="bi bi-camera-fill"></i>
+      Скоро тут будет угар
+    </div>
+  </div>
+
+  <footer>
+    <span class="tree">✦ ✦ ✦</span>
+    С Новым годом! · 2027
+  </footer>
+
+</div>
+
+<script>
+  // Снежинки
+  const snowContainer = document.body;
+  const snowChars = ['❄', '❅', '❆', '•', '✦'];
+  for (let i = 0; i < 30; i++) {
+    const snow = document.createElement('div');
+    snow.className = 'snow';
+    snow.textContent = snowChars[Math.floor(Math.random() * snowChars.length)];
+    snow.style.left = Math.random() * 100 + 'vw';
+    snow.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    snow.style.animationDelay = (Math.random() * 8) + 's';
+    snow.style.fontSize = (Math.random() * 10 + 8) + 'px';
+    snow.style.opacity = Math.random() * 0.6 + 0.2;
+    snowContainer.appendChild(snow);
+  }
+</script>
+
+</body>
+</html>

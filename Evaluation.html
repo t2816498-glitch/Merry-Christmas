@@ -1,0 +1,2386 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Оценка вечера · Новый год 2027</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style><!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Оценка вечера · Новый год 2027</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #07070d;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(167, 139, 250, 0.18), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.12), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(244, 114, 182, 0.1), transparent 45%);
+    color: #e8e8f0;
+    min-height: 100vh;
+    padding: 24px 16px 60px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .snow {
+    position: fixed;
+    top: -10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    pointer-events: none;
+    animation: fall linear infinite;
+    z-index: 0;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .container { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .garland {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    margin-bottom: 20px;
+    height: 30px;
+  }
+  .bulb {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    animation: glow 2s ease-in-out infinite;
+  }
+  .bulb:nth-child(1) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 0s; }
+  .bulb:nth-child(2) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 0.2s; }
+  .bulb:nth-child(3) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 0.4s; }
+  .bulb:nth-child(4) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 0.6s; }
+  .bulb:nth-child(5) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 0.8s; }
+  .bulb:nth-child(6) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 1s; }
+  .bulb:nth-child(7) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 1.2s; }
+  .bulb:nth-child(8) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 1.4s; }
+  .bulb:nth-child(9) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 1.6s; }
+  .bulb:nth-child(10) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 1.8s; }
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  .back-row { margin-bottom: 20px; }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #b0b0c8;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    transition: all 0.25s;
+  }
+
+  .back-btn:hover {
+    color: #a78bfa;
+    border-color: rgba(167, 139, 250, 0.5);
+    background: rgba(167, 139, 250, 0.1);
+    transform: translateX(-3px);
+  }
+
+  .back-btn i { font-size: 16px; }
+
+  header { text-align: center; margin-bottom: 32px; }
+
+  header .sub {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.1);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+
+  header h1 {
+    font-size: clamp(26px, 6.5vw, 40px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  header p { color: #8a8aa0; font-size: 13px; max-width: 480px; margin: 0 auto; }
+
+  /* ЭКРАНЫ */
+  .screen { animation: screenIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .screen.hidden { display: none; }
+
+  @keyframes screenIn {
+    0% { transform: scale(0.95) translateY(10px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+  }
+
+  /* СТАРТОВЫЙ ЭКРАН */
+  .start-card {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(167, 139, 250, 0.12), rgba(34, 211, 238, 0.1));
+    border: 2px solid rgba(167, 139, 250, 0.4);
+    border-radius: 28px;
+    padding: 42px 28px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+    animation: cardGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes cardGlow {
+    0%, 100% { box-shadow: 0 0 30px rgba(167, 139, 250, 0.25); }
+    50% { box-shadow: 0 0 50px rgba(167, 139, 250, 0.5), 0 0 80px rgba(34, 211, 238, 0.2); }
+  }
+
+  .start-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.12), transparent 60%);
+    animation: pulse 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+  }
+
+  .start-icon {
+    font-size: 68px;
+    color: #facc15;
+    filter: drop-shadow(0 0 24px rgba(250, 204, 21, 0.8));
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    animation: beat 1.6s ease-in-out infinite;
+  }
+
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+
+  .start-title {
+    font-size: clamp(22px, 5vw, 28px);
+    font-weight: 900;
+    color: #f0f0ff;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.5px;
+  }
+
+  .start-text {
+    font-size: 14px;
+    color: #b0b0c8;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-start {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 44px;
+    background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+    border: 2px solid #a78bfa;
+    border-radius: 18px;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 30px rgba(167, 139, 250, 0.5);
+    font-family: inherit;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.3px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn-start:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(167, 139, 250, 0.7);
+    background: linear-gradient(135deg, #b89cff 0%, #8b5cf6 100%);
+  }
+
+  .btn-start:active { transform: translateY(-1px); }
+
+  .btn-start i { font-size: 22px; }
+
+  /* ЭКРАН ОЦЕНКИ */
+  .rate-card {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.08), rgba(167, 139, 250, 0.1), rgba(34, 211, 238, 0.08));
+    border: 2px solid rgba(167, 139, 250, 0.35);
+    border-radius: 28px;
+    padding: 26px 22px 28px;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rate-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.08), transparent 60%);
+    animation: pulse 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .progress-bar {
+    flex: 1;
+    height: 6px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #a78bfa, #22d3ee);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 12px rgba(167, 139, 250, 0.6);
+    width: 0%;
+  }
+
+  .progress-count {
+    font-size: 12px;
+    font-weight: 700;
+    color: #a78bfa;
+    letter-spacing: 1px;
+    min-width: 50px;
+    text-align: right;
+  }
+
+  .rate-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  .rate-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+  }
+
+  .rate-img-wrap:hover .rate-img { transform: scale(1.04); }
+
+  .rate-category {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 6px 14px;
+    background: rgba(7, 7, 13, 0.85);
+    border: 1px solid rgba(167, 139, 250, 0.5);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #a78bfa;
+    backdrop-filter: blur(10px);
+    z-index: 2;
+  }
+
+  .rate-title {
+    font-size: clamp(20px, 4.5vw, 24px);
+    font-weight: 800;
+    color: #f0f0ff;
+    text-align: center;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+
+  .rate-subtitle {
+    font-size: 13px;
+    color: #8a8aa0;
+    text-align: center;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ЗВЁЗДЫ */
+  .stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .star {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.15);
+    font-size: 42px;
+    line-height: 1;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  .star:hover {
+    transform: scale(1.15);
+  }
+
+  .star.active {
+    color: #facc15;
+    filter: drop-shadow(0 0 12px rgba(250, 204, 21, 0.9));
+    animation: starPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes starPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+
+  .stars-label {
+    text-align: center;
+    font-size: 13px;
+    color: #a78bfa;
+    font-weight: 600;
+    height: 20px;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-next {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 28px;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+    background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+    border: 2px solid #a78bfa;
+    color: #ffffff;
+    box-shadow: 0 8px 30px rgba(167, 139, 250, 0.5);
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 1;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn-next:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(167, 139, 250, 0.7);
+    background: linear-gradient(135deg, #b89cff 0%, #8b5cf6 100%);
+  }
+
+  .btn-next:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    filter: grayscale(0.6);
+    box-shadow: none;
+  }
+
+  .btn-next i { font-size: 20px; }
+
+  /* ЭКРАН ВЫБОРА ПЕСЕН */
+  .songs-card {
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(167, 139, 250, 0.12), rgba(244, 114, 182, 0.1));
+    border: 2px solid rgba(34, 211, 238, 0.4);
+    border-radius: 28px;
+    padding: 28px 22px;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+    animation: songsGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes songsGlow {
+    0%, 100% { box-shadow: 0 0 30px rgba(34, 211, 238, 0.2); }
+    50% { box-shadow: 0 0 50px rgba(34, 211, 238, 0.4), 0 0 80px rgba(167, 139, 250, 0.2); }
+  }
+
+  .songs-icon {
+    text-align: center;
+    font-size: 56px;
+    color: #22d3ee;
+    filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.8));
+    margin-bottom: 12px;
+    animation: beat 1.6s ease-in-out infinite;
+  }
+
+  .songs-title {
+    font-size: clamp(20px, 4.5vw, 24px);
+    font-weight: 800;
+    color: #f0f0ff;
+    text-align: center;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.3;
+    letter-spacing: -0.3px;
+  }
+
+  .songs-subtitle {
+    font-size: 13px;
+    color: #8a8aa0;
+    text-align: center;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.5;
+  }
+
+  .songs-subtitle strong {
+    color: #22d3ee;
+    font-weight: 700;
+  }
+
+  .songs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+
+  .songs-list::-webkit-scrollbar { width: 4px; }
+  .songs-list::-webkit-scrollbar-thumb {
+    background: rgba(167, 139, 250, 0.5);
+    border-radius: 4px;
+  }
+
+  .song-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.25s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .song-item:hover {
+    background: rgba(34, 211, 238, 0.08);
+    border-color: rgba(34, 211, 238, 0.4);
+  }
+
+  .song-item.selected {
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(167, 139, 250, 0.15));
+    border-color: rgba(34, 211, 238, 0.6);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+  }
+
+  .song-check {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 7px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+    flex-shrink: 0;
+  }
+
+  .song-check::after {
+    content: '✓';
+    color: #07070d;
+    font-size: 14px;
+    font-weight: 900;
+    transform: scale(0);
+    transition: transform 0.2s;
+    line-height: 1;
+  }
+
+  .song-item.selected .song-check {
+    background: linear-gradient(135deg, #22d3ee, #a78bfa);
+    border-color: #22d3ee;
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
+  }
+
+  .song-item.selected .song-check::after { transform: scale(1); }
+
+  .song-name {
+    flex: 1;
+    font-size: 14px;
+    color: #d0d0e0;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  .song-item.selected .song-name {
+    color: #f0f0ff;
+    font-weight: 600;
+  }
+
+  .songs-counter {
+    text-align: center;
+    font-size: 12px;
+    color: #a78bfa;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+    min-height: 18px;
+  }
+
+  /* ФИНАЛЬНЫЙ ВОПРОС */
+  .question-card {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(167, 139, 250, 0.12), rgba(34, 211, 238, 0.1));
+    border: 2px solid rgba(167, 139, 250, 0.4);
+    border-radius: 28px;
+    padding: 32px 26px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .question-icon {
+    font-size: 56px;
+    color: #22d3ee;
+    filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.8));
+    margin-bottom: 14px;
+    display: inline-block;
+    animation: beat 1.6s ease-in-out infinite;
+  }
+
+  .question-title {
+    font-size: clamp(20px, 4.5vw, 24px);
+    font-weight: 800;
+    color: #f0f0ff;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.3;
+  }
+
+  .question-subtitle {
+    font-size: 13px;
+    color: #8a8aa0;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .question-buttons {
+    display: flex;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-answer {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 20px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+    border: 2px solid transparent;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn-answer.yes {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 211, 238, 0.15));
+    border-color: rgba(34, 197, 94, 0.5);
+    color: #4ade80;
+  }
+
+  .btn-answer.yes:hover {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(34, 211, 238, 0.25));
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+  }
+
+  .btn-answer.no {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #a0a0b8;
+  }
+
+  .btn-answer.no:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
+  }
+
+  .btn-answer i { font-size: 20px; }
+
+  /* ЭКРАН СПАСИБО */
+  .thanks-card {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 211, 238, 0.12), rgba(167, 139, 250, 0.12));
+    border: 2px solid rgba(34, 197, 94, 0.5);
+    border-radius: 28px;
+    padding: 50px 26px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: thanksGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes thanksGlow {
+    0%, 100% { box-shadow: 0 0 40px rgba(34, 197, 94, 0.3); }
+    50% { box-shadow: 0 0 70px rgba(34, 197, 94, 0.6), 0 0 100px rgba(34, 211, 238, 0.2); }
+  }
+
+  .thanks-check {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #34d399, #22d3ee);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 60px rgba(34, 197, 94, 0.8), 0 0 100px rgba(34, 211, 238, 0.4);
+    animation: checkIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes checkIn {
+    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+    60% { transform: scale(1.15) rotate(10deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+
+  .thanks-check i {
+    font-size: 72px;
+    color: #07070d;
+    font-weight: 900;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+  }
+
+  .thanks-title {
+    font-size: clamp(24px, 6vw, 32px);
+    font-weight: 900;
+    background: linear-gradient(135deg, #4ade80 0%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.5px;
+  }
+
+  .thanks-text {
+    font-size: 15px;
+    color: #b0b0c8;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .thanks-text strong { color: #22d3ee; font-weight: 700; }
+
+  .btn-menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+    border: 2px solid #a78bfa;
+    border-radius: 16px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 30px rgba(167, 139, 250, 0.5);
+    font-family: inherit;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.3px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn-menu:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(167, 139, 250, 0.7);
+    background: linear-gradient(135deg, #b89cff 0%, #8b5cf6 100%);
+  }
+
+  .btn-menu i { font-size: 20px; }
+
+  .confetti {
+    position: fixed;
+    width: 10px; height: 10px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: confettiFall 3s linear forwards;
+  }
+
+  @keyframes confettiFall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #5a5a70;
+    font-size: 12px;
+  }
+
+  footer .tree {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 8px;
+  }
+
+  @media (max-width: 480px) {
+    .start-card, .rate-card, .question-card, .thanks-card, .songs-card { padding: 26px 18px; border-radius: 24px; }
+    .start-icon { font-size: 56px; }
+    .stars { gap: 4px; }
+    .star { width: 42px; height: 42px; font-size: 36px; }
+    .btn-start { padding: 16px 32px; font-size: 15px; }
+    .question-buttons { flex-direction: column; }
+    .thanks-check { width: 100px; height: 100px; }
+    .thanks-check i { font-size: 60px; }
+    .songs-icon { font-size: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="garland">
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span>
+  </div>
+
+  <div class="back-row">
+    <a href="Main_Menu.html" class="back-btn">
+      <i class="bi bi-arrow-left"></i>
+      Назад в меню
+    </a>
+  </div>
+
+  <header>
+    <div class="sub">Оценка вечера</div>
+    <h1>Как всё прошло?</h1>
+    <p>Поделись впечатлениями — поставь звёзды каждому пункту</p>
+  </header>
+
+  <!-- ЭКРАН 1: СТАРТ -->
+  <div class="screen" id="startScreen">
+    <div class="start-card">
+      <div class="start-icon">
+        <i class="bi bi-star-fill"></i>
+      </div>
+      <div class="start-title">Оцени наш праздник</div>
+      <div class="start-text">
+        Ответь на несколько вопросов о вечере. Это займёт пару минут — и поможет сделать следующий Новый год ещё лучше.
+      </div>
+      <button class="btn-start" id="startBtn">
+        <i class="bi bi-play-circle-fill"></i>
+        Оценить
+      </button>
+    </div>
+  </div>
+
+  <!-- ЭКРАН 2: ОЦЕНКА -->
+  <div class="screen hidden" id="rateScreen">
+    <div class="rate-card">
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-count" id="progressCount">1 / 24</div>
+      </div>
+
+      <div class="rate-img-wrap">
+        <div class="rate-category" id="rateCategory">Еда</div>
+        <img class="rate-img" id="rateImg" src="" alt="">
+      </div>
+
+      <div class="rate-title" id="rateTitle">—</div>
+      <div class="rate-subtitle">Поставь оценку от 1 до 5 звёзд</div>
+
+      <div class="stars" id="stars">
+        <span class="star" data-value="1"><i class="bi bi-star-fill"></i></span>
+        <span class="star" data-value="2"><i class="bi bi-star-fill"></i></span>
+        <span class="star" data-value="3"><i class="bi bi-star-fill"></i></span>
+        <span class="star" data-value="4"><i class="bi bi-star-fill"></i></span>
+        <span class="star" data-value="5"><i class="bi bi-star-fill"></i></span>
+      </div>
+
+      <div class="stars-label" id="starsLabel"></div>
+
+      <button class="btn-next" id="nextBtn" disabled>
+        <i class="bi bi-arrow-right-circle-fill"></i>
+        Далее
+      </button>
+    </div>
+  </div>
+
+  <!-- ЭКРАН 3: ВЫБОР ПЕСЕН -->
+  <div class="screen hidden" id="songsScreen">
+    <div class="songs-card">
+      <div class="songs-icon">
+        <i class="bi bi-music-note-beamed"></i>
+      </div>
+      <div class="songs-title">Какая эксклюзивная музыка понравилась больше всего?</div>
+      <div class="songs-subtitle">
+        Выбери <strong>одну или несколько</strong> песен. Можно пропустить — просто нажми «Далее».
+      </div>
+
+      <div class="songs-list" id="songsList"></div>
+
+      <div class="songs-counter" id="songsCounter">Ничего не выбрано</div>
+
+      <button class="btn-next" id="songsNextBtn">
+        <i class="bi bi-arrow-right-circle-fill"></i>
+        Далее
+      </button>
+    </div>
+  </div>
+
+  <!-- ЭКРАН 4: ФИНАЛЬНЫЙ ВОПРОС -->
+  <div class="screen hidden" id="questionScreen">
+    <div class="question-card">
+      <div class="question-icon">
+        <i class="bi bi-heart-fill"></i>
+      </div>
+      <div class="question-title">Хотели бы приехать ещё?</div>
+      <div class="question-subtitle">Честно — нам важно твоё мнение</div>
+
+      <div class="question-buttons">
+        <button class="btn-answer yes" id="answerYes">
+          <i class="bi bi-emoji-heart-eyes-fill"></i>
+          Да!
+        </button>
+        <button class="btn-answer no" id="answerNo">
+          <i class="bi bi-emoji-neutral-fill"></i>
+          Нет
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ЭКРАН 5: СПАСИБО -->
+  <div class="screen hidden" id="thanksScreen">
+    <div class="thanks-card">
+      <div class="thanks-check">
+        <i class="bi bi-check-lg"></i>
+      </div>
+      <div class="thanks-title">Спасибо за отзыв!</div>
+      <div class="thanks-text">
+        Твои оценки очень важны для нас. <strong>До встречи на следующем празднике!</strong>
+      </div>
+      <a href="Main_Menu.html" class="btn-menu">
+        <i class="bi bi-house-door-fill"></i>
+        В главное меню
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span class="tree">✦ ✦ ✦</span>
+    С Новым годом! · 2027
+  </footer>
+
+</div>
+
+<script>
+  // Снежинки
+  const snowContainer = document.body;
+  const snowChars = ['❄', '❅', '❆', '•', '✦'];
+  for (let i = 0; i < 30; i++) {
+    const snow = document.createElement('div');
+    snow.className = 'snow';
+    snow.textContent = snowChars[Math.floor(Math.random() * snowChars.length)];
+    snow.style.left = Math.random() * 100 + 'vw';
+    snow.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    snow.style.animationDelay = (Math.random() * 8) + 's';
+    snow.style.fontSize = (Math.random() * 10 + 8) + 'px';
+    snow.style.opacity = Math.random() * 0.6 + 0.2;
+    snowContainer.appendChild(snow);
+  }
+
+  // ===== СПИСОК ДЛЯ ОЦЕНКИ =====
+  const ITEMS = [
+    // ЕДА
+    { id: 'olivier', category: 'Еда', title: 'Оливье', img: 'Icons/Olivier.jpg' },
+    { id: 'herring', category: 'Еда', title: 'Сельдь под шубой', img: 'Icons/Herring_under_a_fur_coat.jpg' },
+    { id: 'mimosa', category: 'Еда', title: 'Мимоза', img: 'Icons/Mimosa.jpg' },
+    { id: 'crab', category: 'Еда', title: 'Крабовый салат', img: 'Icons/Crab_salad.jpg' },
+    { id: 'tartilia', category: 'Еда', title: 'Тарталетки с икрой', img: 'Icons/Tartilia_with_caviar.jpg' },
+    { id: 'chicken', category: 'Еда', title: 'Курочка на гриле', img: 'Icons/Grilled_chicken.jpg' },
+    { id: 'mashed', category: 'Еда', title: 'Картофельное пюре', img: 'Icons/Mashed_potatoes.jpg' },
+    { id: 'sandwiches', category: 'Еда', title: 'Бутерброды', img: 'Icons/Sandwiches.jpg' },
+
+    // АЛКОГОЛЬ
+    { id: 'champagne', category: 'Напитки', title: 'Шампанское', img: 'Icons/Champagne.jpg' },
+    { id: 'cognac', category: 'Напитки', title: 'Коньяк', img: 'Icons/Cognac.jpg' },
+    { id: 'whiskey', category: 'Напитки', title: 'Виски', img: 'Icons/Whiskey.jpg' },
+    { id: 'vodka', category: 'Напитки', title: 'Водка', img: 'Icons/Vodka.jpg' },
+    { id: 'apple_juice', category: 'Напитки', title: 'Сок яблочный', img: 'Icons/Apple_juice.jpg' },
+    { id: 'multi_juice', category: 'Напитки', title: 'Сок мультифрукт', img: 'Icons/Multifruit_juice.jpg' },
+
+    // МЕСТА ДОМА
+    { id: 'sauna', category: 'Место', title: 'Баня', img: 'Icons/Sauna.jpg' },
+    { id: 'kitchen', category: 'Место', title: 'Кухня', img: 'Icons/Kitchen.jpg' },
+    { id: 'living', category: 'Место', title: 'Гостиная (диван)', img: 'Icons/Living_room.jpg' },
+    { id: 'bathroom1', category: 'Место', title: 'Санузел 1', img: 'Icons/Bathroom1.jpg' },
+    { id: 'bathroom2', category: 'Место', title: 'Санузел 2', img: 'Icons/Bathroom2.jpg' },
+    { id: 'house', category: 'Место', title: 'Дом в целом', img: 'Icons/House_outside.jpg' },
+
+    // АТМОСФЕРА (без эксклюзивной музыки — она отдельным экраном)
+    { id: 'program', category: 'Атмосфера', title: 'Программа вечера', img: 'Icons/Program.jpg' },
+    { id: 'music', category: 'Атмосфера', title: 'Музыка', img: 'Icons/Music.jpg' },
+    { id: 'party', category: 'Атмосфера', title: 'Вечер в целом', img: 'Icons/Party.jpg' }
+  ];
+
+  // ===== СПИСОК ЭКСКЛЮЗИВНЫХ ПЕСЕН =====
+  const EXCLUSIVE_SONGS = [
+    'Владивосток ломает лохов',
+    'Владивосток',
+    'Владивостокский ВБ',
+    'Ебаный фараон',
+    'И без тебя есть путь',
+    'Монолит не спит',
+    'Мы — Перовы',
+    'Мяу-панки',
+    'На недельку, до второго',
+    'Обувь и одежда',
+    'Сделай первый шаг',
+    'Черниговка',
+    'Это баобаб'
+  ];
+
+  // ===== СОСТОЯНИЕ =====
+  let currentIndex = 0;
+  let ratings = {};
+  let selectedSongs = [];
+  let wouldComeAgain = null;
+
+  // ===== ЭЛЕМЕНТЫ =====
+  const startScreen = document.getElementById('startScreen');
+  const rateScreen = document.getElementById('rateScreen');
+  const songsScreen = document.getElementById('songsScreen');
+  const questionScreen = document.getElementById('questionScreen');
+  const thanksScreen = document.getElementById('thanksScreen');
+
+  const startBtn = document.getElementById('startBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const songsNextBtn = document.getElementById('songsNextBtn');
+
+  const progressFill = document.getElementById('progressFill');
+  const progressCount = document.getElementById('progressCount');
+
+  const rateCategory = document.getElementById('rateCategory');
+  const rateImg = document.getElementById('rateImg');
+  const rateTitle = document.getElementById('rateTitle');
+  const starsLabel = document.getElementById('starsLabel');
+  const starEls = document.querySelectorAll('.star');
+
+  const songsList = document.getElementById('songsList');
+  const songsCounter = document.getElementById('songsCounter');
+
+  const answerYes = document.getElementById('answerYes');
+  const answerNo = document.getElementById('answerNo');
+
+  // ===== ПЕРЕКЛЮЧЕНИЕ ЭКРАНОВ =====
+  function showScreen(screen) {
+    [startScreen, rateScreen, songsScreen, questionScreen, thanksScreen].forEach(s => s.classList.add('hidden'));
+    screen.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ===== СТАРТ =====
+  startBtn.addEventListener('click', () => {
+    currentIndex = 0;
+    ratings = {};
+    selectedSongs = [];
+    wouldComeAgain = null;
+    showScreen(rateScreen);
+    renderItem();
+  });
+
+  // ===== ОТРИСОВКА ТЕКУЩЕГО ПУНКТА =====
+  function renderItem() {
+    const item = ITEMS[currentIndex];
+
+    rateCategory.textContent = item.category;
+    rateImg.src = item.img;
+    rateImg.alt = item.title;
+    rateTitle.textContent = item.title;
+
+    const percent = ((currentIndex + 1) / ITEMS.length) * 100;
+    progressFill.style.width = percent + '%';
+    progressCount.textContent = `${currentIndex + 1} / ${ITEMS.length}`;
+
+    starEls.forEach(s => s.classList.remove('active'));
+    starsLabel.textContent = '';
+
+    if (ratings[item.id]) {
+      highlightStars(ratings[item.id]);
+      nextBtn.disabled = false;
+    } else {
+      nextBtn.disabled = true;
+    }
+  }
+
+  // ===== ЗВЁЗДЫ =====
+  const LABELS = {
+    1: 'Ужасно',
+    2: 'Плохо',
+    3: 'Нормально',
+    4: 'Хорошо',
+    5: 'Отлично!'
+  };
+
+  function highlightStars(value) {
+    starEls.forEach(s => {
+      const v = parseInt(s.dataset.value);
+      if (v <= value) s.classList.add('active');
+      else s.classList.remove('active');
+    });
+    starsLabel.textContent = LABELS[value] || '';
+  }
+
+  starEls.forEach(star => {
+    star.addEventListener('click', () => {
+      const value = parseInt(star.dataset.value);
+      const item = ITEMS[currentIndex];
+      ratings[item.id] = value;
+      highlightStars(value);
+      nextBtn.disabled = false;
+    });
+
+    star.addEventListener('mouseenter', () => {
+      const value = parseInt(star.dataset.value);
+      starEls.forEach(s => {
+        const v = parseInt(s.dataset.value);
+        if (v <= value) s.classList.add('active');
+        else s.classList.remove('active');
+      });
+      starsLabel.textContent = LABELS[value] || '';
+    });
+
+    star.addEventListener('mouseleave', () => {
+      const item = ITEMS[currentIndex];
+      if (ratings[item.id]) {
+        highlightStars(ratings[item.id]);
+      } else {
+        starEls.forEach(s => s.classList.remove('active'));
+        starsLabel.textContent = '';
+      }
+    });
+  });
+
+  // ===== ДАЛЕЕ (ПОСЛЕ ОЦЕНКИ) =====
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex < ITEMS.length - 1) {
+      currentIndex++;
+      renderItem();
+    } else {
+      // После последнего пункта — экран с песнями
+      renderSongs();
+      showScreen(songsScreen);
+    }
+  });
+
+  // ===== РЕНДЕР СПИСКА ПЕСЕН =====
+  function renderSongs() {
+    songsList.innerHTML = '';
+
+    EXCLUSIVE_SONGS.forEach((song, idx) => {
+      const div = document.createElement('div');
+      div.className = 'song-item';
+      div.dataset.idx = idx;
+
+      if (selectedSongs.includes(idx)) {
+        div.classList.add('selected');
+      }
+
+      div.innerHTML = `
+        <span class="song-check"></span>
+        <span class="song-name">${song}</span>
+      `;
+
+      div.addEventListener('click', () => {
+        toggleSong(idx, div);
+      });
+
+      songsList.appendChild(div);
+    });
+
+    updateSongsCounter();
+  }
+
+  // ===== ПЕРЕКЛЮЧЕНИЕ ПЕСНИ =====
+  function toggleSong(idx, el) {
+    const pos = selectedSongs.indexOf(idx);
+    if (pos === -1) {
+      selectedSongs.push(idx);
+      el.classList.add('selected');
+    } else {
+      selectedSongs.splice(pos, 1);
+      el.classList.remove('selected');
+    }
+    updateSongsCounter();
+  }
+
+  // ===== СЧЁТЧИК ВЫБРАННЫХ ПЕСЕН =====
+  function updateSongsCounter() {
+    const n = selectedSongs.length;
+    if (n === 0) {
+      songsCounter.textContent = 'Ничего не выбрано';
+    } else if (n === 1) {
+      songsCounter.textContent = 'Выбрана 1 песня';
+    } else if (n >= 2 && n <= 4) {
+      songsCounter.textContent = `Выбрано ${n} песни`;
+    } else {
+      songsCounter.textContent = `Выбрано ${n} песен`;
+    }
+  }
+
+  // ===== ДАЛЕЕ (ПОСЛЕ ПЕСЕН) =====
+  songsNextBtn.addEventListener('click', () => {
+    showScreen(questionScreen);
+  });
+
+  // ===== ОТВЕТЫ НА ФИНАЛЬНЫЙ ВОПРОС =====
+  answerYes.addEventListener('click', () => {
+    wouldComeAgain = true;
+    finishSurvey();
+  });
+
+  answerNo.addEventListener('click', () => {
+    wouldComeAgain = false;
+    finishSurvey();
+  });
+
+  // ===== ФИНАЛ =====
+  function finishSurvey() {
+    const data = {
+      ratings: { ...ratings },
+      favoriteSongs: selectedSongs.map(i => EXCLUSIVE_SONGS[i]),
+      wouldComeAgain: wouldComeAgain,
+      finishedAt: new Date().toISOString()
+    };
+
+    console.log('📋 Данные оценки:', data);
+
+    // ===== ЗАГОТОВКА ДЛЯ ОТПРАВКИ НА ПОЧТУ =====
+    // Пока НЕ отправляем. Включим по твоей команде.
+    //
+    // sendToFormspree(data);
+    //
+
+    showScreen(thanksScreen);
+    launchConfetti();
+  }
+
+  // ===== ФУНКЦИЯ ОТПРАВКИ (закомментирована, на будущее) =====
+  /*
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyekgdzp';
+
+  function sendToFormspree(data) {
+    let ratingLines = '';
+    ITEMS.forEach(item => {
+      const val = data.ratings[item.id] || '—';
+      const stars = '★'.repeat(val) + '☆'.repeat(5 - val);
+      ratingLines += `${item.category} · ${item.title}: ${stars} (${val}/5)\n`;
+    });
+
+    const songsList = data.favoriteSongs.length > 0
+      ? data.favoriteSongs.join(', ')
+      : 'Ничего не выбрано';
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: '⭐ Новая оценка вечера · Новый год 2027',
+        'Все оценки': ratingLines,
+        'Любимые песни': songsList,
+        'Хотел бы приехать ещё': data.wouldComeAgain ? 'ДА ✅' : 'НЕТ ❌',
+        message: `⭐ НОВАЯ ОЦЕНКА ВЕЧЕРА\n\n${ratingLines}\n\n🎵 Любимые песни: ${songsList}\n\n💌 Хотел бы приехать ещё: ${data.wouldComeAgain ? 'ДА ✅' : 'НЕТ ❌'}`
+      })
+    }).then(r => {
+      if (r.ok) console.log('✅ Оценка отправлена');
+      else console.warn('⚠️ Ошибка отправки');
+    }).catch(e => console.warn('⚠️ Ошибка:', e));
+  }
+  */
+
+  // ===== КОНФЕТТИ =====
+  function launchConfetti() {
+    const colors = ['#a78bfa', '#22d3ee', '#f472b6', '#facc15', '#34d399'];
+    for (let i = 0; i < 60; i++) {
+      setTimeout(() => {
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.style.left = Math.random() * 100 + 'vw';
+        c.style.background = colors[Math.floor(Math.random() * colors.length)];
+        c.style.width = (Math.random() * 6 + 6) + 'px';
+        c.style.height = (Math.random() * 6 + 6) + 'px';
+        c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        c.style.animationDuration = (Math.random() * 1.5 + 2) + 's';
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 3500);
+      }, i * 25);
+    }
+  }
+</script>
+
+</body>
+</html>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #07070d;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(167, 139, 250, 0.18), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.12), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(244, 114, 182, 0.1), transparent 45%);
+    color: #e8e8f0;
+    min-height: 100vh;
+    padding: 24px 16px 60px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .snow {
+    position: fixed;
+    top: -10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    pointer-events: none;
+    animation: fall linear infinite;
+    z-index: 0;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .container { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .garland {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    margin-bottom: 20px;
+    height: 30px;
+  }
+  .bulb {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    animation: glow 2s ease-in-out infinite;
+  }
+  .bulb:nth-child(1) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 0s; }
+  .bulb:nth-child(2) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 0.2s; }
+  .bulb:nth-child(3) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 0.4s; }
+  .bulb:nth-child(4) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 0.6s; }
+  .bulb:nth-child(5) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 0.8s; }
+  .bulb:nth-child(6) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 1s; }
+  .bulb:nth-child(7) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 1.2s; }
+  .bulb:nth-child(8) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 1.4s; }
+  .bulb:nth-child(9) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 1.6s; }
+  .bulb:nth-child(10) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 1.8s; }
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  .back-row { margin-bottom: 20px; }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #b0b0c8;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    transition: all 0.25s;
+  }
+
+  .back-btn:hover {
+    color: #a78bfa;
+    border-color: rgba(167, 139, 250, 0.5);
+    background: rgba(167, 139, 250, 0.1);
+    transform: translateX(-3px);
+  }
+
+  .back-btn i { font-size: 16px; }
+
+  header { text-align: center; margin-bottom: 32px; }
+
+  header .sub {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.1);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+
+  header h1 {
+    font-size: clamp(26px, 6.5vw, 40px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  header p { color: #8a8aa0; font-size: 13px; max-width: 480px; margin: 0 auto; }
+
+  /* ЭКРАНЫ */
+  .screen { animation: screenIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .screen.hidden { display: none; }
+
+  @keyframes screenIn {
+    0% { transform: scale(0.95) translateY(10px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+  }
+
+  /* СТАРТОВЫЙ ЭКРАН */
+  .start-card {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(167, 139, 250, 0.12), rgba(34, 211, 238, 0.1));
+    border: 2px solid rgba(167, 139, 250, 0.4);
+    border-radius: 28px;
+    padding: 42px 28px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+    animation: cardGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes cardGlow {
+    0%, 100% { box-shadow: 0 0 30px rgba(167, 139, 250, 0.25); }
+    50% { box-shadow: 0 0 50px rgba(167, 139, 250, 0.5), 0 0 80px rgba(34, 211, 238, 0.2); }
+  }
+
+  .start-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.12), transparent 60%);
+    animation: pulse 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+  }
+
+  .start-icon {
+    font-size: 68px;
+    color: #facc15;
+    filter: drop-shadow(0 0 24px rgba(250, 204, 21, 0.8));
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    animation: beat 1.6s ease-in-out infinite;
+  }
+
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+
+  .start-title {
+    font-size: clamp(22px, 5vw, 28px);
+    font-weight: 900;
+    color: #f0f0ff;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.5px;
+  }
+
+  .start-text {
+    font-size: 14px;
+    color: #b0b0c8;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-start {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 44px;
+    background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+    border: 2px solid #a78bfa;
+    border-radius: 18px;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 30px rgba(167, 139, 250, 0.5);
+    font-family: inherit;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.3px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn-start:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(167, 139, 250, 0.7);
+    background: linear-gradient(135deg, #b89cff 0%, #8b5cf6 100%);
+  }
+
+  .btn-start:active { transform: translateY(-1px); }
+
+  .btn-start i { font-size: 22px; }
+
+  /* ЭКРАН ОЦЕНКИ */
+  .rate-card {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.08), rgba(167, 139, 250, 0.1), rgba(34, 211, 238, 0.08));
+    border: 2px solid rgba(167, 139, 250, 0.35);
+    border-radius: 28px;
+    padding: 26px 22px 28px;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rate-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.08), transparent 60%);
+    animation: pulse 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .progress-bar {
+    flex: 1;
+    height: 6px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #a78bfa, #22d3ee);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 12px rgba(167, 139, 250, 0.6);
+    width: 0%;
+  }
+
+  .progress-count {
+    font-size: 12px;
+    font-weight: 700;
+    color: #a78bfa;
+    letter-spacing: 1px;
+    min-width: 50px;
+    text-align: right;
+  }
+
+  .rate-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  .rate-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+  }
+
+  .rate-img-wrap:hover .rate-img { transform: scale(1.04); }
+
+  .rate-category {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 6px 14px;
+    background: rgba(7, 7, 13, 0.85);
+    border: 1px solid rgba(167, 139, 250, 0.5);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #a78bfa;
+    backdrop-filter: blur(10px);
+    z-index: 2;
+  }
+
+  .rate-title {
+    font-size: clamp(20px, 4.5vw, 24px);
+    font-weight: 800;
+    color: #f0f0ff;
+    text-align: center;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+
+  .rate-subtitle {
+    font-size: 13px;
+    color: #8a8aa0;
+    text-align: center;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ЗВЁЗДЫ */
+  .stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .star {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.15);
+    font-size: 42px;
+    line-height: 1;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  .star:hover {
+    transform: scale(1.15);
+  }
+
+  .star.active {
+    color: #facc15;
+    filter: drop-shadow(0 0 12px rgba(250, 204, 21, 0.9));
+    animation: starPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes starPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+
+  .stars-label {
+    text-align: center;
+    font-size: 13px;
+    color: #a78bfa;
+    font-weight: 600;
+    height: 20px;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-next {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 28px;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+    background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+    border: 2px solid #a78bfa;
+    color: #ffffff;
+    box-shadow: 0 8px 30px rgba(167, 139, 250, 0.5);
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 1;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn-next:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(167, 139, 250, 0.7);
+    background: linear-gradient(135deg, #b89cff 0%, #8b5cf6 100%);
+  }
+
+  .btn-next:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    filter: grayscale(0.6);
+    box-shadow: none;
+  }
+
+  .btn-next i { font-size: 20px; }
+
+  /* ФИНАЛЬНЫЕ ВОПРОСЫ */
+  .question-card {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(167, 139, 250, 0.12), rgba(34, 211, 238, 0.1));
+    border: 2px solid rgba(167, 139, 250, 0.4);
+    border-radius: 28px;
+    padding: 32px 26px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .question-icon {
+    font-size: 56px;
+    color: #22d3ee;
+    filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.8));
+    margin-bottom: 14px;
+    display: inline-block;
+    animation: beat 1.6s ease-in-out infinite;
+  }
+
+  .question-title {
+    font-size: clamp(20px, 4.5vw, 24px);
+    font-weight: 800;
+    color: #f0f0ff;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.3;
+  }
+
+  .question-subtitle {
+    font-size: 13px;
+    color: #8a8aa0;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .question-buttons {
+    display: flex;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-answer {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 20px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+    border: 2px solid transparent;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn-answer.yes {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 211, 238, 0.15));
+    border-color: rgba(34, 197, 94, 0.5);
+    color: #4ade80;
+  }
+
+  .btn-answer.yes:hover {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(34, 211, 238, 0.25));
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+  }
+
+  .btn-answer.no {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #a0a0b8;
+  }
+
+  .btn-answer.no:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
+  }
+
+  .btn-answer i { font-size: 20px; }
+
+  /* ЭКРАН СПАСИБО */
+  .thanks-card {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 211, 238, 0.12), rgba(167, 139, 250, 0.12));
+    border: 2px solid rgba(34, 197, 94, 0.5);
+    border-radius: 28px;
+    padding: 50px 26px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: thanksGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes thanksGlow {
+    0%, 100% { box-shadow: 0 0 40px rgba(34, 197, 94, 0.3); }
+    50% { box-shadow: 0 0 70px rgba(34, 197, 94, 0.6), 0 0 100px rgba(34, 211, 238, 0.2); }
+  }
+
+  .thanks-check {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #34d399, #22d3ee);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 60px rgba(34, 197, 94, 0.8), 0 0 100px rgba(34, 211, 238, 0.4);
+    animation: checkIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes checkIn {
+    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+    60% { transform: scale(1.15) rotate(10deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+
+  .thanks-check i {
+    font-size: 72px;
+    color: #07070d;
+    font-weight: 900;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+  }
+
+  .thanks-title {
+    font-size: clamp(24px, 6vw, 32px);
+    font-weight: 900;
+    background: linear-gradient(135deg, #4ade80 0%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.5px;
+  }
+
+  .thanks-text {
+    font-size: 15px;
+    color: #b0b0c8;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .thanks-text strong { color: #22d3ee; font-weight: 700; }
+
+  .thanks-emoji {
+    font-size: 40px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 8px;
+  }
+
+  .confetti {
+    position: fixed;
+    width: 10px; height: 10px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: confettiFall 3s linear forwards;
+  }
+
+  @keyframes confettiFall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #5a5a70;
+    font-size: 12px;
+  }
+
+  footer .tree {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 8px;
+  }
+
+  @media (max-width: 480px) {
+    .start-card, .rate-card, .question-card, .thanks-card { padding: 26px 18px; border-radius: 24px; }
+    .start-icon { font-size: 56px; }
+    .stars { gap: 4px; }
+    .star { width: 42px; height: 42px; font-size: 36px; }
+    .btn-start { padding: 16px 32px; font-size: 15px; }
+    .question-buttons { flex-direction: column; }
+    .thanks-check { width: 100px; height: 100px; }
+    .thanks-check i { font-size: 60px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="garland">
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span>
+  </div>
+
+  <div class="back-row">
+    <a href="Main_Menu.html" class="back-btn">
+      <i class="bi bi-arrow-left"></i>
+      Назад в меню
+    </a>
+  </div>
+
+  <header>
+    <div class="sub">Оценка вечера</div>
+    <h1>Как всё прошло?</h1>
+    <p>Поделись впечатлениями — поставь звёзды каждому пункту</p>
+  </header>
+
+  <!-- ЭКРАН 1: СТАРТ -->
+  <div class="screen" id="startScreen">
+    <div class="start-card">
+      <div class="start-icon">
+        <i class="bi bi-star-fill"></i>
+      </div>
+      <div class="start-title">Оцени наш праздник</div>
+      <div class="start-text">
+        Ответь на несколько вопросов о вечере. Это займёт пару минут — и поможет сделать следующий Новый год ещё лучше.
+      </div>
+      <button class="btn-start" id="startBtn">
+        <i class="bi bi-play-circle-fill"></i>
+        Оценить
+      </button>
+    </div>
+  </div>
+
+  <!-- ЭКРАН 2: ОЦЕНКА -->
+  <div class="screen hidden" id="rateScreen">
+    <div class="rate-card">
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-count" id="progressCount">1 / 24</div>
+      </div>
+
+      <div class="rate-img-wrap">
+        <div class="rate-category" id="rateCategory">Еда</div>
+        <img class="rate-img" id="rateImg" src="" alt="">
+      </div>
+
+      <div class="rate-title" id="rateTitle">—</div>
+      <div class="rate-subtitle">Поставь оценку от 1 до 5 звёзд</div>
+
+      <div class="stars" id="stars">
+        <span class="star" data-value="1"><i class="bi bi-star-fill"></i></span>
+        <span class="star" data-value="2"><i class="bi bi-star-fill"></i></span>
+        <span class="star" data-value="3"><i class="bi bi-star-fill"></i></span>
+        <span class="star" data-value="4"><i class="bi bi-star-fill"></i></span>
+        <span class="star" data-value="5"><i class="bi bi-star-fill"></i></span>
+      </div>
+
+      <div class="stars-label" id="starsLabel"></div>
+
+      <button class="btn-next" id="nextBtn" disabled>
+        <i class="bi bi-arrow-right-circle-fill"></i>
+        Далее
+      </button>
+    </div>
+  </div>
+
+  <!-- ЭКРАН 3: ФИНАЛЬНЫЙ ВОПРОС -->
+  <div class="screen hidden" id="questionScreen">
+    <div class="question-card">
+      <div class="question-icon">
+        <i class="bi bi-heart-fill"></i>
+      </div>
+      <div class="question-title">Хотели бы приехать ещё?</div>
+      <div class="question-subtitle">Честно — нам важно твоё мнение</div>
+
+      <div class="question-buttons">
+        <button class="btn-answer yes" id="answerYes">
+          <i class="bi bi-emoji-heart-eyes-fill"></i>
+          Да!
+        </button>
+        <button class="btn-answer no" id="answerNo">
+          <i class="bi bi-emoji-neutral-fill"></i>
+          Нет
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ЭКРАН 4: СПАСИБО -->
+  <div class="screen hidden" id="thanksScreen">
+    <div class="thanks-card">
+      <div class="thanks-check">
+        <i class="bi bi-check-lg"></i>
+      </div>
+      <div class="thanks-title">Спасибо за отзыв!</div>
+      <div class="thanks-text">
+        Твои оценки очень важны для нас. <strong>До встречи на следующем празднике!</strong>
+      </div>
+      <div class="thanks-emoji">🎄 ✨ 🎉</div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="tree">✦ ✦ ✦</span>
+    С Новым годом! · 2027
+  </footer>
+
+</div>
+
+<script>
+  // Снежинки
+  const snowContainer = document.body;
+  const snowChars = ['❄', '❅', '❆', '•', '✦'];
+  for (let i = 0; i < 30; i++) {
+    const snow = document.createElement('div');
+    snow.className = 'snow';
+    snow.textContent = snowChars[Math.floor(Math.random() * snowChars.length)];
+    snow.style.left = Math.random() * 100 + 'vw';
+    snow.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    snow.style.animationDelay = (Math.random() * 8) + 's';
+    snow.style.fontSize = (Math.random() * 10 + 8) + 'px';
+    snow.style.opacity = Math.random() * 0.6 + 0.2;
+    snowContainer.appendChild(snow);
+  }
+
+  // ===== СПИСОК ДЛЯ ОЦЕНКИ =====
+  // Порядок: еда → алкоголь → места → атмосфера
+  const ITEMS = [
+    // ЕДА
+    { id: 'olivier', category: 'Еда', title: 'Оливье', img: 'Icons/Olivier.jpg' },
+    { id: 'herring', category: 'Еда', title: 'Сельдь под шубой', img: 'Icons/Herring_under_a_fur_coat.jpg' },
+    { id: 'mimosa', category: 'Еда', title: 'Мимоза', img: 'Icons/Mimosa.jpg' },
+    { id: 'crab', category: 'Еда', title: 'Крабовый салат', img: 'Icons/Crab_salad.jpg' },
+    { id: 'tartilia', category: 'Еда', title: 'Тарталетки с икрой', img: 'Icons/Tartilia_with_caviar.jpg' },
+    { id: 'chicken', category: 'Еда', title: 'Курочка на гриле', img: 'Icons/Grilled_chicken.jpg' },
+    { id: 'mashed', category: 'Еда', title: 'Картофельное пюре', img: 'Icons/Mashed_potatoes.jpg' },
+    { id: 'sandwiches', category: 'Еда', title: 'Бутерброды', img: 'Icons/Sandwiches.jpg' },
+
+    // АЛКОГОЛЬ
+    { id: 'champagne', category: 'Напитки', title: 'Шампанское', img: 'Icons/Champagne.jpg' },
+    { id: 'cognac', category: 'Напитки', title: 'Коньяк', img: 'Icons/Cognac.jpg' },
+    { id: 'whiskey', category: 'Напитки', title: 'Виски', img: 'Icons/Whiskey.jpg' },
+    { id: 'vodka', category: 'Напитки', title: 'Водка', img: 'Icons/Vodka.jpg' },
+    { id: 'apple_juice', category: 'Напитки', title: 'Сок яблочный', img: 'Icons/Apple_juice.jpg' },
+    { id: 'multi_juice', category: 'Напитки', title: 'Сок мультифрукт', img: 'Icons/Multifruit_juice.jpg' },
+
+    // МЕСТА ДОМА
+    { id: 'sauna', category: 'Место', title: 'Баня', img: 'Icons/Sauna.jpg' },
+    { id: 'kitchen', category: 'Место', title: 'Кухня', img: 'Icons/Kitchen.jpg' },
+    { id: 'living', category: 'Место', title: 'Гостиная (диван)', img: 'Icons/Living_room.jpg' },
+    { id: 'bathroom1', category: 'Место', title: 'Санузел 1', img: 'Icons/Bathroom1.jpg' },
+    { id: 'bathroom2', category: 'Место', title: 'Санузел 2', img: 'Icons/Bathroom2.jpg' },
+    { id: 'house', category: 'Место', title: 'Дом в целом', img: 'Icons/House_outside.jpg' },
+
+    // АТМОСФЕРА
+    { id: 'program', category: 'Атмосфера', title: 'Программа вечера', img: 'Icons/Program.jpg' },
+    { id: 'music', category: 'Атмосфера', title: 'Музыка', img: 'Icons/Music.jpg' },
+    { id: 'music_exclusive', category: 'Атмосфера', title: 'Эксклюзивная музыка', img: 'Icons/Music_exclusive.jpg' },
+    { id: 'party', category: 'Атмосфера', title: 'Вечер в целом', img: 'Icons/Party.jpg' }
+  ];
+
+  // ===== СОСТОЯНИЕ =====
+  let currentIndex = 0;
+  let ratings = {};
+  let wouldComeAgain = null;
+
+  // ===== ЭЛЕМЕНТЫ =====
+  const startScreen = document.getElementById('startScreen');
+  const rateScreen = document.getElementById('rateScreen');
+  const questionScreen = document.getElementById('questionScreen');
+  const thanksScreen = document.getElementById('thanksScreen');
+
+  const startBtn = document.getElementById('startBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  const progressFill = document.getElementById('progressFill');
+  const progressCount = document.getElementById('progressCount');
+
+  const rateCategory = document.getElementById('rateCategory');
+  const rateImg = document.getElementById('rateImg');
+  const rateTitle = document.getElementById('rateTitle');
+  const starsLabel = document.getElementById('starsLabel');
+  const starEls = document.querySelectorAll('.star');
+
+  const answerYes = document.getElementById('answerYes');
+  const answerNo = document.getElementById('answerNo');
+
+  // ===== ПЕРЕКЛЮЧЕНИЕ ЭКРАНОВ =====
+  function showScreen(screen) {
+    [startScreen, rateScreen, questionScreen, thanksScreen].forEach(s => s.classList.add('hidden'));
+    screen.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ===== СТАРТ =====
+  startBtn.addEventListener('click', () => {
+    currentIndex = 0;
+    ratings = {};
+    wouldComeAgain = null;
+    showScreen(rateScreen);
+    renderItem();
+  });
+
+  // ===== ОТРИСОВКА ТЕКУЩЕГО ПУНКТА =====
+  function renderItem() {
+    const item = ITEMS[currentIndex];
+
+    rateCategory.textContent = item.category;
+    rateImg.src = item.img;
+    rateImg.alt = item.title;
+    rateTitle.textContent = item.title;
+
+    // Прогресс
+    const percent = ((currentIndex + 1) / ITEMS.length) * 100;
+    progressFill.style.width = percent + '%';
+    progressCount.textContent = `${currentIndex + 1} / ${ITEMS.length}`;
+
+    // Сброс звёзд
+    starEls.forEach(s => s.classList.remove('active'));
+    starsLabel.textContent = '';
+
+    // Если уже была оценка — показываем её
+    if (ratings[item.id]) {
+      highlightStars(ratings[item.id]);
+      nextBtn.disabled = false;
+    } else {
+      nextBtn.disabled = true;
+    }
+
+    // Анимация картинки
+    rateImg.style.animation = 'none';
+    void rateImg.offsetWidth;
+  }
+
+  // ===== ЗВЁЗДЫ =====
+  const LABELS = {
+    1: 'Ужасно',
+    2: 'Плохо',
+    3: 'Нормально',
+    4: 'Хорошо',
+    5: 'Отлично!'
+  };
+
+  function highlightStars(value) {
+    starEls.forEach(s => {
+      const v = parseInt(s.dataset.value);
+      if (v <= value) s.classList.add('active');
+      else s.classList.remove('active');
+    });
+    starsLabel.textContent = LABELS[value] || '';
+  }
+
+  starEls.forEach(star => {
+    star.addEventListener('click', () => {
+      const value = parseInt(star.dataset.value);
+      const item = ITEMS[currentIndex];
+      ratings[item.id] = value;
+      highlightStars(value);
+      nextBtn.disabled = false;
+    });
+
+    // Ховер-эффект (для ПК)
+    star.addEventListener('mouseenter', () => {
+      const value = parseInt(star.dataset.value);
+      starEls.forEach(s => {
+        const v = parseInt(s.dataset.value);
+        if (v <= value) s.classList.add('active');
+        else s.classList.remove('active');
+      });
+      starsLabel.textContent = LABELS[value] || '';
+    });
+
+    star.addEventListener('mouseleave', () => {
+      const item = ITEMS[currentIndex];
+      if (ratings[item.id]) {
+        highlightStars(ratings[item.id]);
+      } else {
+        starEls.forEach(s => s.classList.remove('active'));
+        starsLabel.textContent = '';
+      }
+    });
+  });
+
+  // ===== ДАЛЕЕ =====
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex < ITEMS.length - 1) {
+      currentIndex++;
+      renderItem();
+    } else {
+      // Последний пункт — показываем финальный вопрос
+      showScreen(questionScreen);
+    }
+  });
+
+  // ===== ОТВЕТЫ НА ФИНАЛЬНЫЙ ВОПРОС =====
+  answerYes.addEventListener('click', () => {
+    wouldComeAgain = true;
+    finishSurvey();
+  });
+
+  answerNo.addEventListener('click', () => {
+    wouldComeAgain = false;
+    finishSurvey();
+  });
+
+  // ===== ФИНАЛ =====
+  function finishSurvey() {
+    // Собираем данные
+    const data = {
+      ratings: { ...ratings },
+      wouldComeAgain: wouldComeAgain,
+      finishedAt: new Date().toISOString()
+    };
+
+    console.log('📋 Данные оценки:', data);
+
+    // ===== ЗАГОТОВКА ДЛЯ ОТПРАВКИ НА ПОЧТУ =====
+    // Пока НЕ ОТПРАВЛЯЕМ. Включим по твоей команде.
+    //
+    // sendToFormspree(data);
+    //
+
+    // Показываем экран "Спасибо"
+    showScreen(thanksScreen);
+    launchConfetti();
+  }
+
+  // ===== ФУНКЦИЯ ОТПРАВКИ (закомментирована, на будущее) =====
+  /*
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyekgdzp';
+
+  function sendToFormspree(data) {
+    // Формируем красивое письмо
+    let ratingLines = '';
+    ITEMS.forEach(item => {
+      const val = data.ratings[item.id] || '—';
+      const stars = '★'.repeat(val) + '☆'.repeat(5 - val);
+      ratingLines += `${item.category} · ${item.title}: ${stars} (${val}/5)\n`;
+    });
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: '⭐ Новая оценка вечера · Новый год 2027',
+        'Оливье': data.ratings.olivier || '—',
+        'Сельдь под шубой': data.ratings.herring || '—',
+        'Мимоза': data.ratings.mimosa || '—',
+        'Крабовый салат': data.ratings.crab || '—',
+        'Тарталетки': data.ratings.tartilia || '—',
+        'Курочка': data.ratings.chicken || '—',
+        'Пюре': data.ratings.mashed || '—',
+        'Бутерброды': data.ratings.sandwiches || '—',
+        'Шампанское': data.ratings.champagne || '—',
+        'Коньяк': data.ratings.cognac || '—',
+        'Виски': data.ratings.whiskey || '—',
+        'Водка': data.ratings.vodka || '—',
+        'Сок яблочный': data.ratings.apple_juice || '—',
+        'Сок мультифрукт': data.ratings.multi_juice || '—',
+        'Баня': data.ratings.sauna || '—',
+        'Кухня': data.ratings.kitchen || '—',
+        'Гостиная': data.ratings.living || '—',
+        'Санузел 1': data.ratings.bathroom1 || '—',
+        'Санузел 2': data.ratings.bathroom2 || '—',
+        'Дом в целом': data.ratings.house || '—',
+        'Программа': data.ratings.program || '—',
+        'Музыка': data.ratings.music || '—',
+        'Эксклюзивная музыка': data.ratings.music_exclusive || '—',
+        'Вечер в целом': data.ratings.party || '—',
+        'Хотел бы приехать ещё': data.wouldComeAgain ? 'ДА ✅' : 'НЕТ ❌',
+        message: `⭐ НОВАЯ ОЦЕНКА ВЕЧЕРА\n\n${ratingLines}\n\nХотел бы приехать ещё: ${data.wouldComeAgain ? 'ДА ✅' : 'НЕТ ❌'}`
+      })
+    }).then(r => {
+      if (r.ok) console.log('✅ Оценка отправлена');
+      else console.warn('⚠️ Ошибка отправки');
+    }).catch(e => console.warn('⚠️ Ошибка:', e));
+  }
+  */
+
+  // ===== КОНФЕТТИ =====
+  function launchConfetti() {
+    const colors = ['#a78bfa', '#22d3ee', '#f472b6', '#facc15', '#34d399'];
+    for (let i = 0; i < 60; i++) {
+      setTimeout(() => {
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.style.left = Math.random() * 100 + 'vw';
+        c.style.background = colors[Math.floor(Math.random() * colors.length)];
+        c.style.width = (Math.random() * 6 + 6) + 'px';
+        c.style.height = (Math.random() * 6 + 6) + 'px';
+        c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        c.style.animationDuration = (Math.random() * 1.5 + 2) + 's';
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 3500);
+      }, i * 25);
+    }
+  }
+</script>
+
+</body>
+</html>

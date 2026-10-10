@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анкета гостя · Новый год 2027</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #07070d;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(167, 139, 250, 0.18), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.12), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(244, 114, 182, 0.1), transparent 45%);
+    color: #e8e8f0;
+    min-height: 100vh;
+    padding: 24px 16px 60px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .snow {
+    position: fixed;
+    top: -10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    pointer-events: none;
+    animation: fall linear infinite;
+    z-index: 0;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .container { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .garland {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    margin-bottom: 20px;
+    height: 30px;
+  }
+  .bulb {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    animation: glow 2s ease-in-out infinite;
+  }
+  .bulb:nth-child(1) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 0s; }
+  .bulb:nth-child(2) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 0.2s; }
+  .bulb:nth-child(3) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 0.4s; }
+  .bulb:nth-child(4) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 0.6s; }
+  .bulb:nth-child(5) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 0.8s; }
+  .bulb:nth-child(6) { background: #f472b6; box-shadow: 0 0 12px #f472b6; animation-delay: 1s; }
+  .bulb:nth-child(7) { background: #22d3ee; box-shadow: 0 0 12px #22d3ee; animation-delay: 1.2s; }
+  .bulb:nth-child(8) { background: #facc15; box-shadow: 0 0 12px #facc15; animation-delay: 1.4s; }
+  .bulb:nth-child(9) { background: #a78bfa; box-shadow: 0 0 12px #a78bfa; animation-delay: 1.6s; }
+  .bulb:nth-child(10) { background: #34d399; box-shadow: 0 0 12px #34d399; animation-delay: 1.8s; }
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  .back-row { margin-bottom: 20px; }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #b0b0c8;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    transition: all 0.25s;
+  }
+
+  .back-btn:hover {
+    color: #a78bfa;
+    border-color: rgba(167, 139, 250, 0.5);
+    background: rgba(167, 139, 250, 0.1);
+    transform: translateX(-3px);
+  }
+
+  .back-btn i { font-size: 16px; }
+
+  header { text-align: center; margin-bottom: 32px; }
+
+  header .sub {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.1);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+
+  header h1 {
+    font-size: clamp(26px, 6.5vw, 40px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  header p { color: #8a8aa0; font-size: 13px; max-width: 480px; margin: 0 auto; }
+
+  .screen { animation: screenIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .screen.hidden { display: none; }
+
+  @keyframes screenIn {
+    0% { transform: scale(0.95) translateY(10px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+  }
+
+  /* КАРТОЧКА */
+  .card {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.08), rgba(167, 139, 250, 0.1), rgba(34, 211, 238, 0.08));
+    border: 2px solid rgba(167, 139, 250, 0.35);
+    border-radius: 28px;
+    padding: 32px 26px;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+    animation: cardGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes cardGlow {
+    0%, 100% { box-shadow: 0 0 30px rgba(167, 139, 250, 0.2); }
+    50% { box-shadow: 0 0 50px rgba(167, 139, 250, 0.4), 0 0 70px rgba(34, 211, 238, 0.15); }
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.1), transparent 60%);
+    animation: pulse 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+  }
+
+  .card-icon {
+    text-align: center;
+    font-size: 56px;
+    color: #22d3ee;
+    filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.8));
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+    animation: beat 1.6s ease-in-out infinite;
+  }
+
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+
+  .card-title {
+    text-align: center;
+    font-size: clamp(18px, 4vw, 22px);
+    font-weight: 800;
+    color: #f0f0ff;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.3px;
+  }
+
+  .card-subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #8a8aa0;
+    margin-bottom: 26px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.5;
+  }
+
+  /* ФОРМА */
+  .form-group { margin-bottom: 18px; position: relative; z-index: 1; }
+
+  .form-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #a78bfa;
+    margin-bottom: 8px;
+  }
+
+  .form-label i { font-size: 14px; color: #22d3ee; }
+
+  .form-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 15px 16px;
+    font-size: 15px;
+    color: #f0f0ff;
+    font-family: inherit;
+    transition: all 0.25s;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .form-input::placeholder { color: #4a4a60; }
+
+  .form-input:focus {
+    border-color: #a78bfa;
+    background: rgba(167, 139, 250, 0.08);
+    box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.15);
+  }
+
+  /* ЧЕКБОКС */
+  .agree-block { margin-top: 22px; margin-bottom: 6px; position: relative; z-index: 1; }
+
+  .agree-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    transition: all 0.25s;
+    user-select: none;
+  }
+
+  .agree-label:hover {
+    background: rgba(167, 139, 250, 0.08);
+    border-color: rgba(167, 139, 250, 0.35);
+  }
+
+  .agree-input { display: none; }
+
+  .agree-check {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 7px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .agree-check::after {
+    content: '✓';
+    color: #07070d;
+    font-size: 14px;
+    font-weight: 900;
+    transform: scale(0);
+    transition: transform 0.2s;
+    line-height: 1;
+  }
+
+  .agree-input:checked + .agree-check {
+    background: linear-gradient(135deg, #a78bfa, #22d3ee);
+    border-color: #a78bfa;
+    box-shadow: 0 0 14px rgba(167, 139, 250, 0.6);
+  }
+
+  .agree-input:checked + .agree-check::after { transform: scale(1); }
+
+  .agree-text {
+    flex: 1;
+    font-size: 13.5px;
+    color: #d0d0e0;
+    line-height: 1.5;
+  }
+
+  .agree-text a {
+    color: #22d3ee;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(34, 211, 238, 0.5);
+    transition: all 0.2s;
+  }
+
+  .agree-text a:hover {
+    color: #a78bfa;
+    border-color: #a78bfa;
+  }
+
+  /* КНОПКИ */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 28px;
+    margin-top: 20px;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    border: 2px solid transparent;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+    border-color: #a78bfa;
+    color: #ffffff;
+    box-shadow: 0 8px 30px rgba(167, 139, 250, 0.5);
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(167, 139, 250, 0.7);
+    background: linear-gradient(135deg, #b89cff 0%, #8b5cf6 100%);
+  }
+
+  .btn-primary:active:not(:disabled) { transform: translateY(-1px); }
+
+  .btn-primary:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    filter: grayscale(0.6);
+    box-shadow: none;
+  }
+
+  .btn-primary i { font-size: 20px; }
+
+  .error-message {
+    display: none;
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    animation: shake 0.4s;
+  }
+
+  .error-message.show { display: block; }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+  }
+
+  /* ЭКРАН ОПЛАТЫ */
+  .price-tag {
+    text-align: center;
+    padding: 22px 20px;
+    margin-bottom: 22px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.15), rgba(167, 139, 250, 0.15), rgba(34, 211, 238, 0.15));
+    border: 2px solid rgba(167, 139, 250, 0.4);
+    position: relative;
+    z-index: 1;
+  }
+
+  .price-tag-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a78bfa;
+    margin-bottom: 8px;
+  }
+
+  .price-tag-value {
+    font-size: clamp(36px, 9vw, 48px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .price-tag-note {
+    font-size: 12px;
+    color: #9a9ab0;
+  }
+
+  /* QR */
+  .qr-section {
+    text-align: center;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .qr-wrap {
+    display: inline-block;
+    background: #ffffff;
+    padding: 14px;
+    border-radius: 22px;
+    box-shadow: 0 0 40px rgba(34, 211, 238, 0.5), 0 8px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s;
+    margin-bottom: 14px;
+  }
+
+  .qr-wrap:hover { transform: scale(1.04); }
+
+  .qr-img {
+    display: block;
+    width: 220px;
+    height: 220px;
+    border-radius: 10px;
+    object-fit: contain;
+    background: #fff;
+  }
+
+  .qr-hint {
+    font-size: 12px;
+    color: #8a8aa0;
+    line-height: 1.5;
+  }
+
+  .qr-hint i { color: #a78bfa; margin-right: 4px; }
+
+  /* ССЫЛКИ ОПЛАТЫ */
+  .pay-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pay-option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s;
+  }
+
+  .pay-option:hover {
+    background: rgba(167, 139, 250, 0.1);
+    border-color: rgba(167, 139, 250, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .pay-option-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .pay-option-icon.sbp {
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(167, 139, 250, 0.2));
+    color: #22d3ee;
+  }
+
+  .pay-option-icon.phone {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.2), rgba(167, 139, 250, 0.2));
+    color: #f472b6;
+  }
+
+  .pay-option-content { flex: 1; }
+
+  .pay-option-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f0f0ff;
+    margin-bottom: 3px;
+  }
+
+  .pay-option-desc {
+    font-size: 12px;
+    color: #9a9ab0;
+    line-height: 1.4;
+  }
+
+  .pay-option-desc strong { color: #22d3ee; font-weight: 700; }
+
+  .pay-option-arrow {
+    color: #a78bfa;
+    font-size: 18px;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+
+  .pay-option:hover .pay-option-arrow { transform: translateX(4px); }
+
+  /* ГАЛОЧКА "Я ОПЛАТИЛ" */
+  .paid-block {
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .paid-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.06), rgba(167, 139, 250, 0.06));
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    border-radius: 14px;
+    transition: all 0.25s;
+    user-select: none;
+  }
+
+  .paid-label:hover {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(167, 139, 250, 0.12));
+    border-color: rgba(34, 197, 94, 0.5);
+  }
+
+  .paid-input { display: none; }
+
+  .paid-check {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    border-radius: 7px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .paid-check::after {
+    content: '✓';
+    color: #07070d;
+    font-size: 15px;
+    font-weight: 900;
+    transform: scale(0);
+    transition: transform 0.2s;
+    line-height: 1;
+  }
+
+  .paid-input:checked + .paid-check {
+    background: linear-gradient(135deg, #34d399, #22d3ee);
+    border-color: #34d399;
+    box-shadow: 0 0 14px rgba(52, 211, 153, 0.6);
+  }
+
+  .paid-input:checked + .paid-check::after { transform: scale(1); }
+
+  .paid-text {
+    flex: 1;
+    font-size: 14px;
+    color: #d0d0e0;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+
+  /* ЭКРАН ОТПРАВКИ */
+  .sending-card {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.08), rgba(167, 139, 250, 0.1), rgba(34, 211, 238, 0.08));
+    border: 2px solid rgba(167, 139, 250, 0.35);
+    border-radius: 28px;
+    padding: 48px 26px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+  }
+
+  .spinner-big {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 22px;
+    border: 4px solid rgba(167, 139, 250, 0.2);
+    border-top-color: #a78bfa;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    filter: drop-shadow(0 0 14px rgba(167, 139, 250, 0.6));
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .sending-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #f0f0ff;
+    margin-bottom: 8px;
+  }
+
+  .sending-subtitle { font-size: 13px; color: #8a8aa0; }
+
+  /* ПРИГЛАШЕНИЕ */
+  .invite-card {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.15), rgba(167, 139, 250, 0.15), rgba(34, 211, 238, 0.12));
+    border: 2px solid rgba(167, 139, 250, 0.5);
+    border-radius: 28px;
+    padding: 36px 26px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: inviteGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes inviteGlow {
+    0%, 100% { box-shadow: 0 0 40px rgba(167, 139, 250, 0.3); }
+    50% { box-shadow: 0 0 70px rgba(167, 139, 250, 0.55), 0 0 100px rgba(34, 211, 238, 0.2); }
+  }
+
+  .invite-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.12), transparent 60%);
+    animation: pulse 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .invite-icon {
+    font-size: 64px;
+    color: #facc15;
+    filter: drop-shadow(0 0 24px rgba(250, 204, 21, 0.8));
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    animation: beat 1.6s ease-in-out infinite;
+  }
+
+  .invite-sub {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #22d3ee;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .invite-title {
+    font-size: clamp(24px, 6vw, 34px);
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .invite-text {
+    font-size: 15px;
+    color: #d0d0e0;
+    line-height: 1.7;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .invite-name {
+    display: block;
+    font-size: 19px;
+    font-weight: 800;
+    color: #f0f0ff;
+    margin: 8px 0 16px;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+  }
+
+  .code-block { margin: 24px 0; position: relative; z-index: 1; }
+
+  .code-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #a78bfa;
+    margin-bottom: 10px;
+  }
+
+  .code-value {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: clamp(20px, 5vw, 28px);
+    font-weight: 900;
+    letter-spacing: 3px;
+    padding: 16px 28px;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px dashed rgba(34, 211, 238, 0.6);
+    color: #22d3ee;
+    text-shadow: 0 0 14px rgba(34, 211, 238, 0.6);
+    word-break: break-all;
+  }
+
+  .btn-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 10px 20px;
+    background: rgba(34, 211, 238, 0.1);
+    border: 1px solid rgba(34, 211, 238, 0.4);
+    border-radius: 100px;
+    color: #22d3ee;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+  }
+
+  .btn-copy:hover {
+    background: rgba(34, 211, 238, 0.2);
+    border-color: #22d3ee;
+    transform: translateY(-2px);
+  }
+
+  .btn-copy.copied {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: #22c55e;
+    color: #4ade80;
+  }
+
+  .invite-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.5), transparent);
+    margin: 24px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .invite-footer {
+    font-size: 13px;
+    color: #9a9ab0;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  .invite-footer strong { color: #a78bfa; font-weight: 700; }
+  .invite-footer em { color: #22d3ee; font-style: normal; font-weight: 600; }
+
+  .btn-restart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 26px;
+    padding: 14px 22px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(167, 139, 250, 0.35);
+    border-radius: 14px;
+    color: #d0d0e8;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-restart:hover {
+    background: rgba(167, 139, 250, 0.12);
+    border-color: #a78bfa;
+    color: #a78bfa;
+    transform: translateY(-2px);
+  }
+
+  .confetti {
+    position: fixed;
+    width: 10px; height: 10px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: confettiFall 3s linear forwards;
+  }
+
+  @keyframes confettiFall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #5a5a70;
+    font-size: 12px;
+  }
+
+  footer .tree {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 8px;
+  }
+
+  @media (max-width: 480px) {
+    .card, .invite-card, .sending-card { padding: 26px 18px; border-radius: 24px; }
+    .card-icon { font-size: 48px; }
+    .invite-icon { font-size: 52px; }
+    .form-input { padding: 14px 14px; font-size: 14px; }
+    .btn { padding: 15px 22px; font-size: 15px; }
+    .agree-label, .paid-label { padding: 12px 14px; gap: 10px; }
+    .agree-text { font-size: 13px; }
+    .code-value { padding: 14px 20px; letter-spacing: 2px; }
+    .qr-img { width: 180px; height: 180px; }
+    .qr-wrap { padding: 12px; border-radius: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="garland">
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span>
+  </div>
+
+  <div class="back-row">
+    <a href="Main_Menu.html" class="back-btn">
+      <i class="bi bi-arrow-left"></i>
+      Назад в меню
+    </a>
+  </div>
+
+  <header>
+    <div class="sub">Анкета гостя</div>
+    <h1>Расскажи о себе</h1>
+    <p>Заполни анкету, оплати участие и получи приглашение с персональным кодом</p>
+  </header>
+
+  <!-- ЭКРАН 1: ФОРМА -->
+  <div class="screen" id="formScreen">
+    <div class="card">
+      <div class="card-icon">
+        <i class="bi bi-person-vcard-fill"></i>
+      </div>
+      <div class="card-title">Анкета гостя</div>
+      <div class="card-subtitle">Все поля обязательны для заполнения</div>
+
+      <form id="guestForm" autocomplete="off">
+
+        <div class="form-group">
+          <label class="form-label" for="lastName">
+            <i class="bi bi-person-fill"></i>
+            Фамилия
+          </label>
+          <input type="text" id="lastName" class="form-input" placeholder="Иванов" maxlength="50" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="firstName">
+            <i class="bi bi-person-badge-fill"></i>
+            Имя
+          </label>
+          <input type="text" id="firstName" class="form-input" placeholder="Иван" maxlength="50" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="middleName">
+            <i class="bi bi-person-vcard"></i>
+            Отчество
+          </label>
+          <input type="text" id="middleName" class="form-input" placeholder="Иванович" maxlength="50" required>
+        </div>
+
+        <div class="agree-block">
+          <label class="agree-label" for="agreeCheckbox">
+            <input type="checkbox" id="agreeCheckbox" class="agree-input">
+            <span class="agree-check"></span>
+            <span class="agree-text">
+              Я ознакомлен(а) и согласен(на) с
+              <a href="Rules.html" target="_blank" rel="noopener" onclick="event.stopPropagation();">правилами пребывания</a>
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="nextBtn" disabled>
+          <i class="bi bi-arrow-right-circle-fill"></i>
+          Далее
+        </button>
+
+        <div class="error-message" id="errorMessage">
+          Заполни все поля и подтверди согласие
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ЭКРАН 2: ОПЛАТА -->
+  <div class="screen hidden" id="payScreen">
+    <div class="card">
+      <div class="card-icon">
+        <i class="bi bi-credit-card-2-front-fill"></i>
+      </div>
+      <div class="card-title">Оплата участия</div>
+      <div class="card-subtitle">Оплати удобным способом и подтверди</div>
+
+      <div class="price-tag">
+        <div class="price-tag-label">К оплате за человека</div>
+        <div class="price-tag-value">6 455 ₽</div>
+        <div class="price-tag-note">Дом + баня + праздничный стол</div>
+      </div>
+
+      <!-- QR -->
+      <div class="qr-section">
+        <div class="qr-wrap">
+          <img class="qr-img" src="Icons/Ozon.png" alt="QR-код для оплаты">
+        </div>
+        <div class="qr-hint">
+          <i class="bi bi-phone-fill"></i>
+          Отсканируй QR-код в приложении банка
+        </div>
+      </div>
+
+      <!-- ВАРИАНТЫ ОПЛАТЫ -->
+      <div class="pay-options">
+
+        <a href="https://finance.ozon.ru/apps/sbp/ozonbankpay/019df4fb-f094-76fb-b85d-dd1b8fe33c86" target="_blank" rel="noopener" class="pay-option">
+          <div class="pay-option-icon sbp">
+            <i class="bi bi-lightning-charge-fill"></i>
+          </div>
+          <div class="pay-option-content">
+            <div class="pay-option-title">Оплатить по СБП</div>
+            <div class="pay-option-desc">Без комиссии · из любого банка · Ozon Банк</div>
+          </div>
+          <i class="bi bi-arrow-right pay-option-arrow"></i>
+        </a>
+
+        <a href="tel:+79954342264" class="pay-option">
+          <div class="pay-option-icon phone">
+            <i class="bi bi-telephone-fill"></i>
+          </div>
+          <div class="pay-option-content">
+            <div class="pay-option-title">Переводом на телефон</div>
+            <div class="pay-option-desc">
+              <strong>+7 995 434-22-64</strong> · получатель Артём П.
+            </div>
+          </div>
+          <i class="bi bi-arrow-right pay-option-arrow"></i>
+        </a>
+
+      </div>
+
+      <!-- ГАЛОЧКА "Я ОПЛАТИЛ" -->
+      <div class="paid-block">
+        <label class="paid-label" for="paidCheckbox">
+          <input type="checkbox" id="paidCheckbox" class="paid-input">
+          <span class="paid-check"></span>
+          <span class="paid-text">
+            Я оплатил(а) участие
+          </span>
+        </label>
+      </div>
+
+      <button type="button" class="btn btn-primary" id="getInviteBtn" disabled>
+        <i class="bi bi-envelope-heart-fill"></i>
+        Получить приглашение
+      </button>
+
+    </div>
+  </div>
+
+  <!-- ЭКРАН 3: ОТПРАВКА -->
+  <div class="screen hidden" id="sendingScreen">
+    <div class="sending-card">
+      <div class="spinner-big"></div>
+      <div class="sending-title">Отправляем анкету...</div>
+      <div class="sending-subtitle">Секунду, готовим твоё приглашение</div>
+    </div>
+  </div>
+
+  <!-- ЭКРАН 4: ПРИГЛАШЕНИЕ -->
+  <div class="screen hidden" id="inviteScreen">
+    <div class="invite-card">
+      <div class="invite-icon">
+        <i class="bi bi-envelope-heart-fill"></i>
+      </div>
+
+      <div class="invite-sub">Новый год 2027</div>
+      <div class="invite-title">Приглашение</div>
+
+      <div class="invite-text">
+        Дорогой(ая)
+        <span class="invite-name" id="inviteName">—</span>
+        Приглашаем тебя на празднование Нового 2027 года! Будем рады видеть тебя в кругу друзей и близких.
+      </div>
+
+      <div class="code-block">
+        <div class="code-label">Твой персональный код</div>
+        <div class="code-value" id="personalCode">NY27-XXX-0000</div>
+        <br>
+        <button type="button" class="btn-copy" id="copyBtn">
+          <i class="bi bi-clipboard-fill"></i>
+          Скопировать код
+        </button>
+      </div>
+
+      <div class="invite-divider"></div>
+
+      <div class="invite-footer">
+        <strong>Заезд:</strong> 31 декабря, после 14:00<br>
+        <strong>Выезд:</strong> 2 января, до 12:00<br>
+        <em>С нетерпением ждём встречи!</em>
+      </div>
+
+      <button type="button" class="btn-restart" id="restartBtn">
+        <i class="bi bi-arrow-counterclockwise"></i>
+        Заполнить анкету заново
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <span class="tree">✦ ✦ ✦</span>
+    С Новым годом! · 2027
+  </footer>
+
+</div>
+
+<script>
+  // Снежинки
+  const snowContainer = document.body;
+  const snowChars = ['❄', '❅', '❆', '•', '✦'];
+  for (let i = 0; i < 30; i++) {
+    const snow = document.createElement('div');
+    snow.className = 'snow';
+    snow.textContent = snowChars[Math.floor(Math.random() * snowChars.length)];
+    snow.style.left = Math.random() * 100 + 'vw';
+    snow.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    snow.style.animationDelay = (Math.random() * 8) + 's';
+    snow.style.fontSize = (Math.random() * 10 + 8) + 'px';
+    snow.style.opacity = Math.random() * 0.6 + 0.2;
+    snowContainer.appendChild(snow);
+  }
+
+  // ===== НАСТРОЙКА =====
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyekgdzp';
+
+  // ===== ЭЛЕМЕНТЫ =====
+  const form = document.getElementById('guestForm');
+  const lastNameInput = document.getElementById('lastName');
+  const firstNameInput = document.getElementById('firstName');
+  const middleNameInput = document.getElementById('middleName');
+  const agreeCheckbox = document.getElementById('agreeCheckbox');
+  const nextBtn = document.getElementById('nextBtn');
+  const errorMessage = document.getElementById('errorMessage');
+
+  const paidCheckbox = document.getElementById('paidCheckbox');
+  const getInviteBtn = document.getElementById('getInviteBtn');
+
+  const formScreen = document.getElementById('formScreen');
+  const payScreen = document.getElementById('payScreen');
+  const sendingScreen = document.getElementById('sendingScreen');
+  const inviteScreen = document.getElementById('inviteScreen');
+
+  const inviteName = document.getElementById('inviteName');
+  const personalCode = document.getElementById('personalCode');
+  const copyBtn = document.getElementById('copyBtn');
+  const restartBtn = document.getElementById('restartBtn');
+
+  // Данные гостя
+  let guestData = { lastName: '', firstName: '', middleName: '', fullName: '', code: '' };
+
+  // ===== КНОПКА ДАЛЕЕ =====
+  agreeCheckbox.addEventListener('change', () => {
+    nextBtn.disabled = !agreeCheckbox.checked;
+  });
+
+  // ===== ГЕНЕРАЦИЯ КОДА =====
+  function generateCode(lastName, firstName) {
+    const firstLetter = (firstName[0] || 'X').toUpperCase();
+    const lastLetters = (lastName.slice(-2) || 'XX').toUpperCase();
+    const initials = (lastName[0] || 'X').toUpperCase() + firstLetter;
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let randomPart = '';
+    for (let i = 0; i < 4; i++) {
+      randomPart += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return `NY27-${initials}${lastLetters}-${randomPart}`;
+  }
+
+  // ===== ШАГ 1: ДАЛЕЕ → ЭКРАН ОПЛАТЫ =====
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const lastName = lastNameInput.value.trim();
+    const firstName = firstNameInput.value.trim();
+    const middleName = middleNameInput.value.trim();
+
+    if (!lastName || !firstName || !middleName || !agreeCheckbox.checked) {
+      errorMessage.classList.add('show');
+      setTimeout(() => errorMessage.classList.remove('show'), 3000);
+      return;
+    }
+
+    // Сохраняем данные
+    guestData.lastName = lastName;
+    guestData.firstName = firstName;
+    guestData.middleName = middleName;
+    guestData.fullName = `${lastName} ${firstName} ${middleName}`;
+    guestData.code = generateCode(lastName, firstName);
+
+    // Переход на оплату
+    formScreen.classList.add('hidden');
+    payScreen.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ===== АКТИВАЦИЯ КНОПКИ "ПОЛУЧИТЬ ПРИГЛАШЕНИЕ" =====
+  paidCheckbox.addEventListener('change', () => {
+    getInviteBtn.disabled = !paidCheckbox.checked;
+  });
+
+  // ===== ШАГ 2: ПОЛУЧИТЬ ПРИГЛАШЕНИЕ =====
+  getInviteBtn.addEventListener('click', async () => {
+    if (!paidCheckbox.checked) return;
+
+    // Показываем экран отправки
+    payScreen.classList.add('hidden');
+    sendingScreen.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Отправляем на почту
+    try {
+      await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `🎉 Новый гость на Новый год 2027: ${guestData.fullName}`,
+          'Фамилия': guestData.lastName,
+          'Имя': guestData.firstName,
+          'Отчество': guestData.middleName,
+          'Полное ФИО': guestData.fullName,
+          'Персональный код': guestData.code,
+          'Оплата': 'Подтверждена ✅',
+          'Дата заезда': '31 декабря, после 14:00',
+          'Дата выезда': '2 января, до 12:00',
+          'Дата заполнения': new Date().toLocaleString('ru-RU'),
+          message: `
+🎉 К ВАМ В ПАТИ ПРИСОЕДИНИЛСЯ НОВЫЙ ЧЕЛОВЕК!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+👤 Гость: ${guestData.fullName}
+🎟 Персональный код: ${guestData.code}
+💰 Оплата: подтверждена
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📅 Заезд: 31 декабря, после 14:00
+📅 Выезд: 2 января, до 12:00
+
+💌 Приглашение отправлено гостю.
+          `.trim()
+        })
+      });
+    } catch (e) {
+      console.warn('Не удалось отправить:', e);
+    }
+
+    // Небольшая задержка для красоты
+    setTimeout(() => {
+      inviteName.textContent = guestData.fullName;
+      personalCode.textContent = guestData.code;
+
+      sendingScreen.classList.add('hidden');
+      inviteScreen.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      launchConfetti();
+    }, 1200);
+  });
+
+  // ===== КОНФЕТТИ =====
+  function launchConfetti() {
+    const colors = ['#a78bfa', '#22d3ee', '#f472b6', '#facc15', '#34d399'];
+    for (let i = 0; i < 60; i++) {
+      setTimeout(() => {
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.style.left = Math.random() * 100 + 'vw';
+        c.style.background = colors[Math.floor(Math.random() * colors.length)];
+        c.style.width = (Math.random() * 6 + 6) + 'px';
+        c.style.height = (Math.random() * 6 + 6) + 'px';
+        c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        c.style.animationDuration = (Math.random() * 1.5 + 2) + 's';
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 3500);
+      }, i * 25);
+    }
+  }
+
+  // ===== КОПИРОВАНИЕ =====
+  copyBtn.addEventListener('click', async () => {
+    const text = personalCode.textContent.trim();
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (err) {}
+      ta.remove();
+    }
+    copyBtn.classList.add('copied');
+    copyBtn.innerHTML = '<i class="bi bi-check-circle-fill"></i> Скопировано';
+    setTimeout(() => {
+      copyBtn.classList.remove('copied');
+      copyBtn.innerHTML = '<i class="bi bi-clipboard-fill"></i> Скопировать код';
+    }, 2000);
+  });
+
+  // ===== ЗАНОВО =====
+  restartBtn.addEventListener('click', () => {
+    inviteScreen.classList.add('hidden');
+    formScreen.classList.remove('hidden');
+    agreeCheckbox.checked = false;
+    paidCheckbox.checked = false;
+    nextBtn.disabled = true;
+    getInviteBtn.disabled = true;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
